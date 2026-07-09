@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Vision Therapy &amp; Wellness x Zah Brand Solutions — Proposal</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #66707d;
+      --paper: #fffdf8;
+      --line: #d9dfdd;
+      --green: #1d8f6f;
+      --teal: #22a6b3;
+      --coral: #f05d5e;
+      --gold: #f4b942;
+      --blue: #3c6df0;
+      --charcoal: #263238;
+      --shadow: 0 18px 42px rgba(23, 32, 42, 0.14);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; color-scheme: light; overflow-x: hidden; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(244,185,66,0.16), rgba(34,166,179,0) 30%),
+        linear-gradient(315deg, rgba(240,93,94,0.12), rgba(29,143,111,0) 32%),
+        var(--paper);
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    .progress {
+      position: fixed; inset: 0 0 auto; height: 5px; z-index: 20;
+      background: linear-gradient(90deg, var(--green), var(--teal), var(--gold), var(--coral));
+      transform-origin: left; transform: scaleX(0);
+    }
+
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: center; gap: 8px; padding: 10px;
+      background: rgba(255, 253, 248, 0.85); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(38, 50, 56, 0.1);
+    }
+    .nav a {
+      padding: 9px 12px; border-radius: 999px; text-decoration: none;
+      font-size: 13px; font-weight: 750; color: var(--muted);
+    }
+    .nav a:hover, .nav a.active { color: var(--ink); background: rgba(29, 143, 111, 0.12); }
+
+    .section {
+      position: relative; min-height: 72vh;
+      padding: 84px clamp(20px, 5vw, 72px);
+      display: grid; align-items: center;
+      border-bottom: 1px solid rgba(38, 50, 56, 0.12);
+      overflow: hidden;
+    }
+    .wrap { position: relative; z-index: 1; width: min(1180px, 100%); margin: 0 auto; }
+
+    .section.gear-field::before, .section.gear-field::after {
+      content: ""; position: absolute; z-index: 0;
+      width: var(--gear-size, 360px); aspect-ratio: 1;
+      background: var(--gear-color, var(--charcoal)); opacity: 0.08; pointer-events: none;
+      transform: rotate(var(--gear-rotate, 0deg));
+      clip-path: polygon(50% 0%, 57% 12%, 68% 5%, 74% 18%, 88% 15%, 88% 30%, 100% 37%, 91% 50%, 100% 63%, 88% 70%, 88% 85%, 74% 82%, 68% 95%, 57% 88%, 50% 100%, 43% 88%, 32% 95%, 26% 82%, 12% 85%, 12% 70%, 0% 63%, 9% 50%, 0% 37%, 12% 30%, 12% 15%, 26% 18%, 32% 5%, 43% 12%);
+      mask: radial-gradient(circle, transparent 0 28%, #000 29% 100%);
+      -webkit-mask: radial-gradient(circle, transparent 0 28%, #000 29% 100%);
+    }
+    .section.gear-field::before { right: -110px; top: 12%; }
+    .section.gear-field::after { left: -130px; bottom: 8%; width: calc(var(--gear-size, 360px) * 0.62); --gear-rotate: 18deg; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px;
+      color: var(--green); font-weight: 850; text-transform: uppercase; font-size: 13px;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 3px; background: var(--green); border-radius: 99px; }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 980px; font-size: clamp(42px, 7vw, 88px); line-height: 0.96; margin-bottom: 26px; }
+    h2 { font-size: clamp(32px, 5vw, 60px); line-height: 1.02; margin-bottom: 22px; }
+    h3 { font-size: 21px; line-height: 1.15; margin-bottom: 10px; }
+    .lead { max-width: 760px; font-size: clamp(17px, 2vw, 23px); line-height: 1.45; color: #3e4954; margin-bottom: 28px; }
+
+    .hero { background: linear-gradient(90deg, rgba(255,253,248,0.95) 0%, rgba(255,253,248,0.85) 44%, rgba(255,253,248,0.4) 100%), var(--paper); }
+    .brand-logo { display: block; width: min(230px, 48vw); height: auto; margin-bottom: 22px; user-select: none; filter: drop-shadow(0 12px 24px rgba(23, 32, 42, 0.08)); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .chip {
+      display: inline-flex; align-items: center; min-height: 34px; padding: 8px 13px;
+      border: 1px solid rgba(38, 50, 56, 0.16); border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72); font-weight: 750; font-size: 13px; color: #36424d;
+    }
+
+    .checks { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 12px; max-width: 620px; }
+    .checks li { position: relative; padding-left: 34px; font-size: clamp(15px, 1.7vw, 18px); line-height: 1.45; color: #2c3945; font-weight: 550; }
+    .checks li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      width: 24px; height: 24px; display: grid; place-items: center;
+      background: rgba(29,143,111,0.14); color: var(--green); font-weight: 900; border-radius: 50%; font-size: 13px;
+    }
+
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr); gap: clamp(32px, 6vw, 82px); align-items: center; }
+
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 0 22px; border-radius: 999px;
+      background: var(--gold); color: var(--ink); text-decoration: none;
+      font-weight: 950; white-space: nowrap; font-size: 15px;
+    }
+    .button.green { background: var(--green); color: #fff; }
+    .button.ghost { background: transparent; border: 2px solid rgba(38,50,56,0.22); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    /* site teaser mockup */
+    .site-teaser { position: relative; display: block; width: min(500px, 86vw); text-decoration: none; cursor: pointer; text-align: center; animation: teaserFloat 6s ease-in-out infinite; transition: transform .35s cubic-bezier(.2,.8,.2,1); margin: 0 auto; }
+    .site-teaser:hover { transform: translateY(-8px); animation-play-state: paused; }
+    @keyframes teaserFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    .browser-mock { position: relative; z-index: 1; display:block; border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid rgba(16,24,40,.06); transition: box-shadow .35s ease; box-shadow: 0 2px 4px rgba(16,24,40,.05), 0 16px 32px -10px rgba(16,24,40,.22), 0 40px 72px -24px rgba(16,24,40,.38); }
+    .site-teaser:hover .browser-mock { box-shadow: 0 4px 8px rgba(16,24,40,.06), 0 22px 44px -12px rgba(16,24,40,.28), 0 54px 90px -28px rgba(16,24,40,.44); }
+    .browser-bar { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: linear-gradient(#fcfcfd, #f1f1f4); border-bottom: 1px solid rgba(16,24,40,.07); }
+    .browser-bar i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+    .browser-bar .r { background: #ff5f57; } .browser-bar .y { background: #febc2e; } .browser-bar .g { background: #28c840; }
+    .browser-bar .url { margin-left: 4px; flex: 1; display: flex; align-items: center; gap: 7px; background: #fff; border: 1px solid rgba(16,24,40,.09); border-radius: 8px; padding: 7px 13px; font-size: 12.5px; color: #667085; font-weight: 500; }
+    .browser-bar .url svg { width: 12px; height: 12px; flex: 0 0 auto; stroke: #98a2b3; fill: none; stroke-width: 2; }
+    .browser-mock > img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top center; }
+    .teaser-cta { display: inline-flex; align-items: center; gap: .5em; margin-top: 16px; background: var(--green); color: #fff; font-weight: 900; font-size: 13.5px; padding: 12px 22px; border-radius: 100px; box-shadow: 0 10px 24px rgba(29,143,111,.4); }
+    .teaser-tag { position: absolute; top: -13px; right: -8px; z-index: 3; background: var(--gold); color: #3a2b0c; font-weight: 900; font-size: 12px; padding: 7px 14px; border-radius: 100px; transform: rotate(5deg); box-shadow: 0 8px 18px rgba(244,185,66,.45); }
+    .teaser-note { margin: 14px auto 0; font-size: 13px; color: var(--muted); max-width: 42ch; line-height: 1.5; }
+
+    /* panels & cards */
+    .panel { border: 1px solid rgba(38, 50, 56, 0.14); border-radius: 10px; background: rgba(255, 253, 248, 0.8); box-shadow: var(--shadow); overflow: hidden; }
+    .panel-head { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 54px; padding: 16px 18px; border-bottom: 1px solid rgba(38, 50, 56, 0.12); background: rgba(255,255,255,0.6); font-weight: 850; }
+    .panel-body { padding: clamp(18px, 3vw, 30px); }
+
+    /* numbers section */
+    .big3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 30px 0 10px; }
+    .big3 .n {
+      padding: 26px 22px; border-radius: 10px; background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.12); text-align: center;
+    }
+    .big3 .n b { display: block; font-size: clamp(30px, 4.6vw, 52px); line-height: 1; color: var(--green); letter-spacing: -0.01em; }
+    .big3 .n.dark { background: var(--charcoal); border-color: var(--charcoal); }
+    .big3 .n.dark b { color: var(--gold); }
+    .big3 .n.dark span { color: rgba(255,255,255,0.72); }
+    .big3 .n span { display: block; margin-top: 10px; color: var(--muted); font-weight: 750; font-size: 13.5px; line-height: 1.35; }
+
+    .anchor-strip {
+      margin: 26px 0; padding: 18px 22px; border-radius: 10px;
+      background: rgba(244, 185, 66, 0.14); border: 1px solid rgba(244, 185, 66, 0.5);
+      font-size: 15px; line-height: 1.6; color: #4a3d20; max-width: 900px;
+    }
+    .anchor-strip b { color: #2e2610; }
+
+    .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; align-items: stretch; }
+    .path { border-radius: 10px; border: 1px solid rgba(38, 50, 56, 0.14); background: #fff; padding: 26px; display: flex; flex-direction: column; }
+    .path.featured { background: var(--charcoal); color: #fff; border-color: var(--charcoal); box-shadow: var(--shadow); }
+    .path h3 { font-size: 22px; }
+    .path .sub { color: var(--muted); font-size: 14px; margin-bottom: 18px; line-height: 1.5; }
+    .path.featured .sub { color: rgba(255,255,255,0.72); }
+    .sched { list-style: none; margin: 0 0 18px; padding: 0; display: grid; gap: 0; }
+    .sched li { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px dashed rgba(38,50,56,0.18); font-size: 14.5px; align-items: baseline; }
+    .path.featured .sched li { border-color: rgba(255,255,255,0.16); }
+    .sched li span { color: var(--muted); line-height: 1.4; }
+    .path.featured .sched li span { color: rgba(255,255,255,0.72); }
+    .sched li b { font-size: 19px; white-space: nowrap; color: var(--green); }
+    .path.featured .sched li b { color: var(--gold); }
+    .path .foot { margin-top: auto; font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .path.featured .foot { color: rgba(255,255,255,0.66); }
+
+    .safety {
+      margin-top: 22px; padding: 18px 22px; border-radius: 10px;
+      background: rgba(29, 143, 111, 0.1); border: 1px solid rgba(29, 143, 111, 0.35);
+      font-size: 15px; line-height: 1.6; color: #1d4436; max-width: 900px;
+    }
+    .safety b { color: #123227; }
+
+    /* findings */
+    .findings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .finding { padding: 22px; border-radius: 10px; background: #fff; border: 1px solid rgba(38, 50, 56, 0.12); }
+    .finding b { display: block; font-size: 16.5px; margin-bottom: 8px; }
+    .finding p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0; }
+    .flag {
+      margin-top: 18px; padding: 24px 26px; border-radius: 10px;
+      background: linear-gradient(90deg, rgba(244,185,66,0.16), rgba(255,253,248,0.6));
+      border: 1px solid rgba(244, 185, 66, 0.55);
+    }
+    .flag .tag { display: inline-block; font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #8a6a1d; margin-bottom: 8px; }
+    .flag b { font-size: 18px; line-height: 1.35; display: block; margin-bottom: 8px; }
+    .flag p { margin: 0; color: #4c5560; line-height: 1.55; font-size: 15px; }
+
+    .still { margin-top: 26px; }
+    .still h3 { margin-bottom: 14px; }
+    .still ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 22px; max-width: 860px; }
+    .still li { position: relative; padding-left: 24px; color: #4c5560; font-size: 14.5px; line-height: 1.5; }
+    .still li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 9px; height: 9px; border-radius: 50%; background: var(--coral); }
+
+    /* build grid */
+    .buildgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+    .bcard { padding: 20px; border-radius: 10px; background: #fff; border: 1px solid rgba(38, 50, 56, 0.12); min-height: 150px; }
+    .bcard .ic { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; margin-bottom: 14px; color: #fff; font-weight: 950; font-size: 15px; background: var(--c, var(--green)); }
+    .bcard b { display: block; font-size: 15.5px; line-height: 1.25; margin-bottom: 7px; }
+    .bcard p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    /* protection */
+    .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+    .pillar { padding: 24px; border-radius: 10px; background: var(--charcoal); color: #fff; }
+    .pillar b { display: block; font-size: 17px; margin-bottom: 8px; color: var(--gold); }
+    .pillar p { margin: 0; color: rgba(255,255,255,0.78); font-size: 14.5px; line-height: 1.55; }
+    .headsup { margin-top: 18px; padding: 18px 22px; border-radius: 10px; background: rgba(255,255,255,0.74); border: 1px solid rgba(38,50,56,0.14); font-size: 14.5px; line-height: 1.6; color: #42505d; max-width: 900px; }
+
+    details.acc { margin-top: 12px; border: 1px solid rgba(38, 50, 56, 0.12); border-radius: 10px; background: rgba(255, 255, 255, 0.85); overflow: hidden; }
+    details.acc summary { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 17px 20px; cursor: pointer; font-weight: 850; list-style: none; font-size: 15.5px; }
+    details.acc summary::-webkit-details-marker { display: none; }
+    details.acc summary::after { content: "+"; display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: var(--green); font-size: 19px; line-height: 1; }
+    details.acc[open] summary::after { content: "–"; }
+    details.acc .inner { padding: 0 20px 20px; color: #394651; font-size: 14.5px; line-height: 1.65; }
+    details.acc .inner ul { padding-left: 18px; margin: 0; }
+    details.acc .inner li { margin-bottom: 8px; }
+
+    /* proof */
+    .proofgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
+    .pcard { overflow: hidden; border-radius: 10px; border: 1px solid rgba(38, 50, 56, 0.12); background: #fff; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+    .pcard:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(23, 32, 42, 0.12); }
+    .pcard img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; background: #eef1f4; }
+    .pcard div { padding: 13px; }
+    .pcard strong { display: block; color: var(--ink); line-height: 1.2; font-size: 14.5px; }
+    .pcard span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.4; }
+
+    /* timeline */
+    .timeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 13px; margin-top: 32px; }
+    .phase { position: relative; min-height: 210px; padding: 17px; border-radius: 10px; background: #fff; border: 1px solid rgba(38, 50, 56, 0.12); overflow: hidden; }
+    .phase::before { content: ""; position: absolute; inset: 0 0 auto; height: 7px; background: var(--phase, var(--green)); }
+    .phase b { display: block; margin: 8px 0 10px; font-size: 12.5px; color: var(--muted); }
+    .phase strong { display: block; font-size: 16.5px; line-height: 1.15; margin-bottom: 10px; }
+    .phase p { color: var(--muted); line-height: 1.45; font-size: 13px; margin: 0; }
+
+    .datebox {
+      margin-top: 26px; padding: 20px 24px; border-radius: 10px;
+      background: #fff; border: 1px solid rgba(38,50,56,0.14);
+      display: flex; flex-wrap: wrap; gap: 18px 34px; align-items: center; font-size: 15px;
+    }
+    .datebox b { color: var(--green); }
+
+    /* close */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 30px 0; }
+    .step { padding: 24px; border-radius: 10px; background: #fff; border: 1px solid rgba(38, 50, 56, 0.12); }
+    .step .num { font-size: 26px; font-weight: 950; color: var(--gold); }
+    .step b { display: block; margin: 8px 0 6px; font-size: 16.5px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .close-box {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center;
+      padding: clamp(22px, 4vw, 42px); border-radius: 10px;
+      background: var(--charcoal); color: #fff; box-shadow: var(--shadow); margin-top: 8px;
+    }
+    .close-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 17px; line-height: 1.55; }
+    .small-print { margin-top: 16px; padding: 14px; border-radius: 10px; color: #55616d; background: rgba(255,255,255,0.68); border: 1px solid rgba(38, 50, 56, 0.1); font-size: 12.5px; line-height: 1.55; }
+
+    .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 700ms ease, transform 700ms ease; }
+    .in-view .fade-up, .fade-up.in-view { opacity: 1; transform: none; }
+
+    /* editor */
+    .editor-toolbar { position: fixed; right: 16px; bottom: 16px; z-index: 30; display: flex; gap: 8px; padding: 10px; border: 1px solid rgba(38,50,56,0.14); border-radius: 8px; background: rgba(255,253,248,0.94); box-shadow: var(--shadow); }
+    .editor-toolbar.hidden { display: none; }
+    .editor-toolbar button { min-height: 36px; border: 1px solid rgba(38,50,56,0.16); border-radius: 7px; background: #fff; color: var(--ink); font: inherit; font-size: 13px; font-weight: 850; cursor: pointer; padding: 0 12px; }
+    .editor-toggle { position: fixed; right: 0; bottom: 22px; z-index: 31; width: 34px; height: 42px; border: 1px solid rgba(38,50,56,0.18); border-right: 0; border-radius: 8px 0 0 8px; background: rgba(255,253,248,0.76); color: var(--muted); font-size: 17px; cursor: pointer; opacity: 0.5; }
+    .editor-toggle:hover { opacity: 1; }
+    [contenteditable="true"] { outline: 1px dashed rgba(29,143,111,0.35); outline-offset: 4px; border-radius: 5px; }
+
+    @media (max-width: 980px) {
+      .nav { overflow-x: auto; overflow-y: hidden; justify-content: flex-start; flex-wrap: nowrap; gap: 6px; padding: 8px 16px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); mask: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav a { flex: 0 0 auto; white-space: nowrap; }
+      .split { grid-template-columns: 1fr; }
+      .big3, .findings, .steps, .proofgrid { grid-template-columns: 1fr 1fr; }
+      .buildgrid { grid-template-columns: 1fr 1fr; }
+      .timeline { grid-template-columns: 1fr 1fr; }
+      .paths, .pillars { grid-template-columns: 1fr; }
+      .still ul { grid-template-columns: 1fr; }
+      .close-box { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 60px 16px; min-height: auto; }
+      .big3, .findings, .steps, .proofgrid, .buildgrid, .timeline { grid-template-columns: 1fr; }
+      .big3 .n b { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Proposal sections">
+    <a href="#overview">Overview</a>
+    <a href="#site">Your Site</a>
+    <a href="#today">Today</a>
+    <a href="#numbers">The Numbers</a>
+    <a href="#build">The Build</a>
+    <a href="#protection">Protection</a>
+    <a href="#proof">Proof</a>
+    <a href="#plan">The Plan</a>
+    <a href="#yes">Next Step</a>
+  </nav>
+
+  <main>
+    <!-- ============ OVERVIEW ============ -->
+    <section class="section hero gear-field" id="overview" style="--gear-size: 420px; --gear-color: var(--coral);">
+      <div class="wrap split">
+        <div>
+          <img class="brand-logo fade-up" src="zah-logo.png" alt="Zah Brand Solutions logo">
+          <p class="eyebrow fade-up">Prepared for Candice Moffatt, LCMHC · New Vision Therapy &amp; Wellness</p>
+          <h1 class="fade-up">Candice, the practice you built deserves the infrastructure to match.</h1>
+          <p class="lead fade-up">Since COVID, you&rsquo;ve grown New Vision on grit &mdash; a real team, two locations, clients who trust you. What you&rsquo;re running it on hasn&rsquo;t kept up. This is the plan to fix that in six weeks: one platform for your website, client pipeline, follow-up, and after-hours coverage &mdash; built HIPAA-safe from day one.</p>
+          <ul class="checks fade-up">
+            <li>A client who reaches out at 9pm gets answered &mdash; every time, automatically.</li>
+            <li>Your empty insurance and testimonial sections &mdash; filled and working for you.</li>
+            <li>A repeatable process so a staffing change never becomes 30 clients in limbo again.</li>
+            <li>HIPAA handled in writing &mdash; before a single real client record enters the system.</li>
+          </ul>
+          <div class="cta-row fade-up">
+            <a class="button green" href="#numbers">See the numbers &darr;</a>
+            <a class="button" href="site/index.html" target="_blank" rel="noopener">Tour your new website &rarr;</a>
+          </div>
+          <div class="chips fade-up">
+            <span class="chip">$18,500 build &middot; two ways to pay</span>
+            <span class="chip">$1,741/mo ongoing</span>
+            <span class="chip">Live in 5&ndash;6 weeks</span>
+          </div>
+        </div>
+        <div>
+          <a class="site-teaser fade-up" href="site/index.html" target="_blank" rel="noopener" aria-label="Open your new website preview">
+            <span class="teaser-tag">Already built for you ✨</span>
+            <span class="browser-mock">
+              <span class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="url"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> newvisiontherapyandwellness.com</span></span>
+              <img src="assets/site-thumb.png" alt="Preview of the redesigned New Vision Therapy &amp; Wellness website">
+            </span>
+            <span class="teaser-cta">Explore your new website &rarr;</span>
+            <span class="teaser-note">We didn&rsquo;t wait for a yes to start. Your new site is already designed &mdash; your team, your brand, your services. Click it.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ YOUR SITE ============ -->
+    <section class="section gear-field" id="site" style="--gear-size: 320px; --gear-color: var(--teal);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Exhibit A &mdash; Already Yours</p>
+        <h2 class="fade-up">This is what New Vision looks like when the infrastructure catches up.</h2>
+        <p class="lead fade-up">Before asking you to decide anything, we built the front door: a complete redesign of nvtw.net with your real clinicians, your real services, your insurance panel filled, and booking wired to your existing SimplePractice. It&rsquo;s not a mockup of some other practice &mdash; it&rsquo;s yours, and it&rsquo;s a gift either way.</p>
+        <div class="findings fade-up">
+          <div class="finding"><b>Your team, front and center</b><p>Candice, Jennifer, Veronika, and Kelvin &mdash; real photos, &ldquo;accepting new clients&rdquo; status, specialties a client can actually match themselves to.</p></div>
+          <div class="finding"><b>The trust sections, finally filled</b><p>Twelve insurance plans displayed with real logos. A testimonial section with a place for every kind word you&rsquo;ve earned since COVID.</p></div>
+          <div class="finding"><b>Built for the person in pain</b><p>Warm, faith-forward, mobile-first &mdash; designed for the anxious parent searching at midnight, not for a template gallery.</p></div>
+        </div>
+        <div class="cta-row fade-up" style="margin-top: 26px;">
+          <a class="button green" href="site/index.html" target="_blank" rel="noopener">Open the full site preview &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TODAY ============ -->
+    <section class="section gear-field" id="today" style="--gear-size: 300px; --gear-color: var(--green);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Where Things Stand</p>
+        <h2 class="fade-up">The way it works today got you here. It won&rsquo;t get you where you&rsquo;re going.</h2>
+        <p class="lead fade-up">None of this is criticism &mdash; it&rsquo;s the honest map. You&rsquo;ve been running a growing group practice on tools built for a solo counselor in 2020.</p>
+        <div class="findings fade-up">
+          <div class="finding"><b>Inquiries live in an inbox</b><p>Leads, active clients, and team coordination sit in disconnected email and Google Forms. After-hours callers get silence until someone checks.</p></div>
+          <div class="finding"><b>Follow-up is manual</b><p>Reminders, no-show recovery, and reactivation all depend on someone remembering &mdash; on top of clinical work.</p></div>
+          <div class="finding"><b>The website undersells you</b><p>A template-bound builder with empty insurance and testimonial sections &mdash; while you pay a separate SEO vendor to promote it.</p></div>
+        </div>
+        <div class="flag fade-up">
+          <span class="tag">The moment that made this real</span>
+          <b>When an associate had to step away, ~30 active clients needed manual reassignment &mdash; with no structured handoff.</b>
+          <p>That scramble landed on you and Kayla. It already happened once; nothing about the current setup stops it from happening again. A structured client-reassignment workflow is built into the core of this plan.</p>
+        </div>
+        <div class="still fade-up">
+          <h3>What another year of &ldquo;the way it is&rdquo; quietly costs:</h3>
+          <ul>
+            <li>Every after-hours inquiry that never gets a reply is likely a client who booked somewhere else.</li>
+            <li>The separate SEO bill keeps running &mdash; promoting a site that undersells the practice.</li>
+            <li>Admin hours you and Kayla spend doing manually what should be automatic.</li>
+            <li>Client health information moving through forms with no signed protection agreement behind them.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NUMBERS ============ -->
+    <section class="section gear-field" id="numbers" style="--gear-size: 380px; --gear-color: var(--gold);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The Numbers, Plainly</p>
+        <h2 class="fade-up">Real numbers, real context, and two ways to make them work.</h2>
+        <p class="lead fade-up">This is a serious investment &mdash; we won&rsquo;t pretend otherwise. It&rsquo;s priced honestly for what it is: your website, your entire client system, an AI receptionist, and healthcare-grade compliance, built and managed by one accountable partner.</p>
+
+        <div class="big3 fade-up">
+          <div class="n"><b>$18,500</b><span>One-time build &mdash; everything, itemized below</span></div>
+          <div class="n dark"><b>$1,741<span style="display:inline;font-size:45%;color:rgba(255,255,255,0.72);">/mo</span></b><span>Ongoing: platform at cost ($491) + management &amp; compliance ($1,250)</span></div>
+          <div class="n"><b>5&ndash;6 wks</b><span>From deposit to go-live &mdash; live before Labor Day</span></div>
+        </div>
+
+        <div class="anchor-strip fade-up">
+          <b>For context before you react to the number:</b> Charlotte agencies charge <b>$8,000&ndash;$18,000 for a website alone</b> &mdash; no CRM, no automation, no AI, no compliance. Custom healthcare CRM builds run <b>$45,000&ndash;$300,000+</b>; one local practice paid $38,000 just for a Salesforce setup. This covers all of it, together, at or below what the website alone would cost elsewhere.
+        </div>
+
+        <h3 class="fade-up" style="margin-top: 34px;">Choose the cash-flow that fits &mdash; same work, same result, same total commitment either way.</h3>
+        <div class="paths fade-up">
+          <div class="path featured">
+            <h3>Path A &mdash; Three Milestones</h3>
+            <p class="sub">Matched to the build. Best if the practice can move the money in stages this summer.</p>
+            <ul class="sched">
+              <li><span>To reserve your start date (this month)</span><b>$5,000</b></li>
+              <li><span>When your website + client pipelines are live (~week 3)</span><b>$6,750</b></li>
+              <li><span>When automations, AI receptionist &amp; training are complete (~week 6)</span><b>$6,750</b></li>
+            </ul>
+            <p class="foot">Three payments across six weeks. Then $1,741/mo ongoing begins at go-live.</p>
+          </div>
+          <div class="path">
+            <h3>Path B &mdash; Gentle Start</h3>
+            <p class="sub">Never a single payment over $2,500. The build folds into a monthly number you can budget around.</p>
+            <ul class="sched">
+              <li><span>To reserve your start date (this month)</span><b>$2,500</b></li>
+              <li><span>Monthly for 12 months ($1,741 ongoing + $1,340 build installment)</span><b>$3,081/mo</b></li>
+              <li><span>Month 13 onward &mdash; build paid off</span><b>$1,741/mo</b></li>
+            </ul>
+            <p class="foot">One number a month, fixed for a year, then it drops. Designed so saying yes doesn&rsquo;t require a windfall.</p>
+          </div>
+        </div>
+
+        <div class="safety fade-up">
+          <b>You are never paying for work you haven&rsquo;t seen.</b> Each milestone is delivered, reviewed, and approved by you before the next payment is due. And the ongoing platform fee ($491/mo) is billed to New Vision directly by the software company, at cost &mdash; Zah Brand Solutions takes no markup on it.
+        </div>
+
+        <details class="acc fade-up" style="margin-top: 26px;">
+          <summary>See the full $18,500 itemized, line by line</summary>
+          <div class="inner">
+            <ul>
+              <li><b>$4,500</b> &mdash; Website design &amp; rebuild (everything in the preview, finished and live on your domain)</li>
+              <li><b>$2,000</b> &mdash; CRM &amp; pipeline architecture (intake, credentialing, onboarding, and the client-reassignment workflow)</li>
+              <li><b>$2,500</b> &mdash; Email &amp; SMS automations (nurture, reminders, no-show recovery, waitlist, reactivation)</li>
+              <li><b>$2,500</b> &mdash; AI receptionist (web + after-hours phone, with crisis-escalation logic)</li>
+              <li><b>$1,200</b> &mdash; Funnels, intake forms &amp; booking calendars with insurance verification</li>
+              <li><b>$500</b> &mdash; Newsletter system with segmentation</li>
+              <li><b>$500</b> &mdash; HIPAA compliance configuration &amp; go-live checklist</li>
+              <li><b>$1,500</b> &mdash; Live team training + written SOPs for you, Kayla, and the clinicians</li>
+              <li><b>$3,300</b> &mdash; HIPAA specialization &amp; compliance assurance: our own signed BAA with New Vision, dummy-data-only build discipline, tool-level verification before go-live, and ongoing monitoring. Broken out on its own line on purpose &mdash; this is the healthcare-grade work a generic agency doesn&rsquo;t do, and we&rsquo;d rather you see it than bury it.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="acc fade-up">
+          <summary>What does the $1,741/mo replace and cover?</summary>
+          <div class="inner">
+            <ul>
+              <li><b>$491</b> &mdash; the platform itself (website hosting, CRM, unlimited AI receptionist, HIPAA add-on), billed to you directly at cost. Your separate SEO vendor becomes unnecessary &mdash; SEO tooling is built in.</li>
+              <li><b>$1,250</b> &mdash; ongoing management: optimization, updates, support for your team, and continuous compliance monitoring as the platform&rsquo;s AI features evolve. This is above our standard rate specifically because behavioral health demands ongoing vigilance, not set-and-forget.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ BUILD ============ -->
+    <section class="section gear-field" id="build" style="--gear-size: 360px; --gear-color: var(--blue);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">What the Investment Covers</p>
+        <h2 class="fade-up">One system. Eight pieces. Zero loose ends.</h2>
+        <p class="lead fade-up">Everything runs on one platform with one login &mdash; so your team learns one tool, and one HIPAA agreement covers the whole system.</p>
+        <div class="buildgrid fade-up">
+          <div class="bcard"><div class="ic" style="--c: var(--green)">W</div><b>Website</b><p>The preview you&rsquo;ve seen, finished: both locations, blog, events, insurance directory, and an automated review-collection flow.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--coral)">C</div><b>CRM &amp; Pipelines</b><p>First inquiry to active client. Credentialing, onboarding, referral tracking &mdash; and the reassignment workflow.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--teal)">A</div><b>Automations</b><p>Reminders, no-show follow-up, post-session check-ins, waitlist alerts, reactivation &mdash; all automatic, all compliant.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--blue)">AI</div><b>AI Receptionist</b><p>Answers web chats and after-hours calls, books consultations, and escalates any crisis language to a human instantly.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--gold); color: var(--ink);">F</div><b>Forms &amp; Booking</b><p>HIPAA-aware intake, calendars synced to each clinician, insurance verification before the first session.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--charcoal)">$</div><b>Payments</b><p>Copay and self-pay collection, invoicing, and no-show fee automation tied to your cancellation policy.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--green)">N</div><b>Newsletter</b><p>Monthly system with segmentation by service interest &mdash; workshops, teens, couples, faith community.</p></div>
+          <div class="bcard"><div class="ic" style="--c: var(--coral)">T</div><b>Training &amp; SOPs</b><p>Live sessions for you, Kayla, and the team, plus written guides &mdash; so the system is yours, not a mystery.</p></div>
+        </div>
+        <details class="acc fade-up" style="margin-top: 26px;">
+          <summary>Why one platform (GoHighLevel) instead of a custom build?</summary>
+          <div class="inner">
+            <p>We priced the alternative: a custom stack of separate tools (CRM database, Twilio for calls/texts, an AI voice vendor, mail service, hosting). Each vendor requires its own signed HIPAA agreement &mdash; realistically <b>$1,000&ndash;$2,000+ every month just to hold compliance coverage</b>, before any development, and a multi-month timeline. One platform with one account-wide HIPAA add-on ($297/mo, included in your $491) is dramatically safer, faster, and cheaper &mdash; and your team gets one login instead of five. Your clinical records system (SimplePractice) stays exactly where it is; this is the marketing, intake, and communication layer around it.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ PROTECTION ============ -->
+    <section class="section gear-field" id="protection" style="--gear-size: 340px; --gear-color: var(--green);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">How We Protect You</p>
+        <h2 class="fade-up">Built like your license depends on it &mdash; because it does.</h2>
+        <p class="lead fade-up">Therapy data is the most protected category in healthcare, and regulators fine small practices, not just hospitals. Here&rsquo;s the discipline built into this engagement &mdash; in writing, not on trust.</p>
+        <div class="pillars fade-up">
+          <div class="pillar"><b>Two signed BAAs before any real data</b><p>The platform signs one with New Vision, and Zah Brand Solutions signs its own with you directly &mdash; covering the agency working inside your account, not just the software. Both executed before a single real client record enters the system.</p></div>
+          <div class="pillar"><b>Dummy data only, until go-live</b><p>The entire build &mdash; pipelines, automations, AI workflows &mdash; is constructed and tested against placeholder contacts. Real client data is imported only after your protections are active. Explicit rule, not assumption.</p></div>
+          <div class="pillar"><b>Crisis-safe AI, verified</b><p>The receptionist collects contact info and scheduling preferences only. Clinical questions route to your staff. Any self-harm or crisis language triggers immediate human handoff &mdash; tested before launch, non-negotiable.</p></div>
+          <div class="pillar"><b>Watched after launch, not just at launch</b><p>Part of the monthly retainer: monitoring the platform&rsquo;s feature and AI-vendor changes over time, because compliance coverage can shift quietly. You&rsquo;ll never discover a gap in an audit.</p></div>
+        </div>
+        <div class="headsup fade-up"><b>One gentle heads-up, independent of this proposal:</b> your current Google Forms intake almost certainly has no HIPAA agreement behind it &mdash; free Google accounts can&rsquo;t have one. No alarm needed; just hold off collecting anything health-specific through the current form until the new system is live. We&rsquo;ll walk through it at kickoff.</div>
+        <details class="acc fade-up" style="margin-top: 22px;"><summary>What is a BAA, in plain language?</summary><div class="inner"><p>A Business Associate Agreement &mdash; the contract HIPAA requires between a provider and any vendor that touches patient data. It legally binds the vendor to protect that data and defines who&rsquo;s responsible if something goes wrong. No BAA, no protection &mdash; regardless of how careful anyone is.</p></div></details>
+        <details class="acc fade-up"><summary>Why does this matter more for a therapy practice?</summary><div class="inner"><p>Psychotherapy notes get extra legal protection beyond standard medical records. Behavioral-health data is treated as higher-sensitivity because exposure can affect employment, custody, and relationships &mdash; and if substance-use treatment is ever involved, stricter federal rules stack on top with criminal penalties.</p></div></details>
+        <details class="acc fade-up"><summary>Do small practices really get fined?</summary><div class="inner"><p>Yes &mdash; small medical practices accounted for 55% of federal HIPAA penalties in 2022. Real small-practice examples: a treatment center fined $103,000 for missing basic safeguards; another settled at $10,000 over a single impermissible disclosure. We surface this so the value of doing it right up front is clear &mdash; not to alarm you.</p></div></details>
+        <details class="acc fade-up"><summary>What does the platform&rsquo;s HIPAA add-on actually include?</summary><div class="inner"><p>A signed BAA, encryption of data at rest, mandatory multi-factor authentication, audit logging of who accessed what and when, and restricted platform-support access. It&rsquo;s a permanent setting once enabled &mdash; and we obtain written confirmation that the AI features we use are within its coverage before go-live.</p></div></details>
+      </div>
+    </section>
+
+    <!-- ============ PROOF ============ -->
+    <section class="section gear-field" id="proof" style="--gear-size: 340px; --gear-color: var(--coral);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">You&rsquo;ve Seen the Work Ethic. Here&rsquo;s the Track Record.</p>
+        <h2 class="fade-up">Brands that trusted Zah with their name.</h2>
+        <p class="lead fade-up">Websites, systems, branding, and campaigns for family brands, community organizations, and mission-driven businesses &mdash; the same care that went into your preview.</p>
+        <div class="proofgrid fade-up">
+          <a class="pcard" href="https://hebrewcare.com" target="_blank" rel="noopener"><img src="site/assets/hebrewcare.png" alt="HebrewCare" onerror="this.src='https://s.wordpress.com/mshots/v1/https%3A%2F%2Fhebrewcare.com?w=640'"><div><strong>HebrewCare</strong><span>Voice, presence, and trust for a wholesome family wellness brand.</span></div></a>
+          <a class="pcard" href="https://web.archive.org/web/20250805094835/https://www.askmskay.com/" target="_blank" rel="noopener"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fweb.archive.org%2Fweb%2F20250805094835%2Fhttps%3A%2F%2Fwww.askmskay.com%2F?w=640" alt="Ask Ms. Kay"><div><strong>Ask Ms. Kay</strong><span>AI agents that keep users engaged, informed, and moving toward action.</span></div></a>
+          <a class="pcard" href="https://mpihomes.com" target="_blank" rel="noopener"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fmpihomes.com?w=640" alt="MPI Homes"><div><strong>MPI Homes</strong><span>Professional digital presence for property and housing services.</span></div></a>
+          <a class="pcard" href="https://www.oaklandandtheworld.org" target="_blank" rel="noopener"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.oaklandandtheworld.org?w=640" alt="Oakland and the World"><div><strong>Oakland &amp; the World</strong><span>Clear identity for a mission-driven, community-centered organization.</span></div></a>
+          <a class="pcard" href="https://berkslatinochamber.com" target="_blank" rel="noopener"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fberkslatinochamber.com?w=640" alt="Berks Latino Chamber"><div><strong>Berks Latino Chamber</strong><span>On-brand messaging keeping a local community informed and engaged.</span></div></a>
+          <a class="pcard" href="https://zahbrandsolutions.com" target="_blank" rel="noopener"><img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fzahbrandsolutions.com?w=640" alt="Zah Brand Solutions"><div><strong>Zah Brand Solutions</strong><span>Systems, automation, AI tools, and full-funnel growth strategy.</span></div></a>
+        </div>
+        <div class="cta-row fade-up" style="margin-top: 24px;">
+          <a class="button" href="https://zahbrandsolutions.com" target="_blank" rel="noopener">See the full portfolio &rarr;</a>
+          <a class="button ghost" href="https://www.linkedin.com/in/lorenzowhite/" target="_blank" rel="noopener">Lorenzo on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLAN ============ -->
+    <section class="section gear-field" id="plan" style="--gear-size: 380px; --gear-color: var(--teal);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The Plan, Dated</p>
+        <h2 class="fade-up">Six weeks from deposit to go-live. Here&rsquo;s each one.</h2>
+        <div class="timeline fade-up">
+          <div class="phase" style="--phase: var(--green)"><b>Week 1</b><strong>Kickoff</strong><p>Discovery session with you and Kayla: brand direction, pipeline stages, and the telehealth/records checklist.</p></div>
+          <div class="phase" style="--phase: var(--teal)"><b>Week 2</b><strong>Foundation</strong><p>CRM architecture and HIPAA groundwork &mdash; built entirely on placeholder data.</p></div>
+          <div class="phase" style="--phase: var(--coral)"><b>Week 3</b><strong>Website Live</strong><p>The site you&rsquo;ve previewed, finished and live. Milestone 1 review &amp; approval.</p></div>
+          <div class="phase" style="--phase: var(--blue)"><b>Week 4</b><strong>Automations</strong><p>Reminders, follow-ups, intake forms, booking calendars &mdash; wired and tested.</p></div>
+          <div class="phase" style="--phase: var(--gold)"><b>Week 5</b><strong>AI Receptionist</strong><p>Configured, scripted, and crisis-escalation verified before it ever talks to a client.</p></div>
+          <div class="phase" style="--phase: var(--charcoal)"><b>Week 6</b><strong>Go-Live</strong><p>BAAs signed, real data imported, team trained, handoff to ongoing management.</p></div>
+        </div>
+        <div class="datebox fade-up">
+          <span>✅ Approved by <b>Friday, July 17</b></span>
+          <span>🚀 Kickoff the week of <b>July 20</b></span>
+          <span>🌿 Live before <b>Labor Day</b></span>
+        </div>
+        <p class="small-print fade-up">One build slot is held for New Vision through July 17. After that, the start date moves to the next available opening &mdash; likely 4&ndash;6 weeks later. Not pressure; just an honest calendar.</p>
+      </div>
+    </section>
+
+    <!-- ============ YES ============ -->
+    <section class="section" id="yes">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The Next Step</p>
+        <h2 class="fade-up">You already know. Here&rsquo;s how to say yes.</h2>
+        <p class="lead fade-up">You&rsquo;ve been carrying this decision since COVID. It doesn&rsquo;t need another year of thinking &mdash; it needs a path, a date, and a partner you trust. Two of those are on this page. You know the third.</p>
+        <div class="steps fade-up">
+          <div class="step"><span class="num">1</span><b>Pick your path</b><p>Milestones (A) or gentle start (B) &mdash; whichever fits how New Vision moves money. Same result either way.</p></div>
+          <div class="step"><span class="num">2</span><b>Say the word</b><p>Reply, call, or text Zah. The deposit invoice comes same-day, and your start week is locked on receipt.</p></div>
+          <div class="step"><span class="num">3</span><b>Kickoff with Kayla</b><p>One working session, week of July 20. We&rsquo;ll cover brand direction, pipelines, and your telehealth &amp; records checklist.</p></div>
+        </div>
+        <div class="close-box fade-up">
+          <p>The practice grew. The infrastructure didn&rsquo;t. Six weeks from now, that sentence can be past tense &mdash; and the next client who reaches out at 9pm gets an answer.</p>
+          <a class="button" href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20%E2%80%94%20Let%27s%20lock%20the%20start%20date&body=Zah%2C%20we%27re%20in.%20Path%20A%20%2F%20Path%20B%20(circle%20one)%20%E2%80%94%20send%20the%20deposit%20invoice.">Reserve my start date &rarr;</a>
+        </div>
+        <p class="small-print fade-up">Prepared by Zah Brand Solutions for New Vision Therapy &amp; Wellness, PLLC &middot; Candice Moffatt, LCMHC &middot; July 2026. Platform fees ($491/mo) billed directly by the software provider at cost. Milestone payments due only after your review and approval of each phase. This proposal and the website preview are confidential to New Vision.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="editor-toolbar hidden" id="editorToolbar">
+    <button type="button" id="doneEditing">Done</button>
+    <button type="button" id="saveEdits">Save</button>
+    <button type="button" id="resetEdits">Reset</button>
+  </div>
+  <button type="button" class="editor-toggle" id="toggleEditor" title="Editor">✎</button>
+
+  <script>
+    const progress = document.querySelector(".progress");
+    const navLinks = [...document.querySelectorAll(".nav a")];
+    const sections = [...document.querySelectorAll(".section")];
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    }
+    function setActiveNav() {
+      let current = sections[0].id;
+      sections.forEach(s => { if (s.id && s.getBoundingClientRect().top < window.innerHeight * 0.42) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${current}`));
+    }
+    window.addEventListener("scroll", () => { updateProgress(); setActiveNav(); }, { passive: true });
+
+    const observer = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in-view"); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".section, .fade-up").forEach(t => observer.observe(t));
+    function revealAllFallback() {
+      if (!document.querySelector(".in-view")) {
+        document.querySelectorAll(".section, .fade-up").forEach(el => el.classList.add("in-view"));
+      }
+    }
+    window.addEventListener("load", () => setTimeout(revealAllFallback, 500));
+    setTimeout(revealAllFallback, 1500);
+
+    /* compact admin editor */
+    const editKey = "new-vision-proposal-v2-edits";
+    const adminHash = "9a7b69ae3b4f25ee9dfef13ea33d47f427569cf786a9282d942a7d78c2de5c4b";
+    const editSel = "main h1, main h2, main h3, main p, main li, main .chip, main b, main strong, main span.teaser-note";
+    let editable = [];
+    function captureState() { return editable.map(el => el.innerHTML); }
+    function applyState(st) { if (Array.isArray(st)) st.forEach((h, i) => { if (editable[i]) editable[i].innerHTML = h; }); }
+    function initEditor() {
+      editable = [...document.querySelectorAll(editSel)];
+      const saved = localStorage.getItem(editKey);
+      if (saved) { try { applyState(JSON.parse(saved)); } catch (e) { localStorage.removeItem(editKey); } }
+    }
+    async function hashCreds(email, pw) {
+      const bytes = new TextEncoder().encode(`${email.trim().toLowerCase()}:${pw}`);
+      const digest = await crypto.subtle.digest("SHA-256", bytes);
+      return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+    document.getElementById("toggleEditor").addEventListener("click", async () => {
+      if (sessionStorage.getItem("nv2-admin") !== "true") {
+        const email = prompt("Admin email"); if (!email) return;
+        const pw = prompt("Admin password"); if (!pw) return;
+        if (await hashCreds(email, pw) !== adminHash) { alert("Login failed."); return; }
+        sessionStorage.setItem("nv2-admin", "true");
+      }
+      editable.forEach(el => el.setAttribute("contenteditable", "true"));
+      document.getElementById("editorToolbar").classList.remove("hidden");
+    });
+    document.getElementById("doneEditing").addEventListener("click", () => {
+      editable.forEach(el => el.removeAttribute("contenteditable"));
+      document.getElementById("editorToolbar").classList.add("hidden");
+    });
+    document.getElementById("saveEdits").addEventListener("click", () => {
+      localStorage.setItem(editKey, JSON.stringify(captureState())); alert("Saved to this browser.");
+    });
+    document.getElementById("resetEdits").addEventListener("click", () => {
+      if (confirm("Reset all saved edits?")) { localStorage.removeItem(editKey); location.reload(); }
+    });
+
+    initEditor();
+    updateProgress();
+    setActiveNav();
+  </script>
+</body>
+</html>
