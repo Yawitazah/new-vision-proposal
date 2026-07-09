@@ -296,9 +296,10 @@
   .stat-ic{width:58px;height:58px;border-radius:50%;background:rgba(198,161,91,.16);border:1px solid rgba(224,201,143,.4);display:grid;place-items:center;margin:0 auto 18px;transition:transform .3s}
   .stat-i:hover .stat-ic{transform:translateY(-4px) scale(1.05)}
   .stat-ic svg{width:27px;height:27px;stroke:var(--gold-soft);fill:none;stroke-width:1.7}
-  .stat-i b{font-family:"League Spartan";font-weight:800;font-size:clamp(3rem,6.5vw,5rem);line-height:.88;color:#fff;display:block;letter-spacing:-.02em}
+  .stat-i b{font-family:"League Spartan";font-weight:800;font-size:clamp(3.8rem,9vw,7rem);line-height:.85;color:#fff;display:block;letter-spacing:-.03em}
   .stat-i b .accent{color:var(--gold-soft)}
-  .stat-i span{font-family:"League Spartan";font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(224,201,143,.92);font-weight:600;display:block;margin-top:.8em}
+  .stat-i>span{font-family:"League Spartan";font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(224,201,143,.92);font-weight:600;display:block;margin-top:.8em}
+  .stat-i b .num,.stat-i b .accent{font-size:inherit;display:inline;text-transform:none;letter-spacing:-.03em;margin:0}
 
   /* testimonials carousel */
   .tst{background:linear-gradient(160deg,#e9efe9,var(--cream));text-align:center;overflow:hidden}
@@ -782,13 +783,22 @@
 
   // animated count-up stats
   function animateCount(el){
-    var target=+el.dataset.count, steps=40, n=0;
+    var target=+el.dataset.count, steps=58, n=0;
+    el.textContent='0';
     var iv=setInterval(function(){ n++; var p=n/steps; var eased=1-Math.pow(1-p,3);
-      el.textContent=Math.round(eased*target); if(n>=steps){el.textContent=target;clearInterval(iv);} },28);
+      el.textContent=Math.round(eased*target); if(n>=steps){el.textContent=target;clearInterval(iv);} },26);
   }
-  var countIO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animateCount(e.target);countIO.unobserve(e.target);}})},{threshold:.5});
-  document.querySelectorAll('.num[data-count]').forEach(function(el){countIO.observe(el);});
-  setTimeout(function(){document.querySelectorAll('.num[data-count]').forEach(function(el){if(el.textContent==='0')animateCount(el);});},1800);
+  var counted=false;
+  function maybeCount(){
+    if(counted)return;
+    var s=document.querySelector('.stats'); if(!s)return;
+    if(s.getBoundingClientRect().top < window.innerHeight*0.82){
+      counted=true;
+      document.querySelectorAll('.num[data-count]').forEach(animateCount);
+    }
+  }
+  window.addEventListener('scroll',maybeCount,{passive:true});
+  maybeCount();
 
   // testimonial carousel
   (function(){
