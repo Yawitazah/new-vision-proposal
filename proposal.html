@@ -1,0 +1,2411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Vision Therapy &amp; Wellness x Zah Brand Solutions Proposal</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #66707d;
+      --paper: #fffdf8;
+      --line: #d9dfdd;
+      --green: #1d8f6f;
+      --teal: #22a6b3;
+      --coral: #f05d5e;
+      --gold: #f4b942;
+      --blue: #3c6df0;
+      --charcoal: #263238;
+      --shadow: 0 18px 42px rgba(23, 32, 42, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: light;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(244,185,66,0.16), rgba(34,166,179,0) 30%),
+        linear-gradient(315deg, rgba(240,93,94,0.12), rgba(29,143,111,0) 32%),
+        var(--paper);
+    }
+
+    a { color: inherit; }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 5px;
+      z-index: 20;
+      background: linear-gradient(90deg, var(--green), var(--teal), var(--gold), var(--coral));
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(255, 253, 248, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(38, 50, 56, 0.1);
+    }
+
+    .nav a {
+      padding: 9px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 750;
+      color: var(--muted);
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--ink);
+      background: rgba(29, 143, 111, 0.12);
+    }
+
+    .editor-toolbar {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 30;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      max-width: min(620px, calc(100vw - 32px));
+      padding: 10px;
+      border: 1px solid rgba(38, 50, 56, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .editor-toolbar.hidden {
+      display: none;
+    }
+
+    .editor-menu {
+      position: fixed;
+      right: 40px;
+      bottom: 22px;
+      z-index: 32;
+      display: grid;
+      gap: 8px;
+      width: 150px;
+      padding: 10px;
+      border: 1px solid rgba(38, 50, 56, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .editor-menu.hidden {
+      display: none;
+    }
+
+    .editor-menu button {
+      min-height: 36px;
+      border: 1px solid rgba(38, 50, 56, 0.16);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .editor-menu button:hover {
+      background: rgba(29, 143, 111, 0.1);
+    }
+
+    .editor-menu .admin-only.hidden {
+      display: none;
+    }
+
+    .editor-toggle {
+      position: fixed;
+      right: 0;
+      bottom: 22px;
+      z-index: 31;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid rgba(38, 50, 56, 0.18);
+      border-right: 0;
+      border-radius: 8px 0 0 8px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--muted);
+      box-shadow: 0 8px 22px rgba(23, 32, 42, 0.1);
+      font: inherit;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+      opacity: 0.5;
+      backdrop-filter: blur(12px);
+      transition: opacity 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .editor-toggle:hover {
+      opacity: 1;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .editor-toolbar button,
+    .editor-toolbar select,
+    .editor-toolbar input {
+      min-height: 36px;
+      border: 1px solid rgba(38, 50, 56, 0.18);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .editor-toolbar button {
+      padding: 0 12px;
+      cursor: pointer;
+    }
+
+    .editor-toolbar button:hover {
+      background: rgba(29, 143, 111, 0.1);
+    }
+
+    .editor-toolbar select {
+      padding: 0 8px;
+    }
+
+    .editor-toolbar input[type="color"] {
+      width: 42px;
+      padding: 4px;
+      cursor: pointer;
+    }
+
+    .size-control {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .size-control button {
+      width: 36px;
+      padding: 0;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .size-control input[type="number"] {
+      width: 66px;
+      padding: 0 8px;
+    }
+
+    .save-status {
+      min-width: 74px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    [contenteditable="true"] {
+      cursor: text;
+      border-radius: 5px;
+      outline: 1px dashed transparent;
+      outline-offset: 4px;
+    }
+
+    [contenteditable="true"]:hover {
+      outline-color: rgba(29, 143, 111, 0.24);
+    }
+
+    [contenteditable="true"]:focus {
+      outline-color: var(--green);
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    body:not(.editing-enabled) [contenteditable="true"] {
+      cursor: inherit;
+      outline: 0;
+    }
+
+    body:not(.editing-enabled) [contenteditable="true"]:hover,
+    body:not(.editing-enabled) [contenteditable="true"]:focus {
+      outline: 0;
+      background: transparent;
+    }
+
+    .section {
+      position: relative;
+      min-height: 100vh;
+      padding: 84px clamp(20px, 5vw, 72px);
+      display: grid;
+      align-items: center;
+      border-bottom: 1px solid rgba(38, 50, 56, 0.12);
+      overflow: hidden;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section.gear-field::before,
+    .section.gear-field::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: var(--gear-size, 360px);
+      aspect-ratio: 1;
+      background: var(--gear-color, var(--charcoal));
+      opacity: 0.08;
+      pointer-events: none;
+      transform: rotate(var(--gear-rotate, 0deg));
+      clip-path: polygon(50% 0%, 57% 12%, 68% 5%, 74% 18%, 88% 15%, 88% 30%, 100% 37%, 91% 50%, 100% 63%, 88% 70%, 88% 85%, 74% 82%, 68% 95%, 57% 88%, 50% 100%, 43% 88%, 32% 95%, 26% 82%, 12% 85%, 12% 70%, 0% 63%, 9% 50%, 0% 37%, 12% 30%, 12% 15%, 26% 18%, 32% 5%, 43% 12%);
+      mask: radial-gradient(circle, transparent 0 28%, #000 29% 100%);
+      -webkit-mask: radial-gradient(circle, transparent 0 28%, #000 29% 100%);
+    }
+
+    .section.gear-field::before {
+      right: -110px;
+      top: 12%;
+    }
+
+    .section.gear-field::after {
+      left: -130px;
+      bottom: 8%;
+      width: calc(var(--gear-size, 360px) * 0.62);
+      --gear-rotate: 18deg;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--green);
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-size: 13px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 99px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(46px, 8vw, 104px);
+      line-height: 0.94;
+      letter-spacing: 0;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 22px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      max-width: 760px;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.42;
+      color: #3e4954;
+      margin-bottom: 30px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255,253,248,0.94) 0%, rgba(255,253,248,0.8) 44%, rgba(255,253,248,0.2) 100%),
+        var(--paper);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='1600' height='1000' viewBox='0 0 1600 1000' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1600' height='1000' fill='%23f7f1e4'/%3E%3Cg opacity='.88'%3E%3Crect x='910' y='112' width='430' height='290' rx='18' fill='%2322a6b3'/%3E%3Crect x='1010' y='177' width='250' height='26' rx='13' fill='%23fffdf8'/%3E%3Crect x='1010' y='226' width='180' height='22' rx='11' fill='%23fffdf8' opacity='.75'/%3E%3Ccircle cx='945' cy='195' r='34' fill='%23f4b942'/%3E%3Cpath d='M954 283c47-28 103-28 160 0 64 31 128 29 188-6v125H954V283Z' fill='%231d8f6f'/%3E%3Crect x='725' y='460' width='350' height='250' rx='18' fill='%2317202a'/%3E%3Crect x='765' y='506' width='270' height='26' rx='13' fill='%23fffdf8' opacity='.95'/%3E%3Crect x='765' y='555' width='178' height='22' rx='11' fill='%23fffdf8' opacity='.68'/%3E%3Crect x='765' y='610' width='90' height='54' rx='12' fill='%23f05d5e'/%3E%3Crect x='875' y='610' width='90' height='54' rx='12' fill='%23f4b942'/%3E%3Crect x='985' y='610' width='50' height='54' rx='12' fill='%2322a6b3'/%3E%3Crect x='1132' y='495' width='270' height='360' rx='18' fill='%23fffdf8' stroke='%2317202a' stroke-width='8'/%3E%3Ccircle cx='1267' cy='621' r='72' fill='%23f05d5e'/%3E%3Cpath d='M1240 576v90l76-45-76-45Z' fill='%23fffdf8'/%3E%3Crect x='1176' y='732' width='180' height='20' rx='10' fill='%2317202a' opacity='.75'/%3E%3Crect x='1196' y='775' width='140' height='16' rx='8' fill='%2317202a' opacity='.35'/%3E%3C/g%3E%3C/svg%3E") center / cover no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 12vh;
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(260px, 52vw);
+      height: auto;
+      margin-bottom: 24px;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      filter: drop-shadow(0 12px 24px rgba(23, 32, 42, 0.08));
+    }
+
+    .brand-logo.dragging { cursor: grabbing; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 8px 13px;
+      border: 1px solid rgba(38, 50, 56, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      font-weight: 750;
+      font-size: 13px;
+      color: #36424d;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+      gap: clamp(32px, 6vw, 82px);
+      align-items: center;
+    }
+
+    .panel {
+      border: 1px solid rgba(38, 50, 56, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.72);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      min-height: 54px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(38, 50, 56, 0.12);
+      background: rgba(255, 255, 255, 0.54);
+      font-weight: 850;
+    }
+
+    .panel-body { padding: clamp(18px, 3vw, 30px); }
+
+    .model {
+      display: grid;
+      gap: 14px;
+    }
+
+    .model-row {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.1);
+    }
+
+    .model-icon {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 900;
+      font-size: 24px;
+      background: var(--green);
+    }
+
+    .model-row:nth-child(2) .model-icon { background: var(--coral); }
+
+    .model-title {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .model-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .model-arrow {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.1);
+    }
+
+    .stat b {
+      display: block;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1;
+      color: var(--green);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 750;
+      font-size: 14px;
+    }
+
+    .system-map {
+      position: relative;
+      min-height: 620px;
+      display: grid;
+      place-items: center;
+    }
+
+    .node {
+      position: absolute;
+      width: clamp(138px, 15vw, 180px);
+      min-height: 112px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 8px;
+      color: #fff;
+      box-shadow: var(--shadow);
+      transform: translate(-50%, -50%);
+    }
+
+    .node strong {
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .node span {
+      opacity: 0.86;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .center-node {
+      left: 50%;
+      top: 50%;
+      width: clamp(180px, 21vw, 240px);
+      min-height: 150px;
+      background: var(--charcoal);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .n1 { left: 50%; top: 16%; background: var(--teal); }
+    .n2 { left: 82%; top: 34%; background: var(--green); }
+    .n3 { left: 77%; top: 74%; background: var(--coral); }
+    .n4 { left: 23%; top: 74%; background: var(--blue); }
+    .n5 { left: 18%; top: 34%; background: var(--gold); color: var(--ink); }
+
+    .map-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-lines path {
+      fill: none;
+      stroke: rgba(23, 32, 42, 0.28);
+      stroke-width: 3;
+      stroke-dasharray: 9 10;
+      animation: dash 14s linear infinite;
+    }
+
+    @keyframes dash {
+      to { stroke-dashoffset: -240; }
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .phase {
+      position: relative;
+      min-height: 250px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      overflow: hidden;
+    }
+
+    .phase::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      background: var(--phase, var(--green));
+    }
+
+    .phase b {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .phase strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .phase p {
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .chart {
+      width: 100%;
+      min-height: 390px;
+    }
+
+    .bar {
+      transform-origin: bottom;
+      transform-box: fill-box;
+      transform: scaleY(0.08);
+      transition: transform 900ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .in-view .bar { transform: scaleY(1); }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      margin-right: 6px;
+      background: var(--swatch);
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    label {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.1);
+      font-weight: 850;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--green);
+    }
+
+    .value {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 950;
+    }
+
+    .result {
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 28px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+    }
+
+    .result-number {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.95;
+      font-weight: 950;
+    }
+
+    .result small {
+      color: rgba(255,255,255,0.72);
+      font-weight: 750;
+      line-height: 1.5;
+    }
+
+    .result-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .result-metric {
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .result-metric span {
+      display: block;
+      color: rgba(255,255,255,0.68);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .result-metric b {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .service {
+      min-height: 210px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+    }
+
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      color: #fff;
+      font-weight: 950;
+      background: var(--c, var(--green));
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    .podcast-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .podcast-business {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+      gap: 20px;
+      align-items: start;
+      margin-top: 30px;
+    }
+
+    .use-note {
+      margin: 0 0 18px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      color: #42505d;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .podcast-services {
+      display: grid;
+      gap: 10px;
+    }
+
+    .podcast-service {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) 96px;
+      gap: 12px;
+      align-items: center;
+      padding: 13px;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .podcast-service input[type="radio"] {
+      accent-color: var(--green);
+    }
+
+    .podcast-service strong {
+      display: block;
+      line-height: 1.2;
+      font-size: 14px;
+    }
+
+    .podcast-service span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .rate-input {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid rgba(38, 50, 56, 0.16);
+      border-radius: 7px;
+      padding: 0 8px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 850;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .podcast-summary {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .formula {
+      color: rgba(255,255,255,0.74);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .fee-share-control {
+      display: grid;
+      gap: 8px;
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(38, 50, 56, 0.1);
+    }
+
+    .fee-share-control span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .flow-step {
+      position: relative;
+      padding: 20px;
+      min-height: 170px;
+      color: #fff;
+      background: var(--charcoal);
+      border-radius: 8px;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 950;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .flow-step b {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .flow-step p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.45;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .commitments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .commitment {
+      padding: 24px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      min-height: 280px;
+    }
+
+    .commitment.featured {
+      background: var(--charcoal);
+      color: #fff;
+      transform: translateY(-12px);
+    }
+
+    .commitment .price {
+      margin: 18px 0;
+      font-size: 42px;
+      font-weight: 950;
+      color: var(--green);
+    }
+
+    .commitment.featured .price { color: var(--gold); }
+
+    .commitment p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .commitment.featured p { color: rgba(255,255,255,0.75); }
+
+    .scope-boundary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .scope-panel {
+      padding: 22px;
+      border-radius: 8px;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      background: #fff;
+    }
+
+    .scope-panel.highlight {
+      color: #fff;
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+    }
+
+    .scope-panel h3 {
+      margin-bottom: 16px;
+    }
+
+    .scope-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .scope-list li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .scope-panel.highlight .scope-list li {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .scope-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .scope-panel.highlight .scope-list li::before {
+      background: var(--gold);
+    }
+
+    .small-print {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 8px;
+      color: #55616d;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(38, 50, 56, 0.1);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .portfolio-layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 30px;
+    }
+
+    .linkedin-card {
+      position: sticky;
+      top: 84px;
+      padding: 24px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+    }
+
+    .linkedin-card p {
+      color: rgba(255,255,255,0.76);
+      line-height: 1.55;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      background: #fff;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .portfolio-card::before {
+      content: attr(data-initial);
+      display: none;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      color: rgba(23, 32, 42, 0.72);
+      background:
+        linear-gradient(135deg, rgba(29,143,111,0.18), rgba(240,93,94,0.14)),
+        #f4f7f6;
+      font-size: 34px;
+      font-weight: 950;
+    }
+
+    .portfolio-card.image-missing::before {
+      display: grid;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(23, 32, 42, 0.12);
+    }
+
+    .portfolio-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #eef1f4;
+    }
+
+    .portfolio-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .portfolio-card div {
+      padding: 14px;
+    }
+
+    .portfolio-card strong {
+      display: block;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .portfolio-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .close-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: clamp(22px, 4vw, 42px);
+      border-radius: 8px;
+      background: var(--charcoal);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .close-box p {
+      margin: 0;
+      color: rgba(255,255,255,0.75);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .outcome-topline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .profit-box {
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: 8px;
+      color: #fff;
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+    }
+
+    .profit-box span {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .profit-box b {
+      display: block;
+      margin-top: 12px;
+      font-size: clamp(46px, 8vw, 96px);
+      line-height: 0.95;
+      color: var(--gold);
+    }
+
+    .period-toggle {
+      display: inline-flex;
+      padding: 4px;
+      border: 1px solid rgba(38, 50, 56, 0.14);
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .period-toggle button {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .period-toggle button.active {
+      color: #fff;
+      background: var(--green);
+    }
+
+    .outcome-card {
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      background: #fff;
+    }
+
+    .outcome-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .outcome-card b {
+      display: block;
+      margin-top: 10px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1;
+      color: var(--green);
+    }
+
+    .outcome-card.expense b {
+      color: var(--coral);
+    }
+
+    .outcome-card.gross b {
+      color: var(--blue);
+    }
+
+    .exclusions {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 8px;
+      color: #394651;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .revenue-accordion {
+      margin-top: 16px;
+      border: 1px solid rgba(38, 50, 56, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.82);
+      overflow: hidden;
+    }
+
+    .revenue-accordion summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      cursor: pointer;
+      color: var(--ink);
+      font-weight: 950;
+      list-style: none;
+    }
+
+    .revenue-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .revenue-accordion summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .revenue-accordion[open] summary::after {
+      content: "-";
+    }
+
+    .revenue-detail {
+      display: grid;
+      gap: 18px;
+      padding: 0 20px 20px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .detail-card {
+      padding: 16px;
+      border: 1px solid rgba(38, 50, 56, 0.1);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .detail-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .detail-card b {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #394651;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .in-view .fade-up,
+    .fade-up.in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav { overflow-x: auto; justify-content: flex-start; }
+      .split,
+      .calculator,
+      .close-box { grid-template-columns: 1fr; }
+      .timeline,
+      .services,
+      .podcast-flow,
+      .podcast-business,
+      .commitments,
+      .scope-boundary,
+      .portfolio-layout,
+      .stat-grid,
+      .outcome-grid,
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-layout { grid-template-columns: 1fr; }
+      .linkedin-card {
+        position: static;
+        top: auto;
+      }
+      .detail-grid { grid-template-columns: 1fr 1fr; }
+      .outcome-topline { grid-template-columns: 1fr; }
+      .calculator,
+      .controls,
+      .podcast-business { grid-template-columns: 1fr; }
+      .system-map { min-height: 720px; }
+      .n1 { top: 10%; }
+      .n2 { left: 75%; top: 34%; }
+      .n3 { left: 70%; top: 82%; }
+      .n4 { left: 30%; top: 82%; }
+      .n5 { left: 25%; top: 34%; }
+      .flow-step:not(:last-child)::after { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 64px 16px; }
+      .editor-toolbar {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+      .editor-toggle {
+        right: 0;
+        bottom: 18px;
+      }
+      .editor-menu {
+        right: 38px;
+        bottom: 18px;
+      }
+      .hero .wrap { padding-bottom: 4vh; }
+      .timeline,
+      .services,
+      .podcast-flow,
+      .podcast-business,
+      .commitments,
+      .scope-boundary,
+      .portfolio-grid,
+      .portfolio-layout,
+      .stat-grid,
+      .outcome-grid { grid-template-columns: 1fr; }
+      .portfolio-card div {
+        padding: 12px;
+      }
+      .detail-grid { grid-template-columns: 1fr; }
+      .podcast-service {
+        grid-template-columns: 22px minmax(0, 1fr);
+      }
+      .rate-input {
+        grid-column: 2;
+      }
+      .system-map {
+        display: grid;
+        gap: 14px;
+        min-height: auto;
+      }
+      .map-lines { display: none; }
+      .node,
+      .center-node {
+        position: static;
+        transform: none;
+        width: 100%;
+      }
+      .center-node { order: -1; }
+      .model-row { grid-template-columns: 56px 1fr; }
+      .model-arrow { display: none; }
+      .chart { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="editor-toolbar hidden" aria-label="Text editing controls">
+    <button type="button" id="doneEditing">Done</button>
+    <button type="button" id="saveEdits">Save</button>
+    <button type="button" id="undoEdit">Undo</button>
+    <button type="button" id="resetEdits">Reset</button>
+    <input type="color" id="textColor" value="#17202a" title="Text color" aria-label="Text color">
+    <div class="size-control" aria-label="Text size controls">
+      <button type="button" id="decreaseSize" title="Decrease text size" aria-label="Decrease text size">-</button>
+      <input type="number" id="textSize" min="8" max="140" step="1" placeholder="px" aria-label="Text size in pixels">
+      <button type="button" id="increaseSize" title="Increase text size" aria-label="Increase text size">+</button>
+    </div>
+    <span class="save-status" id="saveStatus">Editable</span>
+  </div>
+  <div class="editor-menu hidden" id="editorMenu" aria-label="Private controls">
+    <button type="button" id="adminLogin">Admin</button>
+    <button type="button" class="admin-only hidden" id="startEditing">Edit</button>
+    <button type="button" class="admin-only hidden" id="negotiationTool">Negotiation</button>
+    <button type="button" class="admin-only hidden" id="analyticsInfo">Analytics</button>
+  </div>
+  <button type="button" class="editor-toggle" id="toggleEditor" title="Show editor" aria-label="Show editor">✎</button>
+
+  <nav class="nav" aria-label="Proposal sections">
+    <a href="#overview">Overview</a>
+    <a href="#today">Today</a>
+    <a href="#system">Why GHL</a>
+    <a href="#growth">Cost</a>
+    <a href="#services">The Build</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#terms">Investment</a>
+    <a href="site/index.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:900">🌿 Website Preview</a>
+  </nav>
+
+  <main>
+    <section class="section hero gear-field" id="overview" style="--gear-size: 420px; --gear-color: var(--coral);">
+      <div class="wrap">
+        <img class="brand-logo fade-up" id="zahLogo" src="zah-logo.png" alt="Zah Brand Solutions logo">
+        <p class="eyebrow fade-up">Digital Infrastructure &amp; HIPAA Compliance Proposal</p>
+        <h1 class="fade-up">New Vision Therapy &amp; Wellness x Zah Brand Solutions</h1>
+        <p class="lead fade-up">Not just a new website &mdash; the compliant infrastructure that lets your practice grow with peace of mind. One platform for your site, CRM, automations, and AI receptionist, built and protected for behavioral health. Take your time here; every decision is explained.</p>
+        <div class="chips fade-up">
+          <span class="chip">Prepared for Candice Moffatt, LCMHC</span>
+          <span class="chip">$18,500 one-time build</span>
+          <span class="chip">$1,741/mo ongoing</span>
+          <span class="chip">5&ndash;6 weeks to go-live</span>
+        </div>
+        <div class="fade-up" style="margin-top:28px">
+          <a class="button" href="site/index.html" target="_blank" rel="noopener" style="font-size:1.02rem">See a live preview of your new website &nbsp;&rarr;</a>
+          <p style="margin-top:10px;font-size:13px;color:var(--muted);max-width:52ch">A free design sample we built for New Vision &mdash; your real content, brand, and team, reimagined. Opens in a new tab.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="today" style="--gear-size: 300px; --gear-color: var(--green);">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow fade-up">Where Things Stand Today</p>
+          <h2 class="fade-up">A clear, honest look at what we found.</h2>
+          <p class="lead fade-up">Your practice is doing meaningful work &mdash; and the systems around it haven&rsquo;t quite kept pace. None of this is a criticism. It&rsquo;s the map of where we&rsquo;re starting, so every dollar in this proposal has a clear job to do.</p>
+          <div class="stat-grid fade-up">
+            <div class="stat"><b>2</b><span>Locations to unify (Charlotte + Rock Hill)</span></div>
+            <div class="stat"><b>~30</b><span>Clients left to reassign by hand</span></div>
+            <div class="stat"><b>0</b><span>After-hours coverage today</span></div>
+          </div>
+        </div>
+        <div class="panel fade-up">
+          <div class="panel-head">Discovery Findings <span>01</span></div>
+          <div class="panel-body model">
+            <div class="model-row">
+              <div class="model-icon">1</div>
+              <div>
+                <div class="model-title">A template-bound site &amp; empty trust sections</div>
+                <div class="model-note">GoDaddy builder with duplicated/broken blocks; the insurance-accepted panel and testimonials both sit empty</div>
+              </div>
+              <div class="model-arrow">+</div>
+            </div>
+            <div class="model-row">
+              <div class="model-icon">2</div>
+              <div>
+                <div class="model-title">No CRM, no automated follow-up</div>
+                <div class="model-note">Leads, clients &amp; team coordination live in disconnected email + Google Forms; reminders and no-shows are all by hand</div>
+              </div>
+              <div class="model-arrow">+</div>
+            </div>
+            <div class="model-row">
+              <div class="model-icon" style="background: var(--gold); color: var(--ink);">!</div>
+              <div>
+                <div class="model-title">The pain point we keep returning to</div>
+                <div class="model-note">When an associate stepped away over a credentialing gap, ~30 active clients needed manual reassignment with no structured handoff</div>
+              </div>
+              <div class="model-arrow">↓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="system" style="--gear-size: 380px; --gear-color: var(--teal);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Why GoHighLevel &mdash; A Decision, Not A Default</p>
+        <h2 class="fade-up">One platform, one login, one BAA covering everything.</h2>
+        <p class="lead fade-up">We seriously considered a custom stack (separate CRM, Twilio, ElevenLabs, mail, database). We rejected it &mdash; because each vendor needs its own BAA, and every added tool becomes a new subprocessor to re-verify. GoHighLevel collapses five fragile compliance relationships into one.</p>
+        <div class="system-map fade-up" aria-label="GoHighLevel platform map">
+          <svg class="map-lines" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M500 310 L500 90 M500 310 L820 210 M500 310 L770 500 M500 310 L230 500 M500 310 L180 210" />
+          </svg>
+          <div class="node center-node"><strong>GoHighLevel</strong><span>One platform, one login, one account-wide HIPAA add-on ($297/mo)</span></div>
+          <div class="node n1"><strong>Website + SEO</strong><span>Full rebuild, both locations, blog, events, built-in SEO tooling</span></div>
+          <div class="node n2"><strong>CRM &amp; Pipelines</strong><span>Intake, credentialing, onboarding, reassignment, multi-location routing</span></div>
+          <div class="node n3"><strong>AI Receptionist</strong><span>Conversation + Voice AI with crisis-escalation logic</span></div>
+          <div class="node n4"><strong>Email &amp; SMS</strong><span>Nurture, reminders, no-show follow-up, waitlist, reactivation</span></div>
+          <div class="node n5"><strong>Forms &amp; Booking</strong><span>HIPAA-aware intake, calendars, insurance verification, payments</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="growth" style="--gear-size: 330px; --gear-color: var(--coral);">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow fade-up">The Cost Argument</p>
+          <h2 class="fade-up">A custom stack&rsquo;s compliance cost compounds. One platform stays flat.</h2>
+          <p class="lead fade-up">Every vendor in a custom stack needs its own BAA &mdash; Twilio&rsquo;s starts around $500/mo, ElevenLabs&rsquo; is Enterprise-only (~$1,000+/mo), and each new feature is a new subprocessor to re-verify. Realistic total: $1,000&ndash;$2,000+/mo just to hold coverage, before a single message is sent.</p>
+          <div class="panel fade-up">
+            <div class="panel-head">Custom Stack vs. One Platform <span>Illustrative</span></div>
+            <div class="panel-body">
+              <svg class="chart" viewBox="0 0 760 420" role="img" aria-label="Illustrative growth chart showing increasing contribution from occupancy, services, and media">
+                <line x1="74" y1="350" x2="710" y2="350" stroke="#aeb7b4" />
+                <line x1="74" y1="72" x2="74" y2="350" stroke="#aeb7b4" />
+                <g fill="#66707d" font-size="14" font-weight="700">
+                  <text x="92" y="382">M1</text><text x="196" y="382">M2</text><text x="300" y="382">M3</text>
+                  <text x="404" y="382">M4</text><text x="508" y="382">M5</text><text x="612" y="382">M6</text>
+                </g>
+                <g>
+                  <rect class="bar" x="90" y="210" width="38" height="140" fill="#1d8f6f" />
+                  <rect class="bar" x="130" y="276" width="38" height="74" fill="#f05d5e" />
+                  <rect class="bar" x="170" y="318" width="38" height="32" fill="#f4b942" />
+
+                  <rect class="bar" x="194" y="190" width="38" height="160" fill="#1d8f6f" />
+                  <rect class="bar" x="234" y="254" width="38" height="96" fill="#f05d5e" />
+                  <rect class="bar" x="274" y="304" width="38" height="46" fill="#f4b942" />
+
+                  <rect class="bar" x="298" y="168" width="38" height="182" fill="#1d8f6f" />
+                  <rect class="bar" x="338" y="226" width="38" height="124" fill="#f05d5e" />
+                  <rect class="bar" x="378" y="286" width="38" height="64" fill="#f4b942" />
+
+                  <rect class="bar" x="402" y="150" width="38" height="200" fill="#1d8f6f" />
+                  <rect class="bar" x="442" y="198" width="38" height="152" fill="#f05d5e" />
+                  <rect class="bar" x="482" y="262" width="38" height="88" fill="#f4b942" />
+
+                  <rect class="bar" x="506" y="132" width="38" height="218" fill="#1d8f6f" />
+                  <rect class="bar" x="546" y="174" width="38" height="176" fill="#f05d5e" />
+                  <rect class="bar" x="586" y="238" width="38" height="112" fill="#f4b942" />
+
+                  <rect class="bar" x="610" y="112" width="38" height="238" fill="#1d8f6f" />
+                  <rect class="bar" x="650" y="148" width="38" height="202" fill="#f05d5e" />
+                  <rect class="bar" x="690" y="210" width="38" height="140" fill="#f4b942" />
+                </g>
+              </svg>
+              <div class="legend">
+                <span style="--swatch: var(--green)">Custom-stack BAA fees</span>
+                <span style="--swatch: var(--coral)">Per-feature re-verification</span>
+                <span style="--swatch: var(--gold)">Growing subprocessor risk</span>
+              </div>
+              <p class="small-print" style="margin-top:14px">As features are added, a custom stack&rsquo;s cost and compliance surface keep climbing. GoHighLevel&rsquo;s single account-wide add-on is a flat $297/mo &mdash; illustrative, not a quote.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel fade-up">
+          <div class="panel-head">Custom-Stack Cost Calculator <span>Interactive</span></div>
+          <div class="panel-body calculator">
+            <div class="controls">
+              <label>
+                Separate vendors needing a BAA
+                <input id="members" type="range" min="2" max="8" value="5">
+                <span class="value" id="membersValue">5</span>
+                <span class="hint">CRM, SMS/voice (Twilio), AI voice (ElevenLabs), mail service, database hosting &mdash; each needs its own signed BAA.</span>
+              </label>
+              <label>
+                Average BAA cost per vendor / month
+                <input id="attach" type="range" min="200" max="1200" step="50" value="500">
+                <span class="value" id="attachValue">$500</span>
+                <span class="hint">Twilio&rsquo;s BAA starts around $500/mo; ElevenLabs&rsquo; Enterprise BAA is often $1,000+/mo. Sales-negotiated, no public pricing.</span>
+              </label>
+              <label>
+                Compliance re-verification hours / month
+                <input id="package" type="range" min="2" max="20" step="1" value="6">
+                <span class="value" id="packageValue">6 hrs</span>
+                <span class="hint">Time spent re-checking that every feature is still inside each vendor&rsquo;s BAA scope as tools update.</span>
+              </label>
+              <label>
+                Value of that time per hour
+                <input id="share" type="range" min="50" max="250" step="10" value="100">
+                <span class="value" id="shareValue">$100</span>
+                <span class="hint">What an hour of your team&rsquo;s (or a consultant&rsquo;s) compliance time is worth.</span>
+              </label>
+            </div>
+            <div class="result">
+              <small>Estimated monthly cost to hold a compliant custom stack</small>
+              <div class="result-number" id="result">$3,100</div>
+              <div class="result-metrics">
+                <div class="result-metric">
+                  <span>Just the BAA fees</span>
+                  <b id="grossResult">$2,500</b>
+                </div>
+                <div class="result-metric">
+                  <span>GoHighLevel add-on (flat)</span>
+                  <b id="zahResult">$297</b>
+                </div>
+              </div>
+              <small>Illustrative, not a quote &mdash; and this is before any development time. GoHighLevel&rsquo;s single account-wide HIPAA add-on covers the whole system for a flat $297/mo.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="services" style="--gear-size: 360px; --gear-color: var(--blue);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The Full Build</p>
+        <h2 class="fade-up">Everything we&rsquo;re putting in place.</h2>
+        <p class="lead fade-up">The website is only the visible tip. Underneath it is the CRM, automation, AI receptionist, and compliance layer that actually solve the problems we found &mdash; including a repeatable client-reassignment workflow so the 30-client scramble never happens again.</p>
+        <div class="services fade-up">
+          <div class="service"><div class="service-icon" style="--c: var(--green)">W</div><h3>Website</h3><p>Full rebuild off GoDaddy &mdash; all pages, both locations, blog, events, an insurance-accepted directory, and an automated testimonials flow. Mobile-fast, SEO built in.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--coral)">C</div><h3>CRM &amp; Pipelines</h3><p>Intake, therapist credentialing, new-therapist onboarding, and a structured client-reassignment workflow. Multi-location routing and referral-source tracking.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--teal)">A</div><h3>Email &amp; SMS Automations</h3><p>Nurture, reminders, no-show follow-up, check-ins, waitlist alerts, reactivation. SMS copy stays generic &mdash; no clinical detail in text, by design.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--blue)">AI</div><h3>AI Receptionist</h3><p>Conversation + Voice AI for lead qualification, booking, and after-hours calls &mdash; with crisis-escalation logic that hands off to a human the moment it&rsquo;s needed.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--gold); color: var(--ink)">F</div><h3>Funnels, Forms &amp; Booking</h3><p>Branded landing pages, HIPAA-aware intake forms, calendars synced to each therapist, insurance verification, and workshop/group registration.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--charcoal)">$</div><h3>Payments &amp; Newsletter</h3><p>Copay/self-pay collection and invoicing, no-show fee automation, and a monthly newsletter with segmentation by service interest.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--green)">H</div><h3>HIPAA Configuration</h3><p>Account-wide add-on (encryption, MFA, audit logging), written subprocessor confirmation before go-live, and a non-negotiable BAA-before-real-data checklist.</p></div>
+          <div class="service"><div class="service-icon" style="--c: var(--coral)">T</div><h3>Team Training &amp; SOPs</h3><p>Live sessions for you, Kayla, and the therapist team, plus written SOP documentation for confident day-to-day use.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" style="--gear-size: 310px; --gear-color: var(--gold);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The ZAH Compliance Layer</p>
+        <h2 class="fade-up">Why this costs a little more than a generic build.</h2>
+        <p class="lead fade-up">This is real, additional work &mdash; and we&rsquo;d rather show it plainly than fold it invisibly into other numbers. A standard agency hands you a CRM. For a therapy practice, that&rsquo;s not enough. This is the difference, and it&rsquo;s exactly what the HIPAA Specialization line pays for.</p>
+        <div class="podcast-flow fade-up">
+          <div class="flow-step"><b>01</b><h3>ZAH&rsquo;s own BAA</h3><p>Signed directly with New Vision &mdash; because ZAH accesses PHI while building. GoHighLevel&rsquo;s BAA covers their infrastructure; ours covers the agency inside your account.</p></div>
+          <div class="flow-step"><b>02</b><h3>Build-phase discipline</h3><p>No real client data is used at any point during the build. Every pipeline and AI workflow is tested against dummy contacts. An explicit rule, not an assumption.</p></div>
+          <div class="flow-step"><b>03</b><h3>Tool-level verification</h3><p>Before any AI workflow touches a live list, we test its actual data behavior on dummy records &mdash; confirming it returns only what&rsquo;s necessary, not full contact details.</p></div>
+          <div class="flow-step"><b>04</b><h3>Ongoing vigilance</h3><p>Part of the monthly retainer: we monitor GoHighLevel&rsquo;s feature and subprocessor changes over time, since AI coverage can shift without much notice.</p></div>
+          <div class="flow-step"><b>05</b><h3>Go-live gate</h3><p>Non-negotiable: both BAAs signed and the HIPAA add-on active before the first real client record ever enters the system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="compliance" style="--gear-size: 360px; --gear-color: var(--teal);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Compliance, In Plain Language</p>
+        <h2 class="fade-up">The part worth sitting with.</h2>
+        <p class="lead fade-up">Take your time here. This is the material we most want you to genuinely understand &mdash; because trust is the foundation of everything your practice does, and we take it as seriously as you do. Expand any question below.</p>
+        <details class="revenue-accordion fade-up">
+          <summary>What is a BAA?</summary>
+          <div class="revenue-detail">
+            <ul class="detail-list">
+              <li>A <strong>Business Associate Agreement</strong> &mdash; the contract HIPAA requires between a healthcare provider and any vendor who handles patient data on their behalf. It legally obligates the vendor to protect that data and defines who&rsquo;s responsible if something goes wrong.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="revenue-accordion fade-up">
+          <summary>Why does this matter more for a therapy practice?</summary>
+          <div class="revenue-detail">
+            <ul class="detail-list">
+              <li>Psychotherapy notes receive extra legal protection beyond standard medical records &mdash; requiring specific patient authorization even for billing use.</li>
+              <li>If substance-use treatment is ever involved, federal <strong>42 CFR Part 2</strong> rules stack on top of HIPAA with even stricter requirements and potential criminal penalties.</li>
+              <li>Courts and regulators treat behavioral-health data as higher-sensitivity than most other medical categories, because exposure can affect employment, custody, and relationships.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="revenue-accordion fade-up">
+          <summary>How common is this gap, really?</summary>
+          <div class="revenue-detail">
+            <ul class="detail-list">
+              <li>Small medical &amp; dental practices accounted for <strong>55% of OCR financial penalties in 2022</strong> &mdash; being small does not mean being overlooked.</li>
+              <li>Over <strong>60% of small healthcare providers</strong> name HIPAA compliance as a major ongoing challenge.</li>
+              <li>Third-party vendor involvement in healthcare breaches <strong>roughly doubled in 2025</strong> (15% &rarr; 30%) &mdash; the fastest-growing breach category, and exactly the &ldquo;no BAA with your CRM/forms vendor&rdquo; scenario.</li>
+              <li>Most common violations behind fines: lack of risk analysis (71%), insufficient access controls (54%), failure to encrypt (48%).</li>
+              <li>Real settlements at small-practice scale: a treatment center fined $103,000 for missing basic safeguards; another practice settled for $10,000 over an impermissible disclosure.</li>
+              <li>The math: OCR counts <strong>every day</strong> PHI is handled without a signed BAA as a separate violation. For 100 patients over a year, that&rsquo;s 36,500 distinct violations &mdash; which is why getting it right up front matters. We surface this to build confidence, not to alarm.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="revenue-accordion fade-up">
+          <summary>What does GoHighLevel&rsquo;s HIPAA add-on actually include?</summary>
+          <div class="revenue-detail">
+            <ul class="detail-list">
+              <li>A signed BAA between GoHighLevel and the account holder.</li>
+              <li>AES-256 encryption of data at rest.</li>
+              <li>Mandatory multi-factor authentication.</li>
+              <li>Audit logging of who accessed what, and when.</li>
+              <li>Restricted platform-support access. It&rsquo;s a permanent, non-reversible setting once enabled &mdash; not toggled on for a phase and off later.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="revenue-accordion fade-up">
+          <summary>What does ZAH Brand Solutions&rsquo; own BAA cover?</summary>
+          <div class="revenue-detail">
+            <ul class="detail-list">
+              <li>It&rsquo;s a separate agreement directly between ZAH and New Vision &mdash; because ZAH has access to the system (and potentially PHI) while building and managing it. GoHighLevel&rsquo;s BAA covers GoHighLevel&rsquo;s own infrastructure; it does <strong>not</strong> cover the agency working inside your account. Ours does.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="portfolio" style="--gear-size: 340px; --gear-color: var(--coral);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Portfolio + Proof</p>
+        <h2 class="fade-up">Real work across websites, systems, branding, and campaigns.</h2>
+        <p class="lead fade-up">Zah Brand Solutions brings practical experience building digital assets, branded experiences, automations, and marketing systems for a range of clients and project types.</p>
+        <div class="portfolio-layout fade-up">
+          <div class="linkedin-card">
+            <h3>Lorenzo White</h3>
+            <p>Founder and strategist behind Zah Brand Solutions, combining branding, marketing systems, AI tools, automation, web development, and growth strategy into practical business solutions.</p>
+            <div class="portfolio-actions">
+              <a class="button" href="https://zahbrandsolutions.com" target="_blank" rel="noopener">View Portfolio</a>
+              <a class="button" href="https://www.linkedin.com/in/lorenzowhite/" target="_blank" rel="noopener">View LinkedIn</a>
+            </div>
+            <p class="small-print" style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.72); border-color: rgba(255,255,255,0.14);">Some live sites may have changed after the original design or may not appear exactly as originally delivered. See the full, current body of work at <a href="https://zahbrandsolutions.com" target="_blank" rel="noopener" style="color:#dcc48a">zahbrandsolutions.com</a>.</p>
+          </div>
+          <div class="portfolio-grid">
+            <a class="portfolio-card" data-initial="AI" href="https://web.archive.org/web/20250805094835/https://www.askmskay.com/" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fweb.archive.org%2Fweb%2F20250805094835%2Fhttps%3A%2F%2Fwww.askmskay.com%2F?w=640" alt="Powered By AI archived website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Powered By AI</strong><span>Create AI agents that keep users engaged, informed, and moving toward action.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="PM" href="https://mpihomes.com" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fmpihomes.com?w=640" alt="MPI Homes website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Property Management</strong><span>Professional digital presence for property and housing-related services.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="TV" href="https://web.archive.org/web/20250228000815/https://makinabrand.com/" target="_blank" rel="noopener">
+              <img src="assets/reality-tv.png" alt="Makin A Brand — Reality TV casting brand" onerror="this.onerror=null; this.src='assets/makinabrand.png';">
+              <div><strong>Reality TV?</strong><span>Audience-building funnels and promotion for casting and entertainment projects.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="BI" href="https://www.oaklandandtheworld.org" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.oaklandandtheworld.org?w=640" alt="Oakland and the World website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Brand Identity</strong><span>Clear visual identity work for mission-driven and community-centered brands.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="AP" href="https://zahbrandsolutions.wixstudio.com/theblackpanther" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fzahbrandsolutions.wixstudio.com%2Ftheblackpanther?w=640" alt="The Black Panther Apartments website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Application Processing</strong><span>Strategic website experience built to support secure user applications.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="EB" href="https://www.brandontjackson.love" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.brandontjackson.love?w=640" alt="Brandon T Jackson website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Event Branding</strong><span>Memorable event experiences supported by clear brand presentation.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="PK" href="https://hbcbranddesign.wixsite.com/my-site-4" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fhbcbranddesign.wixsite.com%2Fmy-site-4?w=640" alt="HBC Brand Design website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Product Packaging</strong><span>Logo, packaging, website, and digital marketing support for product brands.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="WL" href="https://wholesalenaturalbodycare.com" target="_blank" rel="noopener">
+              <img src="assets/wholesale.png" alt="Wholesale Natural Body Care website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>White Label Branding</strong><span>Large-scale brand management and launch support for body care products.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="HC" href="https://hebrewcare.com" target="_blank" rel="noopener">
+              <img src="assets/hebrewcare.png" alt="Hebrew Care website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Iconic Family Brand</strong><span>Voice, presence, and trust-building for a wholesome family brand.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="CE" href="https://berkslatinochamber.com" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fberkslatinochamber.com?w=640" alt="Berks Latino Chamber website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Community Engagement</strong><span>On-brand messaging and content to keep local audiences informed.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="ML" href="https://web.archive.org/web/20241222133824/http://palatinosjuntos.org/" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fweb.archive.org%2Fweb%2F20241222133824%2Fhttp%3A%2F%2Fpalatinosjuntos.org%2F?w=640" alt="PA Latinos Juntos archived website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Multilanguage</strong><span>Culturally aligned communication across audiences and languages.</span></div>
+            </a>
+            <a class="portfolio-card" data-initial="SM" href="https://zahbrandsolutions.com/" target="_blank" rel="noopener">
+              <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fzahbrandsolutions.com?w=640" alt="Zah Brand Solutions website preview" onerror="this.closest('.portfolio-card').classList.add('image-missing'); this.remove();">
+              <div><strong>Strategic Marketing</strong><span>Systems, messaging, automation, AI tools, and full-funnel growth strategy.</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="timeline" style="--gear-size: 380px; --gear-color: var(--green);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Implementation Timeline</p>
+        <h2 class="fade-up">From today to go-live in 5&ndash;6 weeks.</h2>
+        <p class="lead fade-up">Weeks 1&ndash;2 lay the foundation, weeks 3&ndash;4 build against test data, and weeks 5&ndash;6 launch &mdash; with the AI receptionist&rsquo;s crisis-escalation logic verified before go-live. Only test/dummy data is used until your protections are fully active.</p>
+        <div class="timeline fade-up">
+          <div class="phase" style="--phase: var(--green)"><b>Week 1</b><strong>Kickoff + Architecture</strong><p>Finalize brand direction, confirm exact pipeline stages, and stand up the CRM &amp; pipeline architecture.</p></div>
+          <div class="phase" style="--phase: var(--teal)"><b>Week 2</b><strong>HIPAA Groundwork + Design</strong><p>HIPAA configuration groundwork and full website design, built against dummy data only.</p></div>
+          <div class="phase" style="--phase: var(--coral)"><b>Week 3</b><strong>Website Build</strong><p>Pages for both locations, blog, events, insurance directory, and testimonials flow come together.</p></div>
+          <div class="phase" style="--phase: var(--blue)"><b>Week 4</b><strong>Automations + Forms</strong><p>Email/SMS sequences, HIPAA-aware intake forms, booking calendars, and funnels go live.</p></div>
+          <div class="phase" style="--phase: var(--gold)"><b>Week 5</b><strong>AI Receptionist</strong><p>Conversation + Voice AI configured and tested, with crisis-escalation logic verified.</p></div>
+          <div class="phase" style="--phase: var(--charcoal)"><b>Week 6</b><strong>Train + Go-Live</strong><p>BAAs signed, HIPAA add-on active, team training, and handoff to ongoing management.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="terms" style="--gear-size: 320px; --gear-color: var(--coral);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">The Investment</p>
+        <h2 class="fade-up">Transparent, itemized, and benchmarked.</h2>
+        <p class="lead fade-up">Nothing hidden. Here&rsquo;s exactly what each piece costs, two comfortable ways to pay for it, and how it compares to what others charge for far less.</p>
+        <div class="commitments fade-up">
+          <div class="commitment">
+            <h3>One-Time Build</h3>
+            <div class="price">$18,500</div>
+            <p>The complete platform &mdash; website, CRM, automations, AI receptionist, HIPAA configuration, and team training.</p>
+          </div>
+          <div class="commitment featured">
+            <h3>Ongoing Monthly</h3>
+            <div class="price">$1,741<span style="font-size:20px">/mo</span></div>
+            <p>Platform billed at cost by GoHighLevel ($491) plus ZAH management &amp; compliance oversight ($1,250). No platform markup.</p>
+          </div>
+          <div class="commitment">
+            <h3>HIPAA Specialization</h3>
+            <div class="price">$3,300</div>
+            <p>The premium line inside the build &mdash; broken out on purpose so the healthcare-grade compliance work is visible, not buried.</p>
+          </div>
+        </div>
+
+        <h3 class="fade-up" style="margin-top:40px">One-time build &mdash; line by line</h3>
+        <div class="detail-grid fade-up" style="margin-top:16px">
+          <div class="detail-card"><span>Website Design &amp; Rebuild</span><b>$4,500</b></div>
+          <div class="detail-card"><span>CRM &amp; Pipeline Architecture</span><b>$2,000</b></div>
+          <div class="detail-card"><span>Email &amp; SMS Automations</span><b>$2,500</b></div>
+          <div class="detail-card"><span>AI Receptionist</span><b>$2,500</b></div>
+          <div class="detail-card"><span>Funnels, Forms &amp; Booking</span><b>$1,200</b></div>
+          <div class="detail-card"><span>Newsletter System</span><b>$500</b></div>
+          <div class="detail-card"><span>HIPAA Compliance Configuration</span><b>$500</b></div>
+          <div class="detail-card"><span>Team Training &amp; SOPs</span><b>$1,500</b></div>
+          <div class="detail-card" style="border-color:var(--gold);background:linear-gradient(160deg,#fffaf0,#fff)"><span>HIPAA Specialization &amp; Compliance Assurance</span><b style="color:var(--gold)">$3,300</b></div>
+          <div class="detail-card" style="background:var(--charcoal)"><span style="color:rgba(255,255,255,.72)">Total One-Time Build</span><b style="color:var(--gold)">$18,500</b></div>
+        </div>
+        <p class="small-print fade-up"><strong>About that highlighted line:</strong> the HIPAA Specialization line is what accounts for the difference from a standard build. We&rsquo;ve broken it out so the added value is visible &mdash; not quietly folded into the other numbers. It&rsquo;s the work that protects your license and your clients&rsquo; trust.</p>
+
+        <h3 class="fade-up" style="margin-top:40px">Two ways to move forward</h3>
+        <p class="fade-up" style="color:var(--muted);max-width:640px;margin-bottom:8px">Same total either way &mdash; only a difference in cash-flow timing. Choose whichever feels most comfortable.</p>
+        <div class="scope-boundary fade-up">
+          <div class="scope-panel highlight">
+            <h3>Option A &mdash; Standard</h3>
+            <ul class="scope-list">
+              <li><strong>$5,000</strong> &mdash; Retainer / deposit, due to begin work.</li>
+              <li><strong>$6,750</strong> &mdash; Milestone 2, when website + CRM/pipelines are live.</li>
+              <li><strong>$6,750</strong> &mdash; Final, when automations, AI receptionist, compliance &amp; training are complete.</li>
+              <li>Three payments across roughly six weeks, matched to the build timeline.</li>
+            </ul>
+          </div>
+          <div class="scope-panel">
+            <h3>Option B &mdash; Extended</h3>
+            <ul class="scope-list">
+              <li><strong>$2,500</strong> to start &mdash; the largest single number you&rsquo;ll ever be asked for.</li>
+              <li><strong>$1,340/mo</strong> build installment, added to the regular invoice for 12 months.</li>
+              <li><strong>$3,081/mo</strong> total in year one (ongoing $1,741 + $1,340 build).</li>
+              <li>After month 12, reverts to the standard <strong>$1,741/mo</strong>. Never a single payment over $2,500.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="fade-up" style="margin-top:40px">Ongoing monthly investment</h3>
+        <div class="detail-grid fade-up" style="margin-top:16px;grid-template-columns:1fr 1fr">
+          <div class="detail-card"><span>GoHighLevel platform (Starter + HIPAA add-on + AI Employee Unlimited) &mdash; billed directly to New Vision, at cost</span><b>$491/mo</b></div>
+          <div class="detail-card"><span>Ongoing management, optimization &amp; compliance oversight &mdash; ZAH Brand Solutions</span><b>$1,250/mo</b></div>
+          <div class="detail-card" style="background:var(--charcoal);grid-column:1/-1"><span style="color:rgba(255,255,255,.72)">Total Monthly Investment (ZAH does not resell or mark up the platform)</span><b style="color:var(--gold)">$1,741/mo</b></div>
+        </div>
+
+        <div class="scope-boundary fade-up" style="margin-top:28px">
+          <div class="scope-panel highlight">
+            <h3>What the build includes</h3>
+            <ul class="scope-list">
+              <li>Full website, CRM &amp; pipelines, automations, AI receptionist, funnels, forms, booking, payments, newsletter.</li>
+              <li>HIPAA configuration, ZAH&rsquo;s own BAA, and ongoing compliance monitoring.</li>
+              <li>Live team training plus written SOP documentation.</li>
+            </ul>
+          </div>
+          <div class="scope-panel">
+            <h3>What stays separate</h3>
+            <ul class="scope-list">
+              <li>Your clinical EHR / practice-management tool (SimplePractice, TherapyNotes, etc.) for notes &amp; billing &mdash; GoHighLevel does not replace it.</li>
+              <li>A HIPAA-compliant telehealth platform, if sessions happen by video.</li>
+              <li>Paid advertising &amp; ad spend &mdash; scoped as a separate future proposal once the platform is proven.</li>
+            </ul>
+          </div>
+        </div>
+
+        <details class="revenue-accordion fade-up" style="margin-top:24px">
+          <summary>Is this a fair price? See the real market comparables.</summary>
+          <div class="revenue-detail">
+            <div class="detail-grid">
+              <div class="detail-card"><span>Charlotte agencies &mdash; website ALONE (no CRM, no automation, no AI)</span><b>$8k&ndash;$18k</b></div>
+              <div class="detail-card"><span>Verified Clutch.co agencies &mdash; one-off site rebuild</span><b>$15k&ndash;$50k+</b></div>
+              <div class="detail-card"><span>Fully custom healthcare CRM (built from scratch)</span><b>$45k&ndash;$300k+</b></div>
+            </div>
+            <ul class="detail-list">
+              <li>An ophthalmology practice paid $38,000 just for Salesforce Health Cloud setup &mdash; then still needed a paid consultant.</li>
+              <li>A cosmetic-surgery practice&rsquo;s advertised &ldquo;$500/mo&rdquo; CRM actually ran $1,340/mo once real management was factored in &mdash; closely in line with this proposal&rsquo;s $1,741/mo, which additionally includes an AI receptionist and HIPAA-specialized oversight.</li>
+              <li><strong>Bottom line:</strong> your $18,500 covers the website <em>and</em> the full CRM build, every automation, the AI receptionist with crisis-escalation logic, HIPAA configuration, and team training &mdash; at or below what local competitors charge for the website alone.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section gear-field" id="next" style="--gear-size: 340px; --gear-color: var(--blue);">
+      <div class="wrap">
+        <p class="eyebrow fade-up">Looking Ahead &mdash; A Separate Future Chapter</p>
+        <h2 class="fade-up">Once the foundation is proven, growth becomes possible.</h2>
+        <p class="lead fade-up">Infrastructure first, growth second. Everything here is a preview of what comes <em>after</em> this platform is live &mdash; not part of today&rsquo;s decision, and nothing to weigh right now.</p>
+        <div class="podcast-flow fade-up">
+          <div class="flow-step"><b>01</b><h3>One system for every lead</h3><p>Because every lead from every channel lands in one place with automatic follow-up, a real paid acquisition campaign finally becomes possible &mdash; nothing gets lost in an inbox.</p></div>
+          <div class="flow-step"><b>02</b><h3>A coordinated paid campaign</h3><p>The natural next step: Google, Meta (Facebook &amp; Instagram), YouTube, and other channels where prospective clients are already searching.</p></div>
+          <div class="flow-step"><b>03</b><h3>Scoped separately, later</h3><p>Budget, channel mix, and management pricing will come as their own proposal once this platform is live and proven. No pressure to decide any of it now.</p></div>
+        </div>
+        <p class="small-print fade-up" style="margin-top:20px"><strong>The reassurance:</strong> foundation first, growth second. Let&rsquo;s give New Vision the home it deserves &mdash; then, when you&rsquo;re ready, we grow it.</p>
+        <div class="close-box fade-up" style="margin-top:28px">
+          <p>Once this proposal is approved and the deposit is received, we begin: kickoff discovery, the 5&ndash;6 week build using only test data, both BAAs executed before any real client record is imported, then go-live, team training, and handoff to ongoing management.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+            <a class="button" href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20Proposal%20%E2%80%94%20Let%27s%20move%20forward&amp;body=Hi%20ZAH%2C%20we%27d%20like%20to%20move%20forward%20with%20the%20New%20Vision%20proposal.">Approve &amp; reserve our start date</a>
+            <a class="button" href="site/index.html" target="_blank" rel="noopener" style="background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff">See your website preview</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const progress = document.querySelector(".progress");
+    const navLinks = [...document.querySelectorAll(".nav a")];
+    const sections = [...document.querySelectorAll(".section")];
+    const revealTargets = [...document.querySelectorAll(".section, .fade-up")];
+    const editStorageKey = "new-vision-proposal-edits-v1";
+    const logoStorageKey = "new-vision-proposal-logo-position-v1";
+    const editSelector = [
+      "main h1",
+      "main h2",
+      "main h3",
+      "main p",
+      "main .chip",
+      "main .model-title",
+      "main .model-note",
+      "main .stat b",
+      "main .stat span",
+      "main .node strong",
+      "main .node span",
+      "main .service-icon",
+      "main .flow-step b",
+      "main .phase b",
+      "main .phase strong",
+      "main .price",
+      "main small:not(.hint)",
+      "main .result-metric span"
+      ,"main .portfolio-card strong"
+      ,"main .portfolio-card span"
+    ].join(", ");
+    const editableElements = [...document.querySelectorAll(editSelector)]
+      .filter(element => !["result", "grossResult", "zahResult"].includes(element.id));
+    const doneEditing = document.getElementById("doneEditing");
+    const saveButton = document.getElementById("saveEdits");
+    const undoButton = document.getElementById("undoEdit");
+    const resetButton = document.getElementById("resetEdits");
+    const editorToolbar = document.querySelector(".editor-toolbar");
+    const editorMenu = document.getElementById("editorMenu");
+    const toggleEditor = document.getElementById("toggleEditor");
+    const adminLogin = document.getElementById("adminLogin");
+    const startEditing = document.getElementById("startEditing");
+    const negotiationTool = document.getElementById("negotiationTool");
+    const analyticsInfo = document.getElementById("analyticsInfo");
+    const adminOnlyButtons = [...document.querySelectorAll(".admin-only")];
+    const textColor = document.getElementById("textColor");
+    const textSize = document.getElementById("textSize");
+    const decreaseSize = document.getElementById("decreaseSize");
+    const increaseSize = document.getElementById("increaseSize");
+    const saveStatus = document.getElementById("saveStatus");
+    const zahLogo = document.getElementById("zahLogo");
+    let activeEditable = null;
+    let undoStack = [];
+    let defaultEditState = [];
+    let logoDrag = null;
+    let defaultPodcastModel = null;
+    let editingEnabled = false;
+    let adminUnlocked = sessionStorage.getItem("proposal-admin-unlocked") === "true";
+    const adminHash = "9a7b69ae3b4f25ee9dfef13ea33d47f427569cf786a9282d942a7d78c2de5c4b";
+
+    function formatMoney(value) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function captureEditState() {
+      return editableElements.map(element => ({
+        id: element.dataset.editId,
+        html: element.innerHTML,
+        color: element.style.color || "",
+        fontSize: element.style.fontSize || ""
+      }));
+    }
+
+    function applyEditState(state) {
+      if (!Array.isArray(state)) return;
+      state.forEach(item => {
+        const element = editableElements.find(candidate => candidate.dataset.editId === item.id);
+        if (!element) return;
+        element.innerHTML = item.html;
+        element.style.color = item.color || "";
+        element.style.fontSize = item.fontSize || "";
+      });
+    }
+
+    function statesMatch(a, b) {
+      return JSON.stringify(a) === JSON.stringify(b);
+    }
+
+    function pushUndoState() {
+      const current = captureEditState();
+      const last = undoStack[undoStack.length - 1];
+      if (!last || !statesMatch(last, current)) {
+        undoStack.push(current);
+        undoStack = undoStack.slice(-50);
+      }
+    }
+
+    function setStatus(message) {
+      saveStatus.textContent = message;
+      window.clearTimeout(setStatus.timer);
+      setStatus.timer = window.setTimeout(() => {
+        saveStatus.textContent = "Editable";
+      }, 1800);
+    }
+
+    function initializeEditor() {
+      editableElements.forEach((element, index) => {
+        element.dataset.editId = `editable-${index}`;
+        element.addEventListener("focus", () => {
+          activeEditable = element;
+          textColor.value = rgbToHex(getComputedStyle(element).color);
+          textSize.value = Math.round(parseFloat(getComputedStyle(element).fontSize));
+        });
+        element.addEventListener("beforeinput", pushUndoState);
+        element.addEventListener("input", () => setStatus("Unsaved"));
+      });
+
+      defaultEditState = captureEditState();
+      const saved = localStorage.getItem(editStorageKey);
+      if (saved) {
+        try {
+          applyEditState(JSON.parse(saved));
+          setStatus("Loaded");
+        } catch (error) {
+          localStorage.removeItem(editStorageKey);
+        }
+      }
+    }
+
+    function setEditingEnabled(enabled) {
+      editingEnabled = enabled;
+      document.body.classList.toggle("editing-enabled", enabled);
+      editableElements.forEach(element => {
+        if (enabled) {
+          element.setAttribute("contenteditable", "true");
+          element.setAttribute("spellcheck", "true");
+        } else {
+          element.removeAttribute("contenteditable");
+          element.removeAttribute("spellcheck");
+          if (document.activeElement === element) element.blur();
+        }
+      });
+      if (!enabled) activeEditable = null;
+    }
+
+    async function hashAdminCredentials(email, password) {
+      const normalized = `${email.trim().toLowerCase()}:${password}`;
+      const bytes = new TextEncoder().encode(normalized);
+      const digest = await crypto.subtle.digest("SHA-256", bytes);
+      return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
+    }
+
+    function updateAdminMenu() {
+      adminOnlyButtons.forEach(button => button.classList.toggle("hidden", !adminUnlocked));
+      adminLogin.textContent = adminUnlocked ? "Admin unlocked" : "Admin";
+    }
+
+    function rgbToHex(color) {
+      const match = color.match(/\d+/g);
+      if (!match) return "#17202a";
+      return `#${match.slice(0, 3).map(value => Number(value).toString(16).padStart(2, "0")).join("")}`;
+    }
+
+    saveButton.addEventListener("click", () => {
+      localStorage.setItem(editStorageKey, JSON.stringify(captureEditState()));
+      saveLogoPosition();
+      setStatus("Saved");
+    });
+
+    toggleEditor.addEventListener("click", () => {
+      updateAdminMenu();
+      editorMenu.classList.toggle("hidden");
+    });
+
+    adminLogin.addEventListener("click", async () => {
+      if (adminUnlocked) {
+        window.alert("Admin is already unlocked for this browser session.");
+        return;
+      }
+      const email = window.prompt("Admin email");
+      if (!email) return;
+      const password = window.prompt("Admin password");
+      if (!password) return;
+      const submittedHash = await hashAdminCredentials(email, password);
+      if (submittedHash !== adminHash) {
+        window.alert("Admin login failed.");
+        return;
+      }
+      adminUnlocked = true;
+      sessionStorage.setItem("proposal-admin-unlocked", "true");
+      updateAdminMenu();
+    });
+
+    startEditing.addEventListener("click", () => {
+      if (!adminUnlocked) return;
+      setEditingEnabled(true);
+      editorMenu.classList.add("hidden");
+      editorToolbar.classList.remove("hidden");
+      toggleEditor.title = "Editing enabled";
+      toggleEditor.setAttribute("aria-label", "Editing enabled");
+      setStatus("Editing");
+    });
+
+    doneEditing.addEventListener("click", () => {
+      setEditingEnabled(false);
+      editorToolbar.classList.add("hidden");
+      toggleEditor.title = "Show editor";
+      toggleEditor.setAttribute("aria-label", "Show editor");
+    });
+
+    analyticsInfo.addEventListener("click", () => {
+      if (!adminUnlocked) return;
+      editorMenu.classList.add("hidden");
+      window.alert("Tracking needs an analytics service or backend. A static GitHub Pages file cannot securely collect private page/section views by itself.");
+    });
+
+    negotiationTool.addEventListener("click", () => {
+      if (!adminUnlocked) return;
+      window.open("negotiation.html", "_blank", "noopener");
+    });
+
+    undoButton.addEventListener("click", () => {
+      const previous = undoStack.pop();
+      if (!previous) {
+        setStatus("No undo");
+        return;
+      }
+      applyEditState(previous);
+      setStatus("Undone");
+    });
+
+    resetButton.addEventListener("click", () => {
+      if (!window.confirm("Reset all saved text edits for this proposal?")) return;
+      pushUndoState();
+      localStorage.removeItem(editStorageKey);
+      localStorage.removeItem(logoStorageKey);
+      applyEditState(defaultEditState);
+      resetLogoPosition();
+      setStatus("Reset");
+    });
+
+    textColor.addEventListener("input", () => {
+      if (!activeEditable) return;
+      pushUndoState();
+      activeEditable.style.color = textColor.value;
+      setStatus("Unsaved");
+    });
+
+    function setActiveFontSize(size) {
+      if (!activeEditable) return;
+      const nextSize = Math.max(8, Math.min(140, Number(size)));
+      if (!Number.isFinite(nextSize)) return;
+      pushUndoState();
+      activeEditable.style.fontSize = `${nextSize}px`;
+      textSize.value = Math.round(nextSize);
+      setStatus("Unsaved");
+    }
+
+    textSize.addEventListener("change", () => {
+      setActiveFontSize(textSize.value);
+    });
+
+    textSize.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        setActiveFontSize(textSize.value);
+      }
+    });
+
+    decreaseSize.addEventListener("click", () => {
+      if (!activeEditable) return;
+      const current = parseFloat(getComputedStyle(activeEditable).fontSize);
+      setActiveFontSize(current - 2);
+    });
+
+    increaseSize.addEventListener("click", () => {
+      if (!activeEditable) return;
+      const current = parseFloat(getComputedStyle(activeEditable).fontSize);
+      setActiveFontSize(current + 2);
+    });
+
+    function saveLogoPosition() {
+      localStorage.setItem(logoStorageKey, JSON.stringify({
+        transform: zahLogo.style.transform || "",
+        x: Number(zahLogo.dataset.x || 0),
+        y: Number(zahLogo.dataset.y || 0)
+      }));
+    }
+
+    function applyLogoPosition(position) {
+      const x = Number(position?.x || 0);
+      const y = Number(position?.y || 0);
+      zahLogo.dataset.x = x;
+      zahLogo.dataset.y = y;
+      zahLogo.style.transform = position?.transform || `translate(${x}px, ${y}px)`;
+    }
+
+    function resetLogoPosition() {
+      zahLogo.dataset.x = 0;
+      zahLogo.dataset.y = 0;
+      zahLogo.style.transform = "";
+    }
+
+    function initializeLogoDrag() {
+      const savedPosition = localStorage.getItem(logoStorageKey);
+      if (savedPosition) {
+        try {
+          applyLogoPosition(JSON.parse(savedPosition));
+        } catch (error) {
+          localStorage.removeItem(logoStorageKey);
+        }
+      }
+
+      zahLogo.addEventListener("pointerdown", event => {
+        event.preventDefault();
+        const currentX = Number(zahLogo.dataset.x || 0);
+        const currentY = Number(zahLogo.dataset.y || 0);
+        logoDrag = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          startY: event.clientY,
+          currentX,
+          currentY
+        };
+        zahLogo.classList.add("dragging");
+        zahLogo.setPointerCapture(event.pointerId);
+      });
+
+      zahLogo.addEventListener("pointermove", event => {
+        if (!logoDrag || event.pointerId !== logoDrag.pointerId) return;
+        const x = logoDrag.currentX + event.clientX - logoDrag.startX;
+        const y = logoDrag.currentY + event.clientY - logoDrag.startY;
+        zahLogo.dataset.x = x;
+        zahLogo.dataset.y = y;
+        zahLogo.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      function endDrag(event) {
+        if (!logoDrag || event.pointerId !== logoDrag.pointerId) return;
+        zahLogo.classList.remove("dragging");
+        logoDrag = null;
+        setStatus("Unsaved");
+      }
+
+      zahLogo.addEventListener("pointerup", endDrag);
+      zahLogo.addEventListener("pointercancel", endDrag);
+    }
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const amount = max > 0 ? window.scrollY / max : 0;
+      progress.style.transform = `scaleX(${amount})`;
+    }
+
+    function setActiveNav() {
+      let current = sections[0].id;
+      sections.forEach(section => {
+        if (section.id && section.getBoundingClientRect().top < window.innerHeight * 0.42) {
+          current = section.id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("in-view");
+      });
+    }, { threshold: 0.18 });
+
+    revealTargets.forEach(target => observer.observe(target));
+
+    const members = document.getElementById("members");
+    const attach = document.getElementById("attach");
+    const pkg = document.getElementById("package");
+    const share = document.getElementById("share");
+    const membersValue = document.getElementById("membersValue");
+    const attachValue = document.getElementById("attachValue");
+    const packageValue = document.getElementById("packageValue");
+    const shareValue = document.getElementById("shareValue");
+    const result = document.getElementById("result");
+    const grossResult = document.getElementById("grossResult");
+    const zahResult = document.getElementById("zahResult");
+    // Cost-comparison calculator only (Work @ Wheel revenue/podcast/outcome models removed for New Vision).
+
+    function updateCalculator() {
+      if (!members) return;
+      const vendors = Number(members.value);          // separate vendors needing a BAA
+      const baaEach = Number(attach.value);           // avg BAA cost per vendor / month
+      const hours = Number(pkg.value);                // compliance re-verification hours / month
+      const hourly = Number(share.value);             // value of that time per hour
+      const baaFees = Math.round(vendors * baaEach);
+      const timeCost = Math.round(hours * hourly);
+      const stackTotal = baaFees + timeCost;
+      const ghlFlat = 297;
+      membersValue.textContent = vendors;
+      attachValue.textContent = formatMoney(baaEach);
+      packageValue.textContent = `${hours} hrs`;
+      shareValue.textContent = formatMoney(hourly);
+      result.textContent = formatMoney(stackTotal);
+      grossResult.textContent = formatMoney(baaFees);
+      zahResult.textContent = formatMoney(ghlFlat);
+    }
+
+    [members, attach, pkg, share].forEach(input => input && input.addEventListener("input", updateCalculator));
+
+    window.addEventListener("scroll", () => {
+      updateProgress();
+      setActiveNav();
+    }, { passive: true });
+
+    initializeEditor();
+    initializeLogoDrag();
+    updateProgress();
+    setActiveNav();
+    updateCalculator();
+
+    // Safety net: the fade-up reveal relies on IntersectionObserver. If it hasn't
+    // revealed anything shortly after load (unsupported, blocked, or a non-painting
+    // tab), force every section visible so the proposal can never render blank.
+    function revealAllFallback() {
+      if (!document.querySelector(".in-view")) {
+        document.querySelectorAll(".section, .fade-up").forEach(el => el.classList.add("in-view"));
+      }
+    }
+    window.addEventListener("load", () => setTimeout(revealAllFallback, 500));
+    setTimeout(revealAllFallback, 1500);
+  </script>
+</body>
+</html>
