@@ -265,31 +265,37 @@
     #edToggle { position: fixed; right: 0; bottom: 22px; z-index: 60; width: 34px; height: 42px; border: 1px solid rgba(38,50,56,0.18); border-right: 0; border-radius: 8px 0 0 8px; background: rgba(255,253,248,0.8); color: var(--muted); font-size: 17px; cursor: pointer; opacity: .5; backdrop-filter: blur(8px); }
     #edToggle:hover { opacity: 1; }
     body.editing #edToggle { display: none; }
-    #edBar { position: fixed; top: 14px; left: 50%; transform: translate(-50%, -150%); z-index: 62; display: flex; align-items: center; gap: 6px; padding: 7px 8px; border-radius: 999px; background: rgba(23,29,38,.95); box-shadow: 0 14px 38px rgba(0,0,0,.34); backdrop-filter: blur(12px); transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+    #edBar { position: fixed; top: 12px; left: 50%; transform: translate(-50%, -160%); z-index: 62; display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 10px; background: rgba(255,255,255,.97); border: 1px solid rgba(17,24,39,.1); box-shadow: 0 6px 22px rgba(17,24,39,.1); backdrop-filter: blur(10px); transition: transform .3s cubic-bezier(.2,.8,.2,1); }
     body.editing #edBar { transform: translate(-50%, 0); }
-    #edBar button { display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: rgba(255,255,255,.08); color: #fff; font: 750 13px Inter, sans-serif; cursor: pointer; }
-    #edBar button:hover:not(:disabled) { background: rgba(255,255,255,.18); }
-    #edBar button.primary { background: var(--green); }
-    #edBar button.primary:hover { background: #17a07c; }
+    #edBar button { display: inline-flex; align-items: center; height: 28px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #4b5563; font: 600 12.5px Inter, sans-serif; cursor: pointer; }
+    #edBar button:hover:not(:disabled) { background: rgba(17,24,39,.06); color: #111827; }
+    #edBar button.primary { background: #111827; color: #fff; }
+    #edBar button.primary:hover { background: #000; color: #fff; }
     #edBar button:disabled { opacity: .3; cursor: default; }
-    #edBar .ic { width: 36px; padding: 0; justify-content: center; font-size: 17px; }
-    #edBar .status { color: rgba(255,255,255,.55); font: 700 11.5px Inter, sans-serif; letter-spacing: .04em; text-transform: uppercase; padding: 0 6px; min-width: 58px; text-align: center; }
-    #edBar .sep { width: 1px; height: 22px; background: rgba(255,255,255,.15); margin: 0 2px; }
-    #edBubble { position: fixed; z-index: 63; display: none; flex-wrap: wrap; align-items: center; gap: 2px; max-width: 452px; padding: 5px; border-radius: 12px; background: rgba(23,29,38,.97); box-shadow: 0 16px 44px rgba(0,0,0,.42); backdrop-filter: blur(12px); }
+    #edBar .ic { width: 28px; padding: 0; justify-content: center; font-size: 15px; }
+    #edBar .status { color: #9ca3af; font: 600 10.5px Inter, sans-serif; letter-spacing: .05em; text-transform: uppercase; padding: 0 5px; min-width: 52px; text-align: center; }
+    #edBar .sep { width: 1px; height: 16px; background: rgba(17,24,39,.1); margin: 0 2px; }
+    #edBubble { position: fixed; z-index: 63; display: none; flex-direction: column; padding: 3px; border-radius: 9px; background: rgba(255,255,255,.98); border: 1px solid rgba(17,24,39,.1); box-shadow: 0 8px 26px rgba(17,24,39,.14); backdrop-filter: blur(10px); }
     #edBubble.show { display: flex; }
-    #edBubble button { width: 30px; height: 30px; display: grid; place-items: center; border: 0; border-radius: 7px; background: transparent; color: #e7ecf3; cursor: pointer; font: 800 14px Georgia, serif; padding: 0; }
-    #edBubble button:hover { background: rgba(255,255,255,.15); }
-    #edBubble button.on { background: var(--green); color: #fff; }
-    #edBubble button svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    #edBubble .sep { width: 1px; height: 18px; margin: 0 3px; background: rgba(255,255,255,.15); }
-    #edBubble select { height: 30px; border: 0; border-radius: 7px; background: rgba(255,255,255,.1); color: #fff; font: 650 12px Inter, sans-serif; padding: 0 4px; cursor: pointer; max-width: 92px; }
-    #edBubble select option { color: #111; }
-    #edBubble .swatch { position: relative; width: 30px; height: 30px; border-radius: 7px; overflow: hidden; display: inline-block; }
-    #edBubble .swatch input { position: absolute; inset: -20%; width: 140%; height: 140%; border: 0; padding: 0; cursor: pointer; background: transparent; }
-    #edBubble .swatch::after { content: "A"; position: absolute; inset: 0; display: grid; place-items: center; color: #e7ecf3; font: 800 13px Georgia; pointer-events: none; box-shadow: inset 0 -4px 0 var(--sw, #f4b942); }
-    body.editing [data-ed] { outline: 1px dashed rgba(29,143,111,.4); outline-offset: 3px; border-radius: 4px; }
-    body.editing [data-ed]:hover { outline-color: rgba(29,143,111,.75); }
-    body.editing [data-ed]:focus { outline: 2px solid var(--green); background: rgba(255,255,255,.45); }
+    #edBubble .ed-row { display: flex; align-items: center; gap: 1px; }
+    #edBubble .ed-row.extra { display: none; margin-top: 3px; padding-top: 3px; border-top: 1px solid rgba(17,24,39,.08); }
+    #edBubble.more .ed-row.extra { display: flex; }
+    #edBubble button { width: 27px; height: 27px; display: grid; place-items: center; border: 0; border-radius: 6px; background: transparent; color: #4b5563; cursor: pointer; font: 700 13px Georgia, serif; padding: 0; }
+    #edBubble button:hover { background: rgba(17,24,39,.06); color: #111827; }
+    #edBubble button.on { background: rgba(17,24,39,.1); color: #111827; }
+    #edBubble button svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    #edBubble .sep { width: 1px; height: 15px; margin: 0 3px; background: rgba(17,24,39,.08); }
+    #edBubble .chev { transition: transform .25s; }
+    #edBubble.more .chev { transform: rotate(180deg); }
+    #edBubble select { height: 27px; border: 0; border-radius: 6px; background: transparent; color: #4b5563; font: 600 11.5px Inter, sans-serif; padding: 0 2px; cursor: pointer; max-width: 86px; }
+    #edBubble select:hover { background: rgba(17,24,39,.06); }
+    #edBubble .swatch { position: relative; width: 27px; height: 27px; border-radius: 6px; overflow: hidden; display: inline-block; }
+    #edBubble .swatch:hover { background: rgba(17,24,39,.06); }
+    #edBubble .swatch input { position: absolute; inset: -20%; width: 140%; height: 140%; border: 0; padding: 0; cursor: pointer; background: transparent; opacity: 0; }
+    #edBubble .swatch::after { content: "A"; position: absolute; inset: 0; display: grid; place-items: center; color: #4b5563; font: 700 12px Georgia; pointer-events: none; box-shadow: inset 0 -3px 0 var(--sw, #9ca3af); }
+    body.editing [data-ed] { outline: 1px dashed rgba(17,24,39,.18); outline-offset: 3px; border-radius: 4px; }
+    body.editing [data-ed]:hover { outline-color: rgba(17,24,39,.4); }
+    body.editing [data-ed]:focus { outline: 1.5px solid rgba(17,24,39,.55); background: rgba(255,255,255,.5); }
     main [data-ed] img, main img.ed-img { max-width: 100%; height: auto; border-radius: 8px; }
     .ed-video { position: relative; width: 100%; max-width: 640px; margin: 16px auto; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; box-shadow: var(--shadow); }
     .ed-video iframe, .ed-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -757,41 +763,50 @@
     }
     function sep() { const s = document.createElement("span"); s.className = "sep"; return s; }
     function buildBubble() {
-      bubble.appendChild(mkBtn("B", "Bold", () => exec("bold"), "b"));
-      bubble.appendChild(mkBtn("<i>I</i>", "Italic", () => exec("italic"), "i"));
-      bubble.appendChild(mkBtn("<u>U</u>", "Underline", () => exec("underline"), "u"));
-      bubble.appendChild(mkBtn("<s>S</s>", "Strikethrough", () => exec("strikeThrough"), "s"));
-      bubble.appendChild(sep());
-      // font family
+      const row1 = document.createElement("div"); row1.className = "ed-row";
+      const row2 = document.createElement("div"); row2.className = "ed-row extra";
+      bubble.appendChild(row1); bubble.appendChild(row2);
+
+      // ── row 1: the essentials ──
+      row1.appendChild(mkBtn("B", "Bold", () => exec("bold"), "b"));
+      row1.appendChild(mkBtn("<i>I</i>", "Italic", () => exec("italic"), "i"));
+      row1.appendChild(mkBtn("<u>U</u>", "Underline", () => exec("underline"), "u"));
+      row1.appendChild(mkBtn("<s>S</s>", "Strikethrough", () => exec("strikeThrough"), "s"));
+      row1.appendChild(sep());
+      row1.appendChild(mkBtn(icon('<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'), "Add link", addLink));
+      // colour
+      const sw = document.createElement("label"); sw.className = "swatch"; sw.title = "Text colour";
+      const col = document.createElement("input"); col.type = "color"; col.value = "#111827";
+      col.addEventListener("input", () => { sw.style.setProperty("--sw", col.value); exec("foreColor", col.value); });
+      sw.appendChild(col); row1.appendChild(sw);
+      row1.appendChild(sep());
+      const more = mkBtn(icon('<path class="chev-p" d="M6 9l6 6 6-6"/>'), "More options", () => { bubble.classList.toggle("more"); positionBubble(); });
+      more.classList.add("chev");
+      row1.appendChild(more);
+
+      // ── row 2: everything else ──
       const font = document.createElement("select"); font.title = "Font";
       [["", "Font"], ["Inter, sans-serif", "Inter"], ["Georgia, serif", "Serif"], ["Arial, sans-serif", "Arial"], ["'Trebuchet MS', sans-serif", "Trebuchet"], ["'Courier New', monospace", "Mono"], ["Impact, sans-serif", "Impact"]]
         .forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; font.appendChild(o); });
       font.addEventListener("mousedown", () => restore());
       font.addEventListener("change", () => { if (font.value) exec("fontName", font.value); font.selectedIndex = 0; });
-      bubble.appendChild(font);
-      // font size
+      row2.appendChild(font);
       const size = document.createElement("select"); size.title = "Size";
       [["", "Size"], ["13px", "13"], ["15px", "15"], ["17px", "17"], ["20px", "20"], ["24px", "24"], ["30px", "30"], ["40px", "40"], ["56px", "56"], ["72px", "72"]]
         .forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; size.appendChild(o); });
       size.addEventListener("mousedown", () => restore());
       size.addEventListener("change", () => { if (size.value) setSize(size.value); size.selectedIndex = 0; });
-      bubble.appendChild(size);
-      // colour
-      const sw = document.createElement("label"); sw.className = "swatch"; sw.title = "Text colour";
-      const col = document.createElement("input"); col.type = "color"; col.value = "#1d8f6f";
-      col.addEventListener("input", () => { sw.style.setProperty("--sw", col.value); exec("foreColor", col.value); });
-      sw.appendChild(col); bubble.appendChild(sw);
-      bubble.appendChild(sep());
-      bubble.appendChild(mkBtn(icon('<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'), "Add link", addLink));
-      bubble.appendChild(mkBtn(icon('<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/>'), "Bulleted list", () => exec("insertUnorderedList"), "ul"));
-      bubble.appendChild(mkBtn(icon('<line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4M4 10h2M6 14H4v-1l2-2v-1H4"/>'), "Numbered list", () => exec("insertOrderedList"), "ol"));
-      bubble.appendChild(sep());
-      bubble.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/>'), "Align left", () => exec("justifyLeft")));
-      bubble.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="5" y1="18" x2="19" y2="18"/>'), "Align centre", () => exec("justifyCenter")));
-      bubble.appendChild(sep());
-      bubble.appendChild(mkBtn(icon('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 15l-5-5L5 21"/>'), "Insert image", insertImage));
-      bubble.appendChild(mkBtn(icon('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/>'), "Insert video", insertVideo));
-      bubble.appendChild(mkBtn(icon('<path d="M6 6l12 12M18 6L6 18"/>'), "Clear formatting", () => { exec("removeFormat"); exec("unlink"); }));
+      row2.appendChild(size);
+      row2.appendChild(sep());
+      row2.appendChild(mkBtn(icon('<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/>'), "Bulleted list", () => exec("insertUnorderedList"), "ul"));
+      row2.appendChild(mkBtn(icon('<line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4M4 10h2M6 14H4v-1l2-2v-1H4"/>'), "Numbered list", () => exec("insertOrderedList"), "ol"));
+      row2.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/>'), "Align left", () => exec("justifyLeft")));
+      row2.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="5" y1="18" x2="19" y2="18"/>'), "Align centre", () => exec("justifyCenter")));
+      row2.appendChild(sep());
+      row2.appendChild(mkBtn(icon('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 15l-5-5L5 21"/>'), "Insert image", insertImage));
+      row2.appendChild(mkBtn(icon('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/>'), "Insert video", insertVideo));
+      row2.appendChild(sep());
+      row2.appendChild(mkBtn(icon('<path d="M6 6l12 12M18 6L6 18"/>'), "Clear formatting", () => { exec("removeFormat"); exec("unlink"); }));
     }
     function setSize(px) {
       restore();
