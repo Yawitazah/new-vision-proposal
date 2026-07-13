@@ -275,27 +275,32 @@
     #edBar .ic { width: 28px; padding: 0; justify-content: center; font-size: 15px; }
     #edBar .status { color: #9ca3af; font: 600 10.5px Inter, sans-serif; letter-spacing: .05em; text-transform: uppercase; padding: 0 5px; min-width: 52px; text-align: center; }
     #edBar .sep { width: 1px; height: 16px; background: rgba(17,24,39,.1); margin: 0 2px; }
-    #edBubble { position: fixed; z-index: 63; display: none; flex-direction: column; padding: 3px; border-radius: 9px; background: rgba(255,255,255,.98); border: 1px solid rgba(17,24,39,.1); box-shadow: 0 8px 26px rgba(17,24,39,.14); backdrop-filter: blur(10px); }
-    #edBubble.show { display: flex; }
-    #edBubble .ed-row { display: flex; align-items: center; gap: 1px; }
-    #edBubble .ed-row.extra { display: none; margin-top: 3px; padding-top: 3px; border-top: 1px solid rgba(17,24,39,.08); }
-    #edBubble.more .ed-row.extra { display: flex; }
-    #edBubble button { width: 27px; height: 27px; display: grid; place-items: center; border: 0; border-radius: 6px; background: transparent; color: #4b5563; cursor: pointer; font: 700 13px Georgia, serif; padding: 0; }
-    #edBubble button:hover { background: rgba(17,24,39,.06); color: #111827; }
-    #edBubble button.on { background: rgba(17,24,39,.1); color: #111827; }
-    #edBubble button svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    #edBubble .sep { width: 1px; height: 15px; margin: 0 3px; background: rgba(17,24,39,.08); }
-    #edBubble .chev { transition: transform .25s; }
-    #edBubble.more .chev { transform: rotate(180deg); }
-    #edBubble select { height: 27px; border: 0; border-radius: 6px; background: transparent; color: #4b5563; font: 600 11.5px Inter, sans-serif; padding: 0 2px; cursor: pointer; max-width: 86px; }
-    #edBubble select:hover { background: rgba(17,24,39,.06); }
-    #edBubble .swatch { position: relative; width: 27px; height: 27px; border-radius: 6px; overflow: hidden; display: inline-block; }
-    #edBubble .swatch:hover { background: rgba(17,24,39,.06); }
-    #edBubble .swatch input { position: absolute; inset: -20%; width: 140%; height: 140%; border: 0; padding: 0; cursor: pointer; background: transparent; opacity: 0; }
-    #edBubble .swatch::after { content: "A"; position: absolute; inset: 0; display: grid; place-items: center; color: #4b5563; font: 700 12px Georgia; pointer-events: none; box-shadow: inset 0 -3px 0 var(--sw, #9ca3af); }
+    .edbub { position: fixed; z-index: 63; display: none; flex-direction: column; padding: 3px; border-radius: 9px; background: rgba(255,255,255,.98); border: 1px solid rgba(17,24,39,.1); box-shadow: 0 8px 26px rgba(17,24,39,.14); backdrop-filter: blur(10px); }
+    .edbub.show { display: flex; }
+    .edbub .ed-row { display: flex; align-items: center; gap: 1px; }
+    .edbub .ed-row.extra { display: none; margin-top: 3px; padding-top: 3px; border-top: 1px solid rgba(17,24,39,.08); }
+    .edbub.more .ed-row.extra { display: flex; }
+    .edbub button { width: 27px; height: 27px; display: grid; place-items: center; border: 0; border-radius: 6px; background: transparent; color: #4b5563; cursor: pointer; font: 700 13px Georgia, serif; padding: 0; }
+    .edbub button:hover { background: rgba(17,24,39,.06); color: #111827; }
+    .edbub button.on { background: rgba(17,24,39,.1); color: #111827; }
+    .edbub button.txt { width: auto; padding: 0 9px; font: 600 11.5px Inter, sans-serif; }
+    .edbub button svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .edbub .sep { width: 1px; height: 15px; margin: 0 3px; background: rgba(17,24,39,.08); }
+    .edbub .lab { padding: 0 8px; font: 600 10.5px Inter, sans-serif; color: #9ca3af; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+    .edbub .chev { transition: transform .25s; }
+    .edbub.more .chev { transform: rotate(180deg); }
+    .edbub select { height: 27px; border: 0; border-radius: 6px; background: transparent; color: #4b5563; font: 600 11.5px Inter, sans-serif; padding: 0 2px; cursor: pointer; max-width: 86px; }
+    .edbub select:hover { background: rgba(17,24,39,.06); }
+    .edbub input[type="range"] { width: 92px; height: 27px; accent-color: #111827; cursor: pointer; }
+    .edbub .swatch { position: relative; width: 27px; height: 27px; border-radius: 6px; overflow: hidden; display: inline-block; }
+    .edbub .swatch:hover { background: rgba(17,24,39,.06); }
+    .edbub .swatch input { position: absolute; inset: -20%; width: 140%; height: 140%; border: 0; padding: 0; cursor: pointer; background: transparent; opacity: 0; }
+    .edbub .swatch::after { content: var(--swch, "A"); position: absolute; inset: 0; display: grid; place-items: center; color: #4b5563; font: 700 12px Georgia; pointer-events: none; box-shadow: inset 0 -3px 0 var(--sw, #9ca3af); }
     body.editing [data-ed] { outline: 1px dashed rgba(17,24,39,.18); outline-offset: 3px; border-radius: 4px; }
     body.editing [data-ed]:hover { outline-color: rgba(17,24,39,.4); }
     body.editing [data-ed]:focus { outline: 1.5px solid rgba(17,24,39,.55); background: rgba(255,255,255,.5); }
+    body.editing .ed-hov { outline: 1px dashed rgba(17,24,39,.35) !important; outline-offset: 4px; }
+    .ed-sel { outline: 1.5px solid rgba(17,24,39,.6) !important; outline-offset: 4px; }
     main [data-ed] img, main img.ed-img { max-width: 100%; height: auto; border-radius: 8px; }
     .ed-video { position: relative; width: 100%; max-width: 640px; margin: 16px auto; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; box-shadow: var(--shadow); }
     .ed-video iframe, .ed-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -614,7 +619,8 @@
     <button type="button" id="edReset">Reset</button>
     <button type="button" id="edDone">Done</button>
   </div>
-  <div id="edBubble" role="toolbar" aria-label="Formatting"></div>
+  <div id="edBubble" class="edbub" role="toolbar" aria-label="Formatting"></div>
+  <div id="edEl" class="edbub" role="toolbar" aria-label="Element controls"></div>
 
   <script>
   (function () {
@@ -650,7 +656,7 @@
       secs.forEach(s => { if (s.id && s.getBoundingClientRect().top < window.innerHeight * 0.42) current = s.id; });
       navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
     }
-    window.addEventListener("scroll", () => { updateProgress(); setActiveNav(); if (editing) positionBubble(); }, { passive: true });
+    window.addEventListener("scroll", () => { updateProgress(); setActiveNav(); if (editing) { positionBubble(); positionElBub(); } }, { passive: true });
     function revealAll() { document.querySelectorAll(".section, .fade-up").forEach(el => el.classList.add("in-view")); }
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in-view"); }), { threshold: 0.15 });
     document.querySelectorAll(".section, .fade-up").forEach(t => io.observe(t));
@@ -682,8 +688,9 @@
     // A clean snapshot of the canvas: no contenteditable, all revealed.
     function snapshot() {
       const clone = main.cloneNode(true);
-      clone.querySelectorAll("[contenteditable]").forEach(e => { e.removeAttribute("contenteditable"); });
+      clone.querySelectorAll("[contenteditable]").forEach(e => { if (e.getAttribute("contenteditable") !== "false") e.removeAttribute("contenteditable"); });
       clone.querySelectorAll("[data-ed]").forEach(e => e.removeAttribute("data-ed"));
+      clone.querySelectorAll(".ed-sel, .ed-hov").forEach(e => e.classList.remove("ed-sel", "ed-hov"));
       clone.querySelectorAll(".fade-up").forEach(e => e.classList.add("in-view"));
       return clone.innerHTML;
     }
@@ -706,8 +713,8 @@
       if (current !== null) { undoStack.push(current); if (undoStack.length > 120) undoStack.shift(); redoStack.length = 0; }
       current = now; dirty = true; refreshBar();
     }
-    function undo() { if (!undoStack.length) return; redoStack.push(current); current = undoStack.pop(); applyHTML(current); dirty = true; refreshBar(); }
-    function redo() { if (!redoStack.length) return; undoStack.push(current); current = redoStack.pop(); applyHTML(current); dirty = true; refreshBar(); }
+    function undo() { if (!undoStack.length) return; redoStack.push(current); current = undoStack.pop(); hideEl(); applyHTML(current); dirty = true; refreshBar(); }
+    function redo() { if (!redoStack.length) return; undoStack.push(current); current = redoStack.pop(); hideEl(); applyHTML(current); dirty = true; refreshBar(); }
 
     /* ---------- 3. selection + bubble ---------- */
     function selInEditable() {
@@ -741,14 +748,19 @@
     document.addEventListener("selectionchange", () => {
       if (!editing) return;
       const r = selInEditable();
-      if (r) { savedRange = r.cloneRange(); positionBubble(); syncActive(); }
+      if (!r) return;
+      const collapsed = window.getSelection().isCollapsed;
+      if (elSel && collapsed) return;              // element mode owns collapsed clicks
+      if (!collapsed) hideEl();                    // real text selection wins
+      savedRange = r.cloneRange(); positionBubble(); syncActive();
     });
     // keep selection when pressing bubble icon buttons
     bubble.addEventListener("mousedown", e => { if (e.target.closest("button")) e.preventDefault(); });
     document.addEventListener("mousedown", e => {
       if (!editing) return;
-      if (e.target.closest("#edBubble") || e.target.closest("#edBar") || e.target.closest("[contenteditable='true']")) return;
-      bubble.classList.remove("show");
+      if (e.target.closest(".edbub") || e.target.closest("#edBar")) return;
+      if (!e.target.closest("[contenteditable='true']")) bubble.classList.remove("show");
+      if (!e.target.closest("main")) hideEl();
     });
     function restore() { if (savedRange) { const s = window.getSelection(); s.removeAllRanges(); s.addRange(savedRange); } }
     function exec(cmd, val) { restore(); document.execCommand("styleWithCSS", false, true); document.execCommand(cmd, false, val || null); record(); syncActive(); positionBubble(); }
@@ -857,6 +869,176 @@
       insertHTMLAtCaret('<div class="ed-video" contenteditable="false">' + embed + "</div><p><br></p>");
     }
 
+    /* ---------- 4b. element (widget) builder ---------- */
+    const elBub = document.getElementById("edEl");
+    const WIDGET_SEL = [
+      "img", ".ed-video", "a.button", "button", ".site-teaser",
+      ".bcard", ".finding", ".flag", ".step", ".pillar", ".path", ".phase",
+      ".big3 .n", ".anchor-strip", ".safety", ".headsup", "details.acc",
+      ".datebox", ".close-box", ".chips", ".checks", ".section"
+    ].map(s => "main " + s).join(", ");
+    let elSel = null;
+
+    function labelFor(el) {
+      if (el.tagName === "IMG") return "Image";
+      if (el.classList.contains("ed-video")) return "Video";
+      if (el.tagName === "A" || el.tagName === "BUTTON") return "Button";
+      if (el.classList.contains("section")) return "Section";
+      return "Block";
+    }
+    function hideEl() {
+      if (elSel) elSel.classList.remove("ed-sel");
+      elSel = null;
+      elBub.classList.remove("show", "more");
+    }
+    function positionElBub() {
+      if (!editing || !elSel) { elBub.classList.remove("show"); return; }
+      const rect = elSel.getBoundingClientRect();
+      elBub.classList.add("show");
+      const bw = elBub.offsetWidth, bh = elBub.offsetHeight;
+      let left = rect.left + rect.width / 2 - bw / 2;
+      left = Math.max(8, Math.min(left, window.innerWidth - bw - 8));
+      let top = rect.top - bh - 10;
+      if (top < 8) top = Math.min(rect.top + 10, window.innerHeight - bh - 8);
+      elBub.style.left = left + "px";
+      elBub.style.top = top + "px";
+    }
+    function selectEl(el) {
+      bubble.classList.remove("show");
+      if (elSel) elSel.classList.remove("ed-sel");
+      el.classList.remove("ed-hov");
+      elSel = el; el.classList.add("ed-sel");
+      buildElBub(); positionElBub();
+    }
+    function elRecord() { record(); positionElBub(); }
+    function moveEl(dir) {
+      if (!elSel) return;
+      const sib = dir < 0 ? elSel.previousElementSibling : elSel.nextElementSibling;
+      if (!sib) return;
+      if (dir < 0) sib.before(elSel); else sib.after(elSel);
+      elSel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      elRecord();
+    }
+    function dupEl() {
+      if (!elSel) return;
+      const c = elSel.cloneNode(true);
+      c.classList.remove("ed-sel");
+      elSel.after(c); elRecord();
+    }
+    function delEl() {
+      if (!elSel) return;
+      const t = elSel; hideEl(); t.remove(); record();
+    }
+    function alignEl(mode) {
+      if (!elSel) return;
+      if (elSel.tagName === "IMG" || elSel.classList.contains("ed-video")) elSel.style.display = "block";
+      elSel.style.marginLeft = mode === "l" ? "0" : "auto";
+      elSel.style.marginRight = mode === "r" ? "0" : "auto";
+      if (mode === "l") elSel.style.marginRight = "auto";
+      if (mode === "r") elSel.style.marginLeft = "auto";
+      elRecord();
+    }
+    function replaceImg() {
+      if (!elSel || elSel.tagName !== "IMG") return;
+      const url = prompt("Paste the new image URL, or leave blank to upload:");
+      if (url === null) return;
+      if (url.trim()) { elSel.src = url.trim(); elRecord(); return; }
+      const inp = document.createElement("input"); inp.type = "file"; inp.accept = "image/*";
+      inp.addEventListener("change", () => {
+        const f = inp.files[0]; if (!f) return;
+        const rd = new FileReader();
+        rd.onload = () => { elSel.src = rd.result; elRecord(); };
+        rd.readAsDataURL(f);
+      });
+      inp.click();
+    }
+    function buildElBub() {
+      elBub.innerHTML = "";
+      const row1 = document.createElement("div"); row1.className = "ed-row";
+      const row2 = document.createElement("div"); row2.className = "ed-row extra";
+      elBub.appendChild(row1); elBub.appendChild(row2);
+
+      const lab = document.createElement("span"); lab.className = "lab"; lab.textContent = labelFor(elSel);
+      row1.appendChild(lab);
+      row1.appendChild(sep());
+      row1.appendChild(mkBtn(icon('<path d="M12 19V5M5 12l7-7 7 7"/>'), "Move up", () => moveEl(-1)));
+      row1.appendChild(mkBtn(icon('<path d="M12 5v14M19 12l-7 7-7-7"/>'), "Move down", () => moveEl(1)));
+      row1.appendChild(mkBtn(icon('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>'), "Duplicate", dupEl));
+      row1.appendChild(mkBtn(icon('<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>'), "Delete", () => { if (confirm("Delete this " + labelFor(elSel).toLowerCase() + "?")) delEl(); }));
+      row1.appendChild(sep());
+      const more = mkBtn(icon('<path d="M6 9l6 6 6-6"/>'), "More options", () => { elBub.classList.toggle("more"); positionElBub(); });
+      more.classList.add("chev");
+      row1.appendChild(more);
+
+      // width (responsive %, never fixed px)
+      const wLab = document.createElement("span"); wLab.className = "lab"; wLab.textContent = "W";
+      row2.appendChild(wLab);
+      const w = document.createElement("input"); w.type = "range"; w.min = "15"; w.max = "100"; w.title = "Width (%)";
+      w.value = parseInt(elSel.style.width) || 100;
+      w.addEventListener("input", () => {
+        elSel.style.width = w.value + "%"; elSel.style.maxWidth = "100%";
+        if (elSel.tagName === "IMG") elSel.style.height = "auto";
+        positionElBub();
+      });
+      w.addEventListener("change", elRecord);
+      row2.appendChild(w);
+      const auto = mkBtn("A", "Auto width", () => { elSel.style.width = ""; elSel.style.maxWidth = ""; w.value = 100; elRecord(); });
+      auto.classList.add("txt"); row2.appendChild(auto);
+      row2.appendChild(sep());
+      // radius (reshape)
+      const rad = document.createElement("select"); rad.title = "Corner shape";
+      [["", "Shape"], ["0px", "Square"], ["8px", "Soft"], ["16px", "Round"], ["28px", "Rounder"], ["999px", "Pill"], ["50%", "Circle"]]
+        .forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; rad.appendChild(o); });
+      rad.addEventListener("change", () => { if (rad.value !== "") { elSel.style.borderRadius = rad.value; if (rad.value === "50%" && elSel.tagName === "IMG") elSel.style.objectFit = "cover"; elRecord(); } rad.selectedIndex = 0; });
+      row2.appendChild(rad);
+      // background colour
+      const sw = document.createElement("label"); sw.className = "swatch"; sw.title = "Background colour"; sw.style.setProperty("--swch", '"◧"');
+      const col = document.createElement("input"); col.type = "color"; col.value = "#ffffff";
+      col.addEventListener("input", () => { sw.style.setProperty("--sw", col.value); elSel.style.background = col.value; });
+      col.addEventListener("change", elRecord);
+      sw.appendChild(col); row2.appendChild(sw);
+      const noFill = mkBtn(icon('<circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/>'), "Remove background", () => { elSel.style.background = ""; elRecord(); });
+      row2.appendChild(noFill);
+      row2.appendChild(sep());
+      row2.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="18" y2="18"/>'), "Align left", () => alignEl("l")));
+      row2.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="5" y1="18" x2="19" y2="18"/>'), "Align centre", () => alignEl("c")));
+      row2.appendChild(mkBtn(icon('<line x1="4" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="6" y1="18" x2="20" y2="18"/>'), "Align right", () => alignEl("r")));
+      // type-specific
+      if (elSel.tagName === "IMG") {
+        row2.appendChild(sep());
+        const rep = mkBtn("Replace", "Replace image", replaceImg); rep.classList.add("txt");
+        row2.appendChild(rep);
+      }
+      if (elSel.tagName === "A" || elSel.tagName === "BUTTON") {
+        row2.appendChild(sep());
+        const txt = mkBtn("Text", "Edit button text", () => { const v = prompt("Button text:", elSel.textContent.trim()); if (v !== null && v.trim()) { elSel.textContent = v.trim(); elRecord(); } }); txt.classList.add("txt");
+        row2.appendChild(txt);
+        if (elSel.tagName === "A") {
+          const lnk = mkBtn("Link", "Edit link URL", () => { const v = prompt("Link URL:", elSel.getAttribute("href") || "https://"); if (v !== null && v.trim()) { elSel.setAttribute("href", v.trim()); elSel.target = "_blank"; elSel.rel = "noopener"; elRecord(); } }); lnk.classList.add("txt");
+          row2.appendChild(lnk);
+        }
+      }
+      // climb to parent widget
+      const p = elSel.parentElement && elSel.parentElement.closest(WIDGET_SEL);
+      if (p) {
+        row2.appendChild(sep());
+        const up = mkBtn("Parent", "Select the containing block", () => selectEl(p)); up.classList.add("txt");
+        row2.appendChild(up);
+      }
+    }
+    // keep clicks inside the element bubble from stealing focus
+    elBub.addEventListener("mousedown", e => { if (e.target.closest("button")) e.preventDefault(); });
+
+    // hover affordance + click-to-select
+    main.addEventListener("mouseover", e => {
+      if (!editing) return;
+      document.querySelectorAll(".ed-hov").forEach(x => x.classList.remove("ed-hov"));
+      if (e.target.closest("[contenteditable='true']")) return;
+      const w = e.target.closest(WIDGET_SEL);
+      if (w && w !== elSel) w.classList.add("ed-hov");
+    });
+    main.addEventListener("mouseleave", () => document.querySelectorAll(".ed-hov").forEach(x => x.classList.remove("ed-hov")));
+
     /* ---------- 5. mode + bar wiring ---------- */
     function enterEditing() {
       editing = true; document.body.classList.add("editing");
@@ -868,6 +1050,8 @@
       editing = false; document.body.classList.remove("editing");
       setContentEditable(false);
       bubble.classList.remove("show"); savedRange = null;
+      hideEl();
+      document.querySelectorAll(".ed-hov").forEach(x => x.classList.remove("ed-hov"));
     }
     document.getElementById("edToggle").addEventListener("click", async () => {
       if (sessionStorage.getItem("nv2-admin") !== "true") {
@@ -899,11 +1083,24 @@
       dirty = true; setStatus("Unsaved");
       clearTimeout(typingTimer); typingTimer = setTimeout(record, 450);
     });
-    // don't follow links while editing
-    main.addEventListener("click", e => { if (editing) { const a = e.target.closest("a"); if (a) e.preventDefault(); } });
+    // click resolution: links never navigate; images/videos/buttons select directly;
+    // clicks on a block's padding (not its text) select the block; text clicks stay text.
+    main.addEventListener("click", e => {
+      if (!editing) return;
+      const a = e.target.closest("a"); if (a) e.preventDefault();
+      const direct = e.target.closest("main img, main .ed-video, main a.button, main button");
+      if (direct) { selectEl(direct); return; }
+      if (e.target.closest("[contenteditable='true']")) { hideEl(); return; }
+      const w = e.target.closest(WIDGET_SEL);
+      if (w) selectEl(w); else hideEl();
+    });
     // keyboard shortcuts
     document.addEventListener("keydown", e => {
-      if (!editing || !(e.ctrlKey || e.metaKey)) return;
+      if (!editing) return;
+      const typing = document.activeElement && document.activeElement.closest && document.activeElement.closest("[contenteditable='true'], input, select, textarea");
+      if ((e.key === "Delete" || e.key === "Backspace") && elSel && !typing) { e.preventDefault(); delEl(); return; }
+      if (e.key === "Escape" && elSel) { hideEl(); return; }
+      if (!(e.ctrlKey || e.metaKey)) return;
       const k = e.key.toLowerCase();
       if (k === "z" && !e.shiftKey) { e.preventDefault(); undo(); }
       else if ((k === "z" && e.shiftKey) || k === "y") { e.preventDefault(); redo(); }
