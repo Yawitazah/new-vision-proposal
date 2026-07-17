@@ -2,3 +2,6 @@
 Thumbs.db
 *.log
 assets/orig/
+agreements/
+_archive/
+HANDOFF.md

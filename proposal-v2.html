@@ -176,6 +176,49 @@
     }
     .safety b { color: #123227; }
 
+    .worked-out {
+      margin: 24px 0; padding: 20px 24px; border-radius: 10px;
+      background: rgba(232, 122, 90, 0.1); border: 1px solid rgba(232, 122, 90, 0.42);
+      font-size: 15.5px; line-height: 1.65; color: #5a2f22; max-width: 900px;
+    }
+    .worked-out b { color: #7a2f18; }
+    /* Savings hero */
+    .savings-hero {
+      margin: 32px 0; max-width: 900px; border-radius: 14px; overflow: hidden;
+      border: 2px solid var(--green); background: #fff; box-shadow: var(--shadow);
+    }
+    .sh-head { padding: 15px 24px; background: rgba(29,143,111,0.12); border-bottom: 1px solid rgba(29,143,111,0.28); }
+    .sh-eyebrow { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; font-size: 12.5px; color: var(--green); }
+    .sh-rows { padding: 6px 24px; }
+    .sh-row { display: grid; grid-template-columns: 1.3fr 1.5fr auto; align-items: center; gap: 18px; padding: 20px 0; border-bottom: 1px dashed rgba(38,50,56,0.16); }
+    .sh-row:last-child { border-bottom: none; }
+    .sh-label { font-weight: 850; font-size: 16px; color: var(--charcoal); line-height: 1.3; }
+    .sh-sub { display: block; font-weight: 700; font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .sh-prices { display: flex; align-items: center; gap: 14px; justify-content: center; }
+    .sh-was { position: relative; font-size: 25px; font-weight: 800; color: #b0483a; white-space: nowrap; }
+    .sh-was::after { content: ""; position: absolute; left: -4px; right: -4px; top: 52%; height: 3px; background: #b0483a; transform: rotate(-8deg); border-radius: 2px; }
+    .sh-was small { font-size: 58%; font-weight: 700; }
+    .sh-arrow { color: var(--muted); font-size: 20px; font-weight: 900; }
+    .sh-now { font-size: 40px; font-weight: 900; color: var(--green); line-height: 1; }
+    .sh-save { justify-self: end; background: var(--green); color: #fff; font-weight: 900; font-size: 13px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+    .sh-total { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 24px; background: var(--charcoal); color: #fff; }
+    .sh-total span { font-weight: 800; font-size: 15px; letter-spacing: 0.01em; }
+    .sh-total b { font-size: 34px; color: var(--gold); font-weight: 900; line-height: 1; white-space: nowrap; }
+
+    /* Managed service */
+    .managed { margin: 28px 0; max-width: 900px; padding: 24px; border-radius: 12px; background: rgba(38,50,56,0.045); border: 1px solid rgba(38,50,56,0.18); }
+    .managed-title { display: block; font-size: 18px; color: var(--charcoal); margin-bottom: 16px; }
+    .managed-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .mp { font-size: 14px; line-height: 1.55; color: #3a464d; padding-left: 14px; border-left: 3px solid var(--green); }
+    .mp b { color: var(--charcoal); }
+
+    @media (max-width: 640px) {
+      .sh-row { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+      .sh-prices { justify-content: center; }
+      .sh-save { justify-self: center; }
+      .managed-points { grid-template-columns: 1fr; }
+    }
+
     /* findings */
     .findings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
     .finding { padding: 22px; border-radius: 10px; background: #fff; border: 1px solid rgba(38, 50, 56, 0.12); }
@@ -360,8 +403,8 @@
             <a class="button" href="site/index.html" target="_blank" rel="noopener">Tour your new website &rarr;</a>
           </div>
           <div class="chips fade-up">
-            <span class="chip">$18,500 build &middot; two ways to pay</span>
-            <span class="chip">$1,741/mo maintenance after go-live</span>
+            <span class="chip">$18,500 build &middot; start at $1,000/mo</span>
+            <span class="chip">$2,000/mo managed service &middot; only after payoff</span>
             <span class="chip">Live in 5&ndash;6 weeks</span>
           </div>
         </div>
@@ -428,46 +471,73 @@
     <section class="section gear-field" id="numbers" style="--gear-size: 380px; --gear-color: var(--gold);">
       <div class="wrap">
         <p class="eyebrow fade-up">The Numbers, Plainly</p>
-        <h2 class="fade-up">Real numbers, real context, and two ways to make them work.</h2>
+        <h2 class="fade-up">Real numbers, real context, and a plan built around what works for you.</h2>
         <p class="lead fade-up">This is a serious investment &mdash; we won&rsquo;t pretend otherwise. It&rsquo;s priced honestly for what it is: your website, your entire client system, an AI receptionist, and healthcare-grade compliance, built and managed by one accountable partner.</p>
 
+        <div class="savings-hero fade-up">
+          <div class="sh-head">
+            <span class="sh-eyebrow">To earn your business, here&rsquo;s what I&rsquo;m taking off the table</span>
+          </div>
+          <div class="sh-rows">
+            <div class="sh-row">
+              <div class="sh-label">Your deposit</div>
+              <div class="sh-prices"><span class="sh-was">$5,000</span><span class="sh-arrow">&rarr;</span><span class="sh-now">$2,500</span></div>
+              <div class="sh-save">You save $2,500</div>
+            </div>
+            <div class="sh-row">
+              <div class="sh-label">Managed-service fee while we build<span class="sh-sub">normally starts at go-live &mdash; waived every month until your build is paid off</span></div>
+              <div class="sh-prices"><span class="sh-was">$2,000<small>/mo</small></span><span class="sh-arrow">&rarr;</span><span class="sh-now">$0</span></div>
+              <div class="sh-save">You save $14,000+</div>
+            </div>
+          </div>
+          <div class="sh-total">
+            <span>Your total savings, up front and through payoff</span>
+            <b>$16,500+</b>
+          </div>
+        </div>
+
+        <div class="worked-out fade-up">
+          <b>Here&rsquo;s what we worked out together.</b> You told me $1,000 a month is what works for the practice right now, and I heard you. So that&rsquo;s exactly where we start. On top of that I cut the deposit in half and waived my management fee completely while we build. This is me betting on a long partnership, not a one-time project.
+        </div>
+
         <div class="big3 fade-up">
-          <div class="n"><b>$18,500</b><span>One-time build &mdash; everything, itemized below</span></div>
-          <div class="n dark"><b>$1,741<span style="display:inline;font-size:45%;color:rgba(255,255,255,0.72);">/mo</span></b><span>Maintenance &mdash; starts at go-live, not during the build. Platform at cost ($491) + management &amp; compliance ($1,250)</span></div>
-          <div class="n"><b>5&ndash;6 wks</b><span>From deposit to go-live &mdash; live before Labor Day</span></div>
+          <div class="n"><b>$2,500</b><span>To reserve your start date &mdash; down from $5,000. This counts toward your build.</span></div>
+          <div class="n dark"><b>$2,000<span style="display:inline;font-size:45%;color:rgba(255,255,255,0.72);">/mo</span></b><span>Your managed-service fee &mdash; ongoing, and only after your build is fully paid off. Your GoHighLevel platform ($394, paid to them) is separate.</span></div>
+          <div class="n"><b>$18,500</b><span>One-time build &mdash; everything, itemized below. Already discounted for the full scope.</span></div>
         </div>
 
         <div class="anchor-strip fade-up">
           <b>For context before you react to the number:</b> Charlotte agencies charge <b>$8,000&ndash;$18,000 for a website alone</b> &mdash; no CRM, no automation, no AI, no compliance. Custom healthcare CRM builds run <b>$45,000&ndash;$300,000+</b>; one local practice paid $38,000 just for a Salesforce setup. This covers all of it, together, at or below what the website alone would cost elsewhere.
         </div>
 
-        <h3 class="fade-up" style="margin-top: 34px;">Choose the cash-flow that fits &mdash; same build, same result. Maintenance starts only when your system is live.</h3>
+        <h3 class="fade-up" style="margin-top: 34px;">Your payment path &mdash; built around the number you gave me.</h3>
         <div class="paths fade-up">
-          <div class="path featured">
-            <h3>Path A &mdash; Three Milestones</h3>
-            <p class="sub">Matched to the build. Best if the practice can move the money in stages this summer.</p>
+          <div class="path featured" style="grid-column: 1 / -1;">
+            <h3>The plan, step by step</h3>
+            <p class="sub">One simple path. Start where it&rsquo;s comfortable, then we set the pace together.</p>
             <ul class="sched">
-              <li><span>To reserve your start date (this month)</span><b>$5,000</b></li>
-              <li><span>When your website + client pipelines are live (~week 3)</span><b>$6,750</b></li>
-              <li><span>When automations, AI receptionist &amp; training are complete (~week 6)</span><b>$6,750</b></li>
+              <li><span>Today &mdash; reserve your start date (counts toward the build)</span><b>$2,500</b></li>
+              <li><span>Months 1&ndash;3 &mdash; toward the build, the number you asked for</span><b>$1,000/mo</b></li>
+              <li><span>Month 4 until paid off &mdash; toward the build</span><b>$2,000/mo</b></li>
+              <li><span>Your platform &mdash; billed by GoHighLevel directly, at cost, once your system is live</span><b>$394/mo</b></li>
+              <li><span>Management &amp; support while we build</span><b>Waived &mdash; $0</b></li>
             </ul>
-            <p class="foot">Three payments across six weeks, matched to the build. Build total: $18,500. Maintenance ($1,741/mo) begins at go-live.</p>
+            <p class="foot">On this schedule the build ($18,500) is paid off in about nine months &mdash; and you&rsquo;re welcome to pay more any month to finish sooner. Your bill never jumps: the $2,000 you pay each month first pays off your build, then simply becomes your <b>$2,000/mo managed-service fee</b>. Your GoHighLevel platform ($394, paid directly to them) is the only separate cost, and no management fee is billed until the build is fully paid off.</p>
           </div>
-          <div class="path">
-            <h3>Path B &mdash; Gentle Start</h3>
-            <p class="sub">Never a single payment over $2,500. The rest of the build becomes a 12-month payment plan.</p>
-            <ul class="sched">
-              <li><span>To reserve your start date (this month)</span><b>$2,500</b></li>
-              <li><span>Build payment plan &mdash; the remaining $16,000, spread over 12 months</span><b>$1,340/mo</b></li>
-              <li><span>Maintenance &mdash; starts at go-live (~week 6), same as Path A</span><b>$1,741/mo</b></li>
-              <li><span>So from go-live until the plan is paid off, the combined bill is</span><b>$3,081/mo</b></li>
-            </ul>
-            <p class="foot">Once the 12 build installments finish, the bill drops to $1,741/mo maintenance only. Build total on this plan: $18,580 &mdash; a small $80 spread for never writing a check over $2,500.</p>
+        </div>
+
+        <div class="managed fade-up">
+          <b class="managed-title">This is a managed service &mdash; here&rsquo;s exactly what that means.</b>
+          <div class="managed-points">
+            <div class="mp"><b>You own your data, always.</b> Every client record and everything you put into the system is yours, and exportable anytime you ask.</div>
+            <div class="mp"><b>We build, run, and protect the platform.</b> Operating it and keeping it secure and compliant is on us, not on your team.</div>
+            <div class="mp"><b>You&rsquo;re only committed until the build is paid off.</b> After that it works like your cell phone plan: month to month. Stay as long as it&rsquo;s serving you, or give notice and go. No long-term lock-in.</div>
+            <div class="mp"><b>If you ever leave, your data leaves with you.</b> You keep everything you&rsquo;ve built; the platform it ran on stays with us. That partnership model is what lets me offer terms this generous on a small deposit.</div>
           </div>
         </div>
 
         <div class="safety fade-up">
-          <b>You are never paying for work you haven&rsquo;t seen.</b> Each milestone is delivered, reviewed, and approved by you before the next payment is due. And the platform fee ($491/mo) is billed to New Vision directly by the software company, at cost &mdash; Zah Brand Solutions takes no markup on it. Ready for Path A? <a href="https://invoice.stripe.com/i/acct_1TJOOxCb5ysWgfsp/live_YWNjdF8xVEpPT3hDYjV5c1dnZnNwLF9VcjVNcjZNODc1VHB6MUNCeTRZU3ZwRWVjcmdwZWRXLDE3NDE2NDQ2NQ0200YeBFD39f?s=ap" target="_blank" rel="noopener" style="color:#123227;font-weight:900;text-decoration:underline;">pay the retainer securely by card here</a>. Leaning Path B? One email and the invoice is adjusted to the $2,500 start.
+          <b>You are never paying for work you haven&rsquo;t seen.</b> Each phase is delivered, reviewed, and approved by you before the next payment is due. The platform fee ($394/mo) is billed to New Vision directly by GoHighLevel, at cost &mdash; Zah Brand Solutions takes no markup on it. GoHighLevel may also offer optional add-ons and charge usage-based fees (email, text, phone, and AI minutes) at their published rates; those are strictly between you and the platform. The only other Zah Brand Solutions fee you&rsquo;d ever add is optional ad management, if you decide you want us running paid advertising to grow the practice. Your $2,500 deposit is handled by Cash App, so every dollar goes straight to your build with no card-processing fees. Ready to reserve your start date? <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20ready%20to%20reserve%20my%20start%20date%20(%242%2C500%20deposit)" style="color:#123227;font-weight:900;text-decoration:underline;">tell me you&rsquo;re ready and I&rsquo;ll send your Cash App request</a>.
         </div>
 
         <details class="acc fade-up" style="margin-top: 26px;">
@@ -487,12 +557,12 @@
           </div>
         </details>
         <details class="acc fade-up">
-          <summary>What does the $1,741/mo maintenance cover, and when does it start?</summary>
+          <summary>What do you pay after the build is paid off, and to whom?</summary>
           <div class="inner">
             <ul>
-              <li><b>It starts at go-live</b> &mdash; nothing is billed for maintenance while your system is still being built, on either path.</li>
-              <li><b>$491</b> &mdash; the platform itself (website hosting, CRM, unlimited AI receptionist, HIPAA add-on), billed to you directly at cost. Your separate SEO vendor becomes unnecessary &mdash; SEO tooling is built in.</li>
-              <li><b>$1,250</b> &mdash; maintenance &amp; management: optimization, updates, support for your team, and continuous compliance monitoring as the platform&rsquo;s AI features evolve. This is above our standard rate specifically because behavioral health demands ongoing vigilance, not set-and-forget.</li>
+              <li><b>$2,000/mo &mdash; to Zah Brand Solutions</b>, your managed-service fee. It begins only after your build is fully paid off. I keep the platform running, updated, and compliant, and I&rsquo;m on call to support your team as they use it. Anything beyond ongoing management &mdash; a specific hands-on project or custom build &mdash; is quoted separately as its own project, only if you ever want it.</li>
+              <li><b>$394/mo &mdash; to GoHighLevel, not to me.</b> This is your platform (GoHighLevel Starter plan + the HIPAA add-on that carries your signed BAA: hosting, CRM, AI receptionist, healthcare-grade protection). You pay it directly to GoHighLevel at cost. Optional add-ons and usage (email, text, phone, AI minutes) are billed by them at their own rates. That fee is between you and the platform.</li>
+              <li><b>Nothing for management is billed until payoff.</b> Your platform fee begins when your system goes live, since that is the point it is actually running for you.</li>
             </ul>
           </div>
         </details>
@@ -518,7 +588,7 @@
         <details class="acc fade-up" style="margin-top: 26px;">
           <summary>Why one platform (GoHighLevel) instead of a custom build?</summary>
           <div class="inner">
-            <p>We priced the alternative: a custom stack of separate tools (CRM database, Twilio for calls/texts, an AI voice vendor, mail service, hosting). Each vendor requires its own signed HIPAA agreement &mdash; realistically <b>$1,000&ndash;$2,000+ every month just to hold compliance coverage</b>, before any development, and a multi-month timeline. One platform with one account-wide HIPAA add-on ($297/mo, included in your $491) is dramatically safer, faster, and cheaper &mdash; and your team gets one login instead of five. Your clinical records system (SimplePractice) stays exactly where it is; this is the marketing, intake, and communication layer around it.</p>
+            <p>We priced the alternative: a custom stack of separate tools (CRM database, Twilio for calls/texts, an AI voice vendor, mail service, hosting). Each vendor requires its own signed HIPAA agreement &mdash; realistically <b>$1,000&ndash;$2,000+ every month just to hold compliance coverage</b>, before any development, and a multi-month timeline. One platform with one account-wide HIPAA add-on ($297/mo, included in your $394) is dramatically safer, faster, and cheaper &mdash; and your team gets one login instead of five. Your clinical records system (SimplePractice) stays exactly where it is; this is the marketing, intake, and communication layer around it.</p>
           </div>
         </details>
       </div>
@@ -594,18 +664,18 @@
         <h2 class="fade-up">You already know. Here&rsquo;s how to say yes.</h2>
         <p class="lead fade-up">You&rsquo;ve been carrying this decision long enough. It doesn&rsquo;t need another year of thinking &mdash; it needs a path, a date, and a partner you trust. Two of those are on this page. You know the third.</p>
         <div class="steps fade-up">
-          <div class="step"><span class="num">1</span><b>Pick your path</b><p>Milestones (A) or gentle start (B) &mdash; whichever fits how New Vision moves money. Same result either way.</p></div>
-          <div class="step"><span class="num">2</span><b>Pay the retainer</b><p>Your invoice is ready &mdash; payable online by card, securely through Stripe. Choosing the Gentle Start instead? One email and it&rsquo;s adjusted to $2,500. Your start week locks on receipt.</p></div>
-          <div class="step"><span class="num">3</span><b>Kickoff week</b><p>One working session, week of July 20. We&rsquo;ll cover brand direction, pipelines, and your telehealth &amp; records checklist.</p></div>
+          <div class="step"><span class="num">1</span><b>Reserve your start date</b><p>A $2,500 deposit locks your build slot and counts toward the $18,500. Cut in half from where we started.</p></div>
+          <div class="step"><span class="num">2</span><b>Sign two simple agreements</b><p>A short service agreement and your HIPAA Business Associate Agreement (BAA) &mdash; so your practice is protected before any real client data moves. I&rsquo;ll have both ready for you.</p></div>
+          <div class="step"><span class="num">3</span><b>Kickoff week</b><p>One working session, week of July 20. We&rsquo;ll cover brand direction, pipelines, your telehealth &amp; records checklist, and set the pace on your monthly together.</p></div>
         </div>
         <div class="close-box fade-up">
           <p>The practice grew. The infrastructure didn&rsquo;t. Six weeks from now, that sentence can be past tense &mdash; and the next client who reaches out at 9pm gets an answer.</p>
           <div style="display:grid;gap:10px;justify-items:center;">
-            <a class="button" href="https://invoice.stripe.com/i/acct_1TJOOxCb5ysWgfsp/live_YWNjdF8xVEpPT3hDYjV5c1dnZnNwLF9VcjVNcjZNODc1VHB6MUNCeTRZU3ZwRWVjcmdwZWRXLDE3NDE2NDQ2NQ0200YeBFD39f?s=ap" target="_blank" rel="noopener">Pay the retainer by card &rarr;</a>
-            <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20proposal%20%E2%80%94%20Path%20B%20or%20a%20question" style="color:rgba(255,255,255,0.75);font-size:13.5px;font-weight:700;">Choosing Path B, or have a question? Email Zah</a>
+            <a class="button" href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20ready%20to%20reserve%20my%20start%20date%20(%242%2C500%20deposit)">Reserve your start date &mdash; $2,500 by Cash App &rarr;</a>
+            <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20proposal%20%E2%80%94%20a%20question" style="color:rgba(255,255,255,0.75);font-size:13.5px;font-weight:700;">Have a question? Email Zah</a>
           </div>
         </div>
-        <p class="small-print fade-up">Prepared by Zah Brand Solutions for New Vision Therapy &amp; Wellness, PLLC &middot; Candice Moffatt, LCMHC &middot; July 2026. Platform fees ($491/mo) billed directly by the software provider at cost. Milestone payments due only after your review and approval of each phase. This proposal and the website preview are confidential to New Vision.</p>
+        <p class="small-print fade-up">Prepared by Zah Brand Solutions for New Vision Therapy &amp; Wellness, PLLC &middot; Candice Moffatt, LCMHC &middot; July 2026. Platform fees ($394/mo) billed directly by GoHighLevel at cost. Milestone payments due only after your review and approval of each phase. This proposal and the website preview are confidential to New Vision.</p>
       </div>
     </section>
   </main>
