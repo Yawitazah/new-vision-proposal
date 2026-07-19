@@ -46,13 +46,22 @@
   .sigblock { font-family: Arial, Helvetica, sans-serif; font-size: 13px; }
   .sigline { border-bottom: 1px solid var(--ink); height: 34px; margin: 22px 0 4px; }
   .fine { color: var(--muted); font-size: 11.5px; }
-  @media print { body { padding: 0.4in; } .draft-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  .dlbar { position: fixed; top: 14px; right: 14px; z-index: 60; }
+  .dl-btn { background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: 11px 16px; font-family: Arial, Helvetica, sans-serif; font-size: 13.5px; font-weight: bold; cursor: pointer; box-shadow: 0 3px 12px rgba(0,0,0,0.2); }
+  .dl-btn:hover { background: #146b53; }
+  .sigval { border-bottom: 1px solid var(--ink); min-height: 36px; display: flex; align-items: flex-end; padding-bottom: 3px; margin: 22px 0 4px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+  .sigval.script { font-family: 'Segoe Script','Bradley Hand','Brush Script MT', cursive; font-size: 29px; color: #17356a; padding-bottom: 2px; }
+  .esign-note { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: var(--muted); margin: 14px 0 0; line-height: 1.5; }
+  @media print { body { padding: 0.4in; } .dlbar { display: none !important; } .draft-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  @media (max-width: 560px) { .siggrid { grid-template-columns: 1fr; gap: 26px; } }
 </style>
 </head>
 <body>
 
+<div class="dlbar"><button type="button" class="dl-btn" onclick="window.print()">&#11015; Download as PDF</button></div>
+
 <div class="draft-banner">
-  <b>HOW TO SIGN.</b> Print this page or save it as a PDF (press Ctrl+P, then choose "Save as PDF"). Sign and date the signature block at the end, then email it back to zahbrandsolutions@gmail.com. A clear phone photo of the signed page is perfectly acceptable.
+  <b>HOW TO SIGN.</b> Zah Brand Solutions has already signed the Provider side below. To accept, click <b>Download as PDF</b> (top right, or press Ctrl+P and choose "Save as PDF"), sign and date the Client block, and email it back to zahbrandsolutions@gmail.com. A clear phone photo of the signed page works too.
 </div>
 
 <h1>Services Agreement</h1>
@@ -193,12 +202,13 @@
   <div class="sigblock">
     <b>PROVIDER</b><br>
     Zah Brand Solutions
-    <div class="sigline"></div>
+    <div class="sigval script">Lorenzo White</div>
     <span class="fine">Signature</span>
-    <div class="sigline"></div>
+    <div class="sigval">Lorenzo White</div>
     <span class="fine">Name: Lorenzo White</span>
-    <div class="sigline"></div>
+    <div class="sigval">Owner &nbsp;&middot;&nbsp; July 19, 2026</div>
     <span class="fine">Title &nbsp;&middot;&nbsp; Date</span>
+    <p class="esign-note">Signed electronically by Lorenzo White, Owner of Zah Brand Solutions, on July 19, 2026.</p>
   </div>
 </div>
 
