@@ -18,6 +18,26 @@
   .draft-banner { background: #fff6e6; border: 1px solid #e6c766; border-radius: 8px; padding: 12px 16px; font-family: Arial, Helvetica, sans-serif; font-size: 12.5px; color: #6a5312; margin: 0 0 28px; }
   .parties { background: #f5f8f7; border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; margin: 0 0 24px; font-family: Arial, Helvetica, sans-serif; font-size: 13.5px; }
   .parties b { color: var(--accent); }
+  .summary { border: 2px solid var(--accent); border-radius: 8px; padding: 18px 20px 14px; margin: 0 0 28px; background: #f7fbfa; }
+  .summary h3 { margin: 0 0 3px; font-size: 14px; font-family: Arial, Helvetica, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  .summary .note { font-size: 11.5px; color: var(--muted); margin: 0 0 12px; font-family: Arial, Helvetica, sans-serif; }
+  .summary table { margin: 0; }
+  .summary td { padding: 8px 10px; font-size: 13.5px; vertical-align: top; }
+  .summary td.val { font-weight: bold; }
+  .summary td.ref { text-align: right; white-space: nowrap; color: var(--muted); font-size: 11.5px; font-family: Arial, Helvetica, sans-serif; width: 1%; }
+  .summary .precedence { font-size: 11.5px; color: var(--muted); margin: 11px 0 0; font-family: Arial, Helvetica, sans-serif; font-style: italic; line-height: 1.5; }
+  @media print { .summary { -webkit-print-color-adjust: exact; print-color-adjust: exact; break-inside: avoid; } }
+  @media (max-width: 560px) {
+    body { padding: 28px 18px 60px; }
+    .summary { padding: 15px 14px 12px; }
+    .summary table, .summary tbody, .summary tr, .summary td { display: block; width: auto; }
+    .summary tr { border: 1px solid var(--line); border-radius: 6px; padding: 9px 11px; margin-bottom: 8px; background: #fff; }
+    .summary td { border: none; padding: 0; }
+    .summary td:first-child { font-size: 11px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+    .summary td.val { font-size: 14.5px; margin-top: 3px; }
+    .summary td.ref { text-align: left; width: auto; margin-top: 4px; }
+    .siggrid { grid-template-columns: 1fr; gap: 26px; }
+  }
   table { border-collapse: collapse; width: 100%; margin: 10px 0 4px; }
   th, td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; }
   th { background: #f5f8f7; font-family: Arial, Helvetica, sans-serif; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; }
@@ -42,6 +62,22 @@
   <p style="margin:0 0 8px;">This Services Agreement (the "Agreement") is entered into as of <b>_______________, 2026</b> (the "Effective Date") by and between:</p>
   <p style="margin:0 0 6px;"><b>Client:</b> New Vision Therapy &amp; Wellness, PLLC, a North Carolina professional limited liability company ("Client").</p>
   <p style="margin:0;"><b>Provider:</b> Zah Brand Solutions ("Provider").</p>
+</div>
+
+<div class="summary">
+  <h3>Key terms at a glance</h3>
+  <p class="note">The short version. Full detail is in the numbered sections that follow.</p>
+  <table>
+    <tr><td>Build fee</td><td class="val">$18,500 total</td><td class="ref">&sect;2</td></tr>
+    <tr><td>Deposit</td><td class="val">$2,500 by Zelle, before work begins</td><td class="ref">&sect;2</td></tr>
+    <tr><td>Monthly payments</td><td class="val">$1,000/mo for three months, then $2,000/mo until paid in full</td><td class="ref">&sect;2</td></tr>
+    <tr><td>Management while you pay it off</td><td class="val">$0, roughly nine months at no charge</td><td class="ref">&sect;3</td></tr>
+    <tr><td>After the build is paid off</td><td class="val">$2,000/mo, twelve month commitment, then month to month</td><td class="ref">&sect;3</td></tr>
+    <tr><td>If you end early</td><td class="val">Remaining build balance, plus remaining commitment months &times; $2,000</td><td class="ref">&sect;4</td></tr>
+    <tr><td>Platform (paid to GoHighLevel, not to Zah)</td><td class="val">About $394/mo at cost, starting at go-live</td><td class="ref">&sect;5</td></tr>
+    <tr><td>Your data</td><td class="val">Always yours, exportable at any time</td><td class="ref">&sect;6</td></tr>
+  </table>
+  <p class="precedence">This summary is provided for convenience only and does not modify the Agreement. If anything in this summary conflicts with a numbered Section, the Section controls.</p>
 </div>
 
 <h2>1. Services</h2>
