@@ -1294,15 +1294,14 @@
   /* Engagement tracking to ZAH CRM. Publishable write-only site key. Identity comes
      from the ?lead= email in the private link, persisted per-browser. No tracking without it. */
   (function () {
-    var CAPTURE = "https://zahcrm.com/api/capture/zk_zolx44DYZrMQs8FVdpqQy_iI";
+    var ENDPOINT = "https://zahcrm.com/api/track/zk_zolx44DYZrMQs8FVdpqQy_iI";
     try { var q = new URLSearchParams(location.search).get('lead'); if (q) localStorage.setItem('nv_lead', q); } catch (e) {}
     var lead = null; try { lead = localStorage.getItem('nv_lead'); } catch (e) {}
     if (!lead) return;
     function fire(evt) {
       try { var k = 'nv_ev_' + evt; if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1'); } catch (e) {}
-      var t = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-      var body = { name: "Candice Moffatt", email: lead, source: "New Vision Proposal", notes: "📄 Proposal — " + evt + " · " + t };
-      try { fetch(CAPTURE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true, mode: 'cors' }); } catch (e) {}
+      var body = { email: lead, event: evt, source: "New Vision Proposal" };
+      try { fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true, mode: 'cors' }); } catch (e) {}
     }
     try { document.querySelectorAll('a[href^="agreements/"]').forEach(function (a) { var h = a.getAttribute('href'); a.setAttribute('href', h + (h.indexOf('?') < 0 ? '?' : '&') + 'lead=' + encodeURIComponent(lead)); }); } catch (e) {}
     fire("opened the proposal");
