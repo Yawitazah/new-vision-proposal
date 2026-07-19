@@ -140,5 +140,22 @@
   </div>
 </div>
 
+<script>
+/* Engagement tracking to ZAH CRM (publishable write-only site key). */
+(function () {
+  var CAPTURE = "https://zahcrm.com/api/capture/zk_zolx44DYZrMQs8FVdpqQy_iI";
+  try { var q = new URLSearchParams(location.search).get('lead'); if (q) localStorage.setItem('nv_lead', q); } catch (e) {}
+  var lead = null; try { lead = localStorage.getItem('nv_lead'); } catch (e) {}
+  if (!lead) return;
+  function fire(evt) {
+    try { var k = 'nv_ev_' + evt; if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1'); } catch (e) {}
+    var t = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    var body = { name: "Candice Moffatt", email: lead, source: "New Vision Proposal", notes: "📄 Proposal — " + evt + " · " + t };
+    try { fetch(CAPTURE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true, mode: 'cors' }); } catch (e) {}
+  }
+  fire("opened the HIPAA BAA");
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.dl-btn')) fire("downloaded the HIPAA BAA"); }, true);
+})();
+</script>
 </body>
 </html>

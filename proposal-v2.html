@@ -1289,5 +1289,35 @@
     setActiveNav();
   })();
   </script>
+
+  <script>
+  /* Engagement tracking to ZAH CRM. Publishable write-only site key. Identity comes
+     from the ?lead= email in the private link, persisted per-browser. No tracking without it. */
+  (function () {
+    var CAPTURE = "https://zahcrm.com/api/capture/zk_zolx44DYZrMQs8FVdpqQy_iI";
+    try { var q = new URLSearchParams(location.search).get('lead'); if (q) localStorage.setItem('nv_lead', q); } catch (e) {}
+    var lead = null; try { lead = localStorage.getItem('nv_lead'); } catch (e) {}
+    if (!lead) return;
+    function fire(evt) {
+      try { var k = 'nv_ev_' + evt; if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1'); } catch (e) {}
+      var t = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+      var body = { name: "Candice Moffatt", email: lead, source: "New Vision Proposal", notes: "📄 Proposal — " + evt + " · " + t };
+      try { fetch(CAPTURE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), keepalive: true, mode: 'cors' }); } catch (e) {}
+    }
+    try { document.querySelectorAll('a[href^="agreements/"]').forEach(function (a) { var h = a.getAttribute('href'); a.setAttribute('href', h + (h.indexOf('?') < 0 ? '?' : '&') + 'lead=' + encodeURIComponent(lead)); }); } catch (e) {}
+    fire("opened the proposal");
+    var S = { start: "reached Start Here", numbers: "reached the Numbers", build: "reached what's included", protection: "reached the HIPAA protection section", plan: "reached the timeline", yes: "reached Getting Started" };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && S[e.target.id]) fire(S[e.target.id]); }); }, { threshold: 0.4 });
+      Object.keys(S).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a,button'); if (!a) return;
+      var txt = (a.textContent || '').trim().toLowerCase(), href = (a.getAttribute && a.getAttribute('href')) || '';
+      if (/site\/index|website preview|tour your new website|explore your new website/.test(txt + ' ' + href)) fire("viewed the website preview");
+      else if (/reserve your start|\$2,500|deposit/.test(txt)) fire("viewed the deposit details");
+    }, true);
+  })();
+  </script>
 </body>
 </html>
