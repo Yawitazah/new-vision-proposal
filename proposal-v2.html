@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <title>New Vision Therapy &amp; Wellness x Zah Brand Solutions — Proposal</title>
   <style>
     :root {
@@ -212,6 +213,28 @@
     .mp { font-size: 14px; line-height: 1.55; color: #3a464d; padding-left: 14px; border-left: 3px solid var(--green); }
     .mp b { color: var(--charcoal); }
 
+    /* Start here / onboarding */
+    .startbox { border: 2px solid var(--green); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow); max-width: 980px; }
+    .start-head { background: linear-gradient(180deg, rgba(29,143,111,0.14), rgba(29,143,111,0.04)); padding: 26px 30px 22px; border-bottom: 1px solid rgba(29,143,111,0.25); }
+    .start-eyebrow { display: block; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--green); margin-bottom: 8px; }
+    .start-head h2 { font-size: clamp(23px, 3.2vw, 33px); margin: 0 0 10px; max-width: none; }
+    .start-head p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.6; }
+    .start-steps { display: grid; grid-template-columns: 1fr 1fr; }
+    .start-step { display: flex; gap: 14px; padding: 24px 28px; align-items: flex-start; }
+    .start-step + .start-step { border-left: 1px dashed rgba(38,50,56,0.18); }
+    .ss-num { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: #fff; font-weight: 900; display: grid; place-items: center; font-size: 15px; }
+    .start-step .ss-t { display: block; font-size: 17px; margin-bottom: 5px; color: var(--charcoal); font-weight: 900; }
+    .start-step p { margin: 0 0 10px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+    .doc-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .docbtn { display: inline-block; background: var(--charcoal); color: #fff; font-weight: 800; font-size: 13px; padding: 10px 15px; border-radius: 8px; text-decoration: none; transition: background 0.15s ease; }
+    .docbtn:hover { background: var(--green); }
+    .howto { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .zellebox { background: var(--charcoal); border-radius: 10px; padding: 12px 16px; text-align: center; margin-bottom: 10px; }
+    .zellebox span { display: block; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+    .zellebox b { display: block; font-size: 22px; color: var(--gold); margin-top: 2px; white-space: nowrap; }
+    .start-foot { padding: 18px 30px 22px; background: rgba(244,185,66,0.13); border-top: 1px solid rgba(244,185,66,0.4); font-size: 14px; line-height: 1.6; color: #4a3d20; }
+    .start-foot b { color: #2e2610; }
+
     @media (max-width: 640px) {
       .sh-row { grid-template-columns: 1fr; gap: 8px; text-align: center; padding: 18px 0; }
       .sh-prices { justify-content: center; }
@@ -225,6 +248,12 @@
       .managed-points { grid-template-columns: 1fr; }
       .managed { padding: 20px 18px; }
       .managed-title { font-size: 16.5px; }
+      .start-steps { grid-template-columns: 1fr; }
+      .start-step + .start-step { border-left: none; border-top: 1px dashed rgba(38,50,56,0.18); }
+      .start-step { padding: 20px 18px; }
+      .start-head { padding: 22px 18px 18px; }
+      .start-foot { padding: 16px 18px 20px; font-size: 13.5px; }
+      .docbtn { flex: 1 1 100%; text-align: center; }
     }
 
     /* findings */
@@ -381,6 +410,7 @@
 
   <nav class="nav" aria-label="Proposal sections">
     <a href="#overview">Overview</a>
+    <a href="#start">Start Here</a>
     <a href="#site">Your Site</a>
     <a href="#today">Today</a>
     <a href="#numbers">The Numbers</a>
@@ -399,7 +429,7 @@
           <img class="brand-logo fade-up" src="zah-logo.png" alt="Zah Brand Solutions logo">
           <p class="eyebrow fade-up">Prepared for Candice Moffatt, LCMHC · New Vision Therapy &amp; Wellness</p>
           <h1 class="fade-up">Candice, the practice you built deserves the infrastructure to match.</h1>
-          <p class="lead fade-up">You&rsquo;ve grown New Vision into a real team, two locations, and a caseload of clients who trust you. What you&rsquo;re running it on hasn&rsquo;t kept up. This is the plan to fix that in six weeks: one platform for your website, client pipeline, follow-up, and after-hours coverage &mdash; built HIPAA-safe from day one.</p>
+          <p class="lead fade-up">You&rsquo;ve grown New Vision into a real team, two locations, and a caseload of clients who trust you. What you&rsquo;re running it on hasn&rsquo;t kept up. This is the plan to fix that in six to eight weeks: one platform for your website, client pipeline, follow-up, and after-hours coverage &mdash; built HIPAA-safe from day one.</p>
           <ul class="checks fade-up">
             <li>A client who reaches out at 9pm gets answered &mdash; every time, automatically.</li>
             <li>Your empty insurance and testimonial sections &mdash; filled and working for you.</li>
@@ -413,7 +443,7 @@
           <div class="chips fade-up">
             <span class="chip">$18,500 build &middot; start at $1,000/mo</span>
             <span class="chip">$2,000/mo managed service &middot; only after payoff</span>
-            <span class="chip">Live in 5&ndash;6 weeks</span>
+            <span class="chip">Live in 6&ndash;8 weeks</span>
           </div>
         </div>
         <div>
@@ -426,6 +456,48 @@
             <span class="teaser-cta">Explore your new website &rarr;</span>
             <span class="teaser-note">We didn&rsquo;t wait for a yes to start. Your new site is already designed &mdash; your team, your brand, your services. Click it.</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ START HERE ============ -->
+    <section class="section" id="start" style="padding-top: 10px;">
+      <div class="wrap">
+        <div class="startbox fade-up">
+          <div class="start-head">
+            <span class="start-eyebrow">Welcome aboard</span>
+            <h2>Congratulations, Candice. Let&rsquo;s build it.</h2>
+            <p>You made the call, and I&rsquo;m genuinely glad to be building this with you. There are only two things between today and your kickoff. Preliminary work starts on my side as soon as your agreements are signed, and your official build clock starts the moment your deposit lands.</p>
+          </div>
+          <div class="start-steps">
+            <div class="start-step">
+              <span class="ss-num">1</span>
+              <div>
+                <span class="ss-t">Sign your two agreements</span>
+                <p>Both protect your practice, and both must be signed before any real client record is touched.</p>
+                <div class="doc-row">
+                  <a class="docbtn" href="agreements/service-agreement-new-vision.html" target="_blank" rel="noopener">Services Agreement &rarr;</a>
+                  <a class="docbtn" href="agreements/baa-zah-brand-solutions.html" target="_blank" rel="noopener">HIPAA BAA &rarr;</a>
+                </div>
+                <p class="howto"><b>How to sign:</b> open each one, then print it or save it as a PDF (Ctrl+P, then &ldquo;Save as PDF&rdquo;). Sign and date the signature block at the end and email it back to zahbrandsolutions@gmail.com. A clear phone photo of the signed page works perfectly.</p>
+              </div>
+            </div>
+            <div class="start-step">
+              <span class="ss-num">2</span>
+              <div>
+                <span class="ss-t">Send your $2,500 deposit</span>
+                <p>By Zelle. It counts toward your $18,500 build.</p>
+                <div class="zellebox">
+                  <span>Zelle to</span>
+                  <b>(704) 804-1641</b>
+                </div>
+                <p class="howto">Whenever it works for your cash flow. There is no rush on my end, and the sooner it lands, the sooner your official build begins.</p>
+              </div>
+            </div>
+          </div>
+          <div class="start-foot">
+            <b>What happens right away:</b> the moment your agreements are signed, preliminary work begins on my side, discovery prep, account setup, and platform groundwork. Your full six to eight week build starts once the deposit is received. Your real client data is brought in only at the very end, after everything is built, tested, and your protections are live.
+          </div>
         </div>
       </div>
     </section>
@@ -656,22 +728,22 @@
     <!-- ============ PLAN ============ -->
     <section class="section gear-field" id="plan" style="--gear-size: 380px; --gear-color: var(--teal);">
       <div class="wrap">
-        <p class="eyebrow fade-up">The Plan, Dated</p>
-        <h2 class="fade-up">Six weeks from deposit to go-live. Here&rsquo;s each one.</h2>
+        <p class="eyebrow fade-up">The Plan</p>
+        <h2 class="fade-up">Six to eight weeks from deposit to go-live. Here&rsquo;s each stretch.</h2>
         <div class="timeline fade-up">
-          <div class="phase" style="--phase: var(--green)"><b>Week 1</b><strong>Kickoff</strong><p>Discovery session with you (and anyone on your team you want in the room): brand direction, pipeline stages, and the telehealth/records checklist.</p></div>
-          <div class="phase" style="--phase: var(--teal)"><b>Week 2</b><strong>Foundation</strong><p>CRM architecture and HIPAA groundwork &mdash; built entirely on placeholder data.</p></div>
-          <div class="phase" style="--phase: var(--coral)"><b>Week 3</b><strong>Website Live</strong><p>The site you&rsquo;ve previewed, finished and live. Milestone 1 review &amp; approval.</p></div>
-          <div class="phase" style="--phase: var(--blue)"><b>Week 4</b><strong>Automations</strong><p>Reminders, follow-ups, intake forms, booking calendars &mdash; wired and tested.</p></div>
-          <div class="phase" style="--phase: var(--gold)"><b>Week 5</b><strong>AI Receptionist</strong><p>Configured, scripted, and crisis-escalation verified before it ever talks to a client.</p></div>
-          <div class="phase" style="--phase: var(--charcoal)"><b>Week 6</b><strong>Go-Live</strong><p>BAAs signed, real data imported, team trained, handoff to ongoing management.</p></div>
+          <div class="phase" style="--phase: var(--green)"><b>Preliminary</b><strong>Groundwork</strong><p>Starts as soon as your agreements are signed, before the build clock even begins: discovery prep, account applications, and platform setup.</p></div>
+          <div class="phase" style="--phase: var(--teal)"><b>Week 1</b><strong>Kickoff</strong><p>Discovery session with you (and anyone on your team you want in the room): brand direction, pipeline stages, and the telehealth and records checklist.</p></div>
+          <div class="phase" style="--phase: var(--coral)"><b>Weeks 2&ndash;3</b><strong>Foundation</strong><p>CRM architecture and HIPAA groundwork, built entirely on placeholder data. Never your real client records.</p></div>
+          <div class="phase" style="--phase: var(--blue)"><b>Weeks 3&ndash;4</b><strong>Website Live</strong><p>The site you&rsquo;ve previewed, finished and live on your domain. Your review and approval.</p></div>
+          <div class="phase" style="--phase: var(--gold)"><b>Weeks 5&ndash;6</b><strong>Automations &amp; AI</strong><p>Reminders, follow-ups, intake forms, booking calendars, plus the AI receptionist scripted and crisis-escalation verified before it ever talks to a client.</p></div>
+          <div class="phase" style="--phase: var(--charcoal)"><b>Weeks 7&ndash;8</b><strong>Training &amp; Go-Live</strong><p>Team trained, everything tested end to end, and only then is your real client data brought in. Handoff to ongoing management.</p></div>
         </div>
         <div class="datebox fade-up">
-          <span>✅ Approved by <b>Friday, July 17</b></span>
-          <span>🚀 Kickoff the week of <b>July 20</b></span>
-          <span>🌿 Live before <b>Labor Day</b></span>
+          <span>✍️ Agreements signed &rarr; <b>preliminary work starts</b></span>
+          <span>💵 Deposit received &rarr; <b>build clock starts</b></span>
+          <span>🌿 Go-live <b>6 to 8 weeks later</b></span>
         </div>
-        <p class="small-print fade-up">One build slot is held for New Vision through July 17. After that, the start date moves to the next available opening &mdash; likely 4&ndash;6 weeks later. Not pressure; just an honest calendar.</p>
+        <p class="small-print fade-up">Your start date is yours to set. The build clock begins when your deposit is received, so whenever that lands is when we start counting. Your real client data is only imported at the very end, after everything is built, tested, and your protections are active. I would rather do this properly than fast.</p>
       </div>
     </section>
 
@@ -687,7 +759,7 @@
           <div class="step"><span class="num">3</span><b>Kickoff week</b><p>One working session. We&rsquo;ll cover brand direction, pipelines, your telehealth and records checklist, and get your accounts set up.</p></div>
         </div>
         <div class="close-box fade-up">
-          <p>The practice grew. The infrastructure didn&rsquo;t. Six weeks from now, that sentence can be past tense &mdash; and the next client who reaches out at 9pm gets an answer.</p>
+          <p>The practice grew. The infrastructure didn&rsquo;t. A couple of months from now, that sentence can be past tense &mdash; and the next client who reaches out at 9pm gets an answer.</p>
           <div style="display:grid;gap:12px;justify-items:center;">
             <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.28);border-radius:10px;padding:14px 20px;text-align:center;">
               <div style="font-size:12px;font-weight:900;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Your deposit</div>
