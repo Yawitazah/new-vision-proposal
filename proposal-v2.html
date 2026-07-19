@@ -213,10 +213,18 @@
     .mp b { color: var(--charcoal); }
 
     @media (max-width: 640px) {
-      .sh-row { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+      .sh-row { grid-template-columns: 1fr; gap: 8px; text-align: center; padding: 18px 0; }
       .sh-prices { justify-content: center; }
       .sh-save { justify-self: center; }
+      .sh-head { padding: 14px 18px; }
+      .sh-rows { padding: 4px 18px; }
+      .sh-now { font-size: 36px; }
+      .sh-total { flex-direction: column; text-align: center; gap: 4px; padding: 16px 18px; }
+      .sh-total span { font-size: 13px; line-height: 1.35; }
+      .sh-total b { font-size: 32px; }
       .managed-points { grid-template-columns: 1fr; }
+      .managed { padding: 20px 18px; }
+      .managed-title { font-size: 16.5px; }
     }
 
     /* findings */
@@ -516,7 +524,7 @@
             <h3>The plan, step by step</h3>
             <p class="sub">One simple path. Start where it&rsquo;s comfortable, then we set the pace together.</p>
             <ul class="sched">
-              <li><span>Today &mdash; reserve your start date (counts toward the build)</span><b>$2,500</b></li>
+              <li><span>Deposit by Zelle to <span style="white-space:nowrap;">(704) 804-1641</span>, before work begins</span><b>$2,500</b></li>
               <li><span>Months 1&ndash;3 &mdash; toward the build, the number you asked for</span><b>$1,000/mo</b></li>
               <li><span>Month 4 until paid off &mdash; toward the build</span><b>$2,000/mo</b></li>
               <li><span>Your platform &mdash; billed by GoHighLevel directly, at cost, once your system is live</span><b>$394/mo</b></li>
@@ -531,13 +539,23 @@
           <div class="managed-points">
             <div class="mp"><b>You own your data, always.</b> Every client record and everything you put into the system is yours, and exportable anytime you ask.</div>
             <div class="mp"><b>We build, run, and protect the platform.</b> Operating it and keeping it secure and compliant is on us, not on your team.</div>
-            <div class="mp"><b>You&rsquo;re only committed until the build is paid off.</b> After that it works like your cell phone plan: month to month. Stay as long as it&rsquo;s serving you, or give notice and go. No long-term lock-in.</div>
+            <div class="mp"><b>You&rsquo;re committed until the $18,500 build is paid in full.</b> After that we move to month to month at $2,000/mo, just like your cell phone plan. Stay as long as it&rsquo;s serving you, or give notice and go.</div>
             <div class="mp"><b>If you ever leave, your data leaves with you.</b> You keep everything you&rsquo;ve built; the platform it ran on stays with us. That partnership model is what lets me offer terms this generous on a small deposit.</div>
           </div>
         </div>
 
         <div class="safety fade-up">
-          <b>You are never paying for work you haven&rsquo;t seen.</b> Each phase is delivered, reviewed, and approved by you before the next payment is due. The platform fee ($394/mo) is billed to New Vision directly by GoHighLevel, at cost &mdash; Zah Brand Solutions takes no markup on it. GoHighLevel may also offer optional add-ons and charge usage-based fees (email, text, phone, and AI minutes) at their published rates; those are strictly between you and the platform. The only other Zah Brand Solutions fee you&rsquo;d ever add is optional ad management, if you decide you want us running paid advertising to grow the practice. Your $2,500 deposit is handled by Cash App, so every dollar goes straight to your build with no card-processing fees. Ready to reserve your start date? <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20ready%20to%20reserve%20my%20start%20date%20(%242%2C500%20deposit)" style="color:#123227;font-weight:900;text-decoration:underline;">tell me you&rsquo;re ready and I&rsquo;ll send your Cash App request</a>.
+          <b>You are never paying for work you haven&rsquo;t seen.</b> Each phase is delivered, reviewed, and approved by you before the next payment is due. The platform fee ($394/mo) is billed to New Vision directly by GoHighLevel, at cost &mdash; Zah Brand Solutions takes no markup on it. GoHighLevel may also offer optional add-ons and charge usage-based fees (email, text, phone, and AI minutes) at their published rates; those are strictly between you and the platform. The only other Zah Brand Solutions fee you&rsquo;d ever add is optional ad management, if you decide you want us running paid advertising to grow the practice. Your $2,500 deposit is sent by <b>Zelle to (704) 804-1641</b>, so every dollar goes straight into your build with no processing fees taken out. Work begins once your signed agreements and the full deposit are in. <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20ready%20to%20reserve%20my%20start%20date%20(%242%2C500%20deposit)" style="color:#123227;font-weight:900;text-decoration:underline;">Questions before you send it? Email me</a>.
+        </div>
+
+        <div class="managed fade-up">
+          <b class="managed-title">The tools your system runs on, and what they cost.</b>
+          <div class="managed-points">
+            <div class="mp"><b>GoHighLevel &mdash; $394/mo.</b> The Starter plan plus the HIPAA add-on that carries your signed BAA. Billed to you directly by GoHighLevel at cost, starting at go-live.</div>
+            <div class="mp"><b>A Claude account.</b> Your own subscription for the AI assistant that powers parts of your system. Cost depends on the plan we settle on together.</div>
+            <div class="mp"><b>Other tools may come up.</b> As the build progresses we may add a tool to do a specific job well, and some carry their own fees or usage charges.</div>
+            <div class="mp"><b>Here is my promise on all of it.</b> I cannot name every third-party fee today, and I would rather say that plainly than pretend otherwise. You will know the cost of any tool before it is added, and none of it is marked up by me.</div>
+          </div>
         </div>
 
         <details class="acc fade-up" style="margin-top: 26px;">
@@ -660,22 +678,26 @@
     <!-- ============ YES ============ -->
     <section class="section" id="yes">
       <div class="wrap">
-        <p class="eyebrow fade-up">The Next Step</p>
-        <h2 class="fade-up">You already know. Here&rsquo;s how to say yes.</h2>
-        <p class="lead fade-up">You&rsquo;ve been carrying this decision long enough. It doesn&rsquo;t need another year of thinking &mdash; it needs a path, a date, and a partner you trust. Two of those are on this page. You know the third.</p>
+        <p class="eyebrow fade-up">Getting Started</p>
+        <h2 class="fade-up">You said yes. Here&rsquo;s exactly how we start.</h2>
+        <p class="lead fade-up">Two things have to be in hand before any work begins: your signed agreements and your full deposit. That protects your practice and locks your build slot. Then we go.</p>
         <div class="steps fade-up">
-          <div class="step"><span class="num">1</span><b>Reserve your start date</b><p>A $2,500 deposit locks your build slot and counts toward the $18,500. Cut in half from where we started.</p></div>
-          <div class="step"><span class="num">2</span><b>Sign two simple agreements</b><p>A short service agreement and your HIPAA Business Associate Agreement (BAA) &mdash; so your practice is protected before any real client data moves. I&rsquo;ll have both ready for you.</p></div>
-          <div class="step"><span class="num">3</span><b>Kickoff week</b><p>One working session, week of July 20. We&rsquo;ll cover brand direction, pipelines, your telehealth &amp; records checklist, and set the pace on your monthly together.</p></div>
+          <div class="step"><span class="num">1</span><b>Sign your two agreements</b><p>Your HIPAA Business Associate Agreement (BAA) and a short service agreement. Both must be signed before any work begins and before a single real client record is touched.</p></div>
+          <div class="step"><span class="num">2</span><b>Send your $2,500 deposit</b><p>By Zelle to <b>(704) 804-1641</b>. It counts toward your $18,500. Work begins once the signed BAA and the full deposit are received.</p></div>
+          <div class="step"><span class="num">3</span><b>Kickoff week</b><p>One working session. We&rsquo;ll cover brand direction, pipelines, your telehealth and records checklist, and get your accounts set up.</p></div>
         </div>
         <div class="close-box fade-up">
           <p>The practice grew. The infrastructure didn&rsquo;t. Six weeks from now, that sentence can be past tense &mdash; and the next client who reaches out at 9pm gets an answer.</p>
-          <div style="display:grid;gap:10px;justify-items:center;">
-            <a class="button" href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20ready%20to%20reserve%20my%20start%20date%20(%242%2C500%20deposit)">Reserve your start date &mdash; $2,500 by Cash App &rarr;</a>
-            <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20proposal%20%E2%80%94%20a%20question" style="color:rgba(255,255,255,0.75);font-size:13.5px;font-weight:700;">Have a question? Email Zah</a>
+          <div style="display:grid;gap:12px;justify-items:center;">
+            <div style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.28);border-radius:10px;padding:14px 20px;text-align:center;">
+              <div style="font-size:12px;font-weight:900;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);">Your deposit</div>
+              <div style="font-size:26px;font-weight:900;color:#fff;line-height:1.2;margin-top:4px;">$2,500 by Zelle</div>
+              <div style="font-size:17px;font-weight:800;color:var(--gold);margin-top:2px;">(704) 804-1641</div>
+            </div>
+            <a href="mailto:zahbrandsolutions@gmail.com?subject=New%20Vision%20-%20getting%20started" style="color:rgba(255,255,255,0.75);font-size:13.5px;font-weight:700;">Have a question? Email Zah</a>
           </div>
         </div>
-        <p class="small-print fade-up">Prepared by Zah Brand Solutions for New Vision Therapy &amp; Wellness, PLLC &middot; Candice Moffatt, LCMHC &middot; July 2026. Platform fees ($394/mo) billed directly by GoHighLevel at cost. Milestone payments due only after your review and approval of each phase. This proposal and the website preview are confidential to New Vision.</p>
+        <p class="small-print fade-up">Prepared by Zah Brand Solutions for New Vision Therapy &amp; Wellness, PLLC &middot; Candice Moffatt, LCMHC &middot; July 2026. Platform fees ($394/mo) are billed directly to New Vision by GoHighLevel at cost. Deposit of $2,500 by Zelle, then $1,000/mo for three months, then $2,000/mo until the $18,500 build is paid in full. Signed BAA and full deposit are required before work begins. This document and the website preview are confidential to New Vision.</p>
       </div>
     </section>
   </main>
