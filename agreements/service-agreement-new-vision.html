@@ -52,7 +52,11 @@
   .sigval { border-bottom: 1px solid var(--ink); min-height: 36px; display: flex; align-items: flex-end; padding-bottom: 3px; margin: 22px 0 4px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
   .sigval.script { font-family: 'Segoe Script','Bradley Hand','Brush Script MT', cursive; font-size: 29px; color: #17356a; padding-bottom: 2px; }
   .esign-note { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: var(--muted); margin: 14px 0 0; line-height: 1.5; }
-  @media print { body { padding: 0.4in; } .dlbar { display: none !important; } .draft-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  .initial-here { display: flex; align-items: center; gap: 12px; margin: 14px 0 6px; padding: 9px 14px; background: #fff4dd; border: 1.5px dashed #d9a927; border-radius: 7px; font-family: Arial, Helvetica, sans-serif; }
+  .ih-x { color: #b98f22; font-weight: 900; font-size: 15px; line-height: 1; }
+  .ih-label { font-size: 11.5px; font-weight: bold; color: #8a6d1a; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .ih-line { flex: 0 1 130px; border-bottom: 1.5px solid #b98f22; height: 22px; }
+  @media print { body { padding: 0.4in; } .dlbar { display: none !important; } .draft-banner, .initial-here, .summary { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
   @media (max-width: 560px) { .siggrid { grid-template-columns: 1fr; gap: 26px; } }
 </style>
 </head>
@@ -61,7 +65,7 @@
 <div class="dlbar"><button type="button" class="dl-btn" onclick="window.print()">&#11015; Download as PDF</button></div>
 
 <div class="draft-banner">
-  <b>HOW TO SIGN.</b> Zah Brand Solutions has already signed the Provider side below. To accept, click <b>Download as PDF</b> (top right, or press Ctrl+P and choose "Save as PDF"), sign and date the Client block, and email it back to zahbrandsolutions@gmail.com. A clear phone photo of the signed page works too.
+  <b>HOW TO SIGN.</b> Zah Brand Solutions has already signed the Provider side below. To accept, click <b>Download as PDF</b> (top right, or press Ctrl+P and choose "Save as PDF"), sign and date the Client block, and email it back to zahbrandsolutions@gmail.com. A clear phone photo of the signed page works too. Wherever you see an amber <b>Client initials</b> box, add your initials to confirm you have read that section.
 </div>
 
 <h1>Services Agreement</h1>
@@ -120,6 +124,8 @@
   <li><b>No-charge management during payoff.</b> No managed service fee is billed until the Build Fee is paid in full. See Section 3.</li>
 </ol>
 
+<div class="initial-here"><span class="ih-x">&#10148;</span><span class="ih-label">Client initials &mdash; payment terms</span><span class="ih-line"></span></div>
+
 <h2>3. Managed Service: No-Charge Period and Commitment Period</h2>
 <ol>
   <li><b>Provider delivers managed services during the payoff period at no charge.</b> From the date the system goes live until the Build Fee is paid in full, Provider provides the full managed service described in Section 1, including maintenance, updates, compliance monitoring, and support of Client's team, and does not bill Client any managed service fee for that period. Client's monthly payments during that period are applied entirely to the Build Fee.</li>
@@ -130,6 +136,8 @@
   <li><b>After the Commitment Period.</b> Once the Commitment Period is satisfied, the managed service continues on a month to month basis, terminable by either Party upon thirty (30) days written notice, until the Parties execute a longer term managed service agreement. Renewal terms may be one year or longer as the Parties agree in writing. Neither Party is obligated to renew.</li>
   <li>The managed service fee covers ongoing management and support as described in Section 1. It does not cover day to day operation or new projects, which are addressed there.</li>
 </ol>
+
+<div class="initial-here"><span class="ih-x">&#10148;</span><span class="ih-label">Client initials &mdash; 12-month commitment</span><span class="ih-line"></span></div>
 
 <h2>4. Term and Client Commitment</h2>
 <ol>
@@ -146,6 +154,8 @@
   <li><b>Termination for Provider's failure to perform.</b> Nothing in this Section limits Client's remedies if Provider materially breaches this Agreement and fails to cure within thirty (30) days of written notice from Client.</li>
 </ol>
 
+<div class="initial-here"><span class="ih-x">&#10148;</span><span class="ih-label">Client initials &mdash; early termination terms</span><span class="ih-line"></span></div>
+
 <h2>5. Third Party Tools and Costs</h2>
 <ol>
   <li>The system runs on third party tools that bill Client directly. These are not Provider's fees and Provider applies no markup to them.</li>
@@ -153,6 +163,8 @@
   <li><b>Claude account:</b> Client will maintain its own subscription for the AI assistant used within the system. Cost depends on the plan selected by the Parties.</li>
   <li><b>Additional tools.</b> Additional third party tools may be required as the Build progresses and may carry their own fees. Provider cannot identify every such fee as of the Effective Date. Provider will disclose the cost of any tool to Client before it is added to the system.</li>
 </ol>
+
+<div class="initial-here"><span class="ih-x">&#10148;</span><span class="ih-label">Client initials &mdash; third-party costs</span><span class="ih-line"></span></div>
 
 <h2>6. Managed Service Model, Data, and Platform</h2>
 <ol>
@@ -176,6 +188,8 @@
 
 <h2>10. Limitation of Liability</h2>
 <p>To the maximum extent permitted by law, neither Party is liable to the other for indirect, incidental, special, or consequential damages. Provider's total aggregate liability arising out of this Agreement will not exceed the total amounts paid by Client to Provider under this Agreement in the twelve (12) months preceding the claim. Nothing in this section limits either Party's obligations under the Business Associate Agreement or under applicable law.</p>
+
+<div class="initial-here"><span class="ih-x">&#10148;</span><span class="ih-label">Client initials &mdash; liability limit</span><span class="ih-line"></span></div>
 
 <h2>11. General</h2>
 <ol>
@@ -202,13 +216,13 @@
   <div class="sigblock">
     <b>PROVIDER</b><br>
     Zah Brand Solutions
-    <div class="sigval script">Lorenzo White</div>
+    <div class="sigval script">Zah White</div>
     <span class="fine">Signature</span>
-    <div class="sigval">Lorenzo White</div>
-    <span class="fine">Name: Lorenzo White</span>
+    <div class="sigval">Zah White</div>
+    <span class="fine">Name: Zah White</span>
     <div class="sigval">Owner &nbsp;&middot;&nbsp; July 19, 2026</div>
     <span class="fine">Title &nbsp;&middot;&nbsp; Date</span>
-    <p class="esign-note">Signed electronically by Lorenzo White, Owner of Zah Brand Solutions, on July 19, 2026.</p>
+    <p class="esign-note">Signed electronically by Zah White, Owner of Zah Brand Solutions, on July 19, 2026.</p>
   </div>
 </div>
 
